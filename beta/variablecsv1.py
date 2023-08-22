@@ -12,7 +12,7 @@ user_name = st.text_input("Enter your name:")
 city = st.text_input("Enter your city:")
 age = st.number_input("Enter your age:")
 dob = st.date_input('Date')
-
+#hi
 # Button to save the information to the CSV file
 if st.button("Save Information"):
     # Create a DataFrame with the user's information
