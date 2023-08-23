@@ -10,7 +10,6 @@ st.set_page_config(layout='wide')
 # create unique ids to search or phone numbers if patient dont remember ID
 #using qr code for website
 
-
 def code():
     zerostr = {'ID': str,"Home Phone": str,"Work Phone":str,"Postcode":str,"Mobile Phone":str}
  
