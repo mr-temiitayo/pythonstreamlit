@@ -1,1 +1,2 @@
-Customer,Address,Invoice Number,Invoice Date,Due Date,Quantity,Amount,Total
+Customer,Address,Invoice Number,Invoice Date,Due Date,Description,Quantity,Amount,Total
+Nayeli Bakery Stand,13a Olafisoye street obawole Ogba,11221,2023-08-23,2023-09-27,Closeup with bags,100,2000,200000

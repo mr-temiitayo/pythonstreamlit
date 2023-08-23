@@ -36,7 +36,7 @@ if choice == "Create Invoice":
         #st.write('')
         #st.write('')
         st.write('**Bill To:**')
-        customer = st.text_input('w',st.session_state.customer,placeholder='Customer name',label_visibility= 'collapsed')        
+        customer = st.text_input('w',placeholder='Customer name',label_visibility= 'collapsed')        
         #st.write('')
         address=st.text_input('s',placeholder='Enter Address',label_visibility= 'collapsed')
         #st.write("")
@@ -75,8 +75,7 @@ if choice == "Create Invoice":
     with col4c:
         st.write('**Amount**')
         amount1 = st.number_input('t',value=20,label_visibility='collapsed')
-        #total1 = quantity1 * amount1
-        total1 = st.session_state.get('total1', quantity1 * amount1)
+        total1 = quantity1 * amount1
     st.divider()
     col5a,col5b,col5c = st.columns(3)
     with col5a:
@@ -87,15 +86,14 @@ if choice == "Create Invoice":
     with col5b:
         pass
     with col5c:
-        #st.session_state.total1 = total1
-        st.write('**Payement Due:**')
+        st.write('**Payment Due:**')
         st.subheader(f'#{total1:,}')
 
     # Button to save the information to the CSV file--------------------
     if st.button("Save Information"):
         # Create a DataFrame with the user's information
         data = {'Customer': [customer], 'Address': [address], 'Invoice Number': [invoice_number],
-                'Invoice Date':[invoice_date], 'Due Date':[due_date],'Quantity':[quantity1],'Amount':[amount1],'Total':total1}
+                'Invoice Date':[invoice_date], 'Due Date':[due_date],'Description':[describe1],'Quantity':[quantity1],'Amount':[amount1],'Total':total1}
         df = pd.DataFrame(data)
 
         # Save the DataFrame to the CSV file
@@ -105,10 +103,22 @@ if choice == "Create Invoice":
 
 
 #--------------------------Download Invoice Page---------------------------------------------
-#customer = st.session_state.get('customer', customer)
-#st.write(customer,'yes')
 if choice == "Download Invoice":
-    #st.write(customer,'yes')
+    loaded_data = pd.read_csv(csv_filename)
+    if not loaded_data.empty:
+        extracted_customer = loaded_data['Customer'].iloc[0] #wxtract from the first row
+        extracted_address = loaded_data['Address'].iloc[0]
+        extracted_invoice_number = loaded_data['Invoice Number'].iloc[0]
+        extracted_invoice_date = loaded_data['Invoice Date'].iloc[0]
+        extracted_due_date = loaded_data['Due Date'].iloc[0]
+        extracted_descibe1 = loaded_data['Description'].iloc[0]
+        extracted_quantity1 = loaded_data['Quantity'].iloc[0]
+        extracted_amount1 = loaded_data['Amount'].iloc[0]
+        extracted_total1 = loaded_data['Total'].iloc[0]
+    else:
+        st.write("No data saved yet.")
+
+
     col1a,colb,col1c = st.columns([2,1,1])
     with col1c:
         st.header("INVOICE")
@@ -125,53 +135,51 @@ if choice == "Download Invoice":
 
     st.write('')
     st.write('')
-    col3a,col3b,col3c = st.columns([4,1,2])
+    col3a,col3b,col3c = st.columns([4,1,1])
     with col3a:
         #st.write('')
         #st.write('')
         st.write('**Bill To:**')
         #st.write('')
-        st.write(customer)
+        st.write(extracted_customer)
         #st.write('')
-        st.write(address)
+        st.write(extracted_address)
         #st.write("")
 
     with col3b:
         #st.write('')
-        st.write('')
+        #st.write('')
         st.write('**Invoice#**')
         #st.write('')
         #st.write('')
-        st.write("")
+        #st.write("")
         st.write('**Invoice Date**')
         #st.write('')
         #st.write('')
-        st.write('')
+        #st.write('')
         st.write('**Due Date**')
 
     with col3c:
-        st.write('')
-        st.write(invoice_number)
-        st.write(invoice_date)
-        st.write(due_date)
+        #st.write('')
+        st.write(str(extracted_invoice_number))
+        st.write(str(extracted_invoice_date))
+        st.write(str(extracted_due_date))
 
 
     st.write('')
     st.write('')
     st.write('')
 
-    col4a,col4b,col4c = st.columns([3,1,1])
+    col4a,col4b,col4c = st.columns([4,1,1])
     with col4a:
         st.write('**Description**')
-        st.write(describe1)
+        st.write(extracted_descibe1)
     with col4b:
         st.write('**Quantity**')
-        st.write(quantity1)
+        st.write(str(extracted_quantity1))
     with col4c:
         st.write('**Amount**')
-        st.write(amount1)
-        #total1 = quantity1 * amount1
-        st.write(total1)
+        st.write((f'{extracted_amount1:,}'))
     st.divider()
     col5a,col5b,col5c = st.columns(3)
     with col5a:
@@ -182,7 +190,6 @@ if choice == "Download Invoice":
     with col5b:
         pass
     with col5c:
-        #st.session_state.total1 = total1
-        st.write('**Payement Due:**')
-        st.subheader(f'#{total1:,}')
+        st.write('**Payment Due:**')
+        st.subheader(f'#{extracted_total1:,}')
 
