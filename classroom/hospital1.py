@@ -15,13 +15,8 @@ def code():
     zerostr = {'ID': str,"Home Phone": str,"Work Phone":str,"Postcode":str,"Mobile Phone":str}
  
      #Load the employee CSV file as a dataframe
-    try:
-     df = pd.read_csv("patientrecords.csv",dtype=zerostr)
-    except FileNotFoundError:
-        df = pd.DataFrame(columns=[
-            "Patient ID","Title", "Registration", "First Name", "Last Name", "Date of Birth", "Second Name", "Prefer",
-            "Gender", "Home Phone", "Work Phone", "City", "Mobile Phone", "Email", "Postcode"
-        ])
+    
+    df = pd.read_csv("patientrecords.csv",dtype=zerostr)
 
     patient_id = "USER_" + str(len(df) + 1) #generate user id 
 
