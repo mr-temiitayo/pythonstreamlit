@@ -14,8 +14,8 @@ def code():
     zerostr = {'ID': str,"Home Phone": str,"Work Phone":str,"Postcode":str,"Mobile Phone":str}
  
      #Load the employee CSV file as a dataframe
-    
-    df = pd.read_csv("patientrecords.csv",dtype=zerostr)
+    patientsrecord = 'https://raw.githubusercontent.com/mr-temiitayo/pythonstreamlit/main/classroom/patientrecords.csv'
+    df = pd.read_csv(patientsrecord,dtype=zerostr)
 
     patient_id = "USER_" + str(len(df) + 1) #generate user id 
 
@@ -87,7 +87,7 @@ def code():
 #            selected_gender,homephone,workphone,city,mobilephone,email,postcode]):
                 df = new_patient(patient_id,selected_title,reg,firstname,lastname,dob,secondname,prefer,
         selected_gender,homephone,workphone,city,mobilephone,email,postcode,df)
-                df.to_csv("patientrecords.csv", index= False)
+                df.to_csv(patientsrecord, index= False)
                 st.success('DONE')
                 # else:
                 #     st.error('Fill all boxes')
