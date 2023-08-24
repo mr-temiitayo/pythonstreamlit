@@ -99,13 +99,26 @@ def code():
         st.dataframe(df) # display df on streamlit 
 
     if choice == 'Patient File':
-        col7,col8,col9 = st.columns([1.5,2,1])
-        with col7:
-            st.title(":orange[Patient File]")
-        with col9:
-            st.text_input("Enter patient user ID")
+        with st.form(key='search',clear_on_submit=True):
+            col7,col8,col9 = st.columns([1.5,2,1])
+            with col7:
+                st.title(":orange[Patient File]")
+            with col9:
+                usersearch=st.text_input("Enter patient user ID")
+                if st.form_submit_button('Search Patient'):
+                    # Filter the DataFrame based on the search query
+                    search_result = df[df['Patient ID'].str.contains(usersearch, case=False)]
+                    if not search_result.empty:
+                        # Access specific values without converting to lists
+                        firstname = search_result['First Name'].iloc[0]
+                        lastname = search_result['Gender'].iloc[0]
+                        st.write(f'First Name: {firstname}, Last Name: {lastname}')
 
-    if choice == 'Buy Drugs':
-        
-        pass
+                        # Add more columns as needed    
+                    else:
+                        # If no matching records found, initialize empty variables
+                        firstname = ""
+                        lastname = ""
+                        # Initialize additional variables if needed
+
 code()
