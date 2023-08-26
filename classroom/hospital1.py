@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from PIL import Image
 st.set_page_config(layout='wide')
 
 # create menu
@@ -92,33 +93,68 @@ def code():
                 # else:
                 #     st.error('Fill all boxes')
 
+
+#-----------------------------------PATIENTS DATABASE----------------------------------
     if choice == 'Patients Database':
         col4,col5,col6=st.columns([1.5,4,0.5])
         with col5:
             st.title(":orange[Patient Records]")
         st.dataframe(df) # display df on streamlit 
 
+
+#------------------------------PATIENTS FILE --------------------------------------
     if choice == 'Patient File':
-        with st.form(key='search',clear_on_submit=True):
+#        with st.form(key='search',clear_on_submit=True):
             col7,col8,col9 = st.columns([1.5,2,1])
             with col7:
                 st.title(":orange[Patient File]")
             with col9:
                 usersearch=st.text_input("Enter patient user ID")
-                if st.form_submit_button('Search Patient'):
+                search = st.button('Search Patient') #deleted form button here
+                if search:
                     # Filter the DataFrame based on the search query
                     search_result = df[df['Patient ID'].str.contains(usersearch, case=False)]
                     if not search_result.empty:
                         # Access specific values without converting to lists
                         firstname = search_result['First Name'].iloc[0]
-                        lastname = search_result['Gender'].iloc[0]
-                        st.write(f'First Name: {firstname}, Last Name: {lastname}')
-
-                        # Add more columns as needed    
+                        lastname = search_result['Last Name'].iloc[0]
+                        #st.write(f'First Name: {firstname}, Last Name: {lastname}')
+  
                     else:
                         # If no matching records found, initialize empty variables
                         firstname = ""
                         lastname = ""
                         # Initialize additional variables if needed
+            if search:
+                t11,t12,t13 = st.columns([0.5,4,0.5])
+                with t12:
+                    st.title('LASTH MEDICAL RECORDS REQUEST')
+                t21,t22,t23 = st.columns([1.5,2,1])
+                with t21:
+                    logo = Image.open(r'C:/Users/USER/Downloads/logo2.png')
+                    st.image(logo,50,50) #to use full width
+                with t23:
+                    st.write('eduSTEMlab')
+                    st.write('327a,coporation drive, Ikoyi')
+                    st.write('Lagos. Nigeria')
+                    
+                st.write('')
+                st.write('')
+                t31,t32,t33 = st.columns([1,2,1])
+                with t32:
+                    st.header("PATIENT'S INFORMATION")
+                info1,info2,info3,info4 = st.columns([1,2,2,1])
+                with info2:
+                    st.write('Name of patient')
+                    st.write('Gender')
+                    st.write('Date of birth')
+                    st.write('Contact number')
+                    st.write('Address')
+
+                with info3:
+                    st.write(f'**{firstname} {lastname}**')
+
+
 
 code()
+

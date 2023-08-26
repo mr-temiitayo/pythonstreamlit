@@ -93,7 +93,8 @@ if choice == "Create Invoice":
     if st.button("Save Information"):
         # Create a DataFrame with the user's information
         data = {'Customer': [customer], 'Address': [address], 'Invoice Number': [invoice_number],
-                'Invoice Date':[invoice_date], 'Due Date':[due_date],'Description':[describe1],'Quantity':[quantity1],'Amount':[amount1],'Total':total1}
+                'Invoice Date':[invoice_date], 'Due Date':[due_date],'Description':[describe1],
+                'Quantity':[quantity1],'Amount':[amount1],'Total':total1}
         df = pd.DataFrame(data)
 
         # Save the DataFrame to the CSV file
