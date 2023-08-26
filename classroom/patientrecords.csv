@@ -1,5 +1,1 @@
-Patient ID,Title,Registration,First Name,Last Name,Date of Birth,Second Name,Prefer,Gender,Home Phone,Work Phone,City,Mobile Phone,Email,Postcode
-USER_1,Mr,2023-08-17,Temitayo,,2023-08-17,Temiitee,Tee,Male,,08162644554,,08162644554,,
-USER_2,Mrs,2023-08-17,Opeyemi,,2023-08-17,Folashade,Ope,Female,,08162644554,,08162644554,kadri.folasade@gmail.com,
-USER_3,Mr,2023-08-19,Jason,,2023-08-19,Jayjay,jay,Male,,08162644554,,08162644554,,
-USER_4,Ms,2023-08-19,Erin,Chan,2023-08-19,Erin,Chan,Female,08162644554,08162644554,,08162644554,,
+Patient ID,Title,Registration,First Name,Last Name,Date of Birth,Second Name,Prefer,Gender,Mobile Phone,Home Phone,City,Address,Email,Postcode

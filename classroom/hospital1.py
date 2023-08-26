@@ -26,8 +26,8 @@ def code():
 
         patient_dict = {"Patient ID":patient_id,"Title":selected_title,"Registration":reg,"First Name":firstname,"Last Name":lastname,
                         "Date of Birth":dob,"Second Name":secondname,"Prefer":prefer,
-                        "Gender":selected_gender,"Home Phone":homephone,"Work Phone":str(workphone),"City":city,
-                        "Mobile Phone":str(mobilephone),"Email":email,"Postcode":str(postcode)} #create a dict for each student data
+                        "Gender":selected_gender,"Mobile Phone":mobilephone,"Work Phone":str(workphone),"City":city,
+                        "Address":address,"Email":email,"Postcode":str(postcode)} #create a dict for each student data
         patient_df = pd.DataFrame([patient_dict]) #convert the dict to a df
         df = pd.concat([df,patient_df], ignore_index = True) #append new df above to the exisiting df (df)
         #ignore means if dupplicate data then overwrite existing one
@@ -75,19 +75,19 @@ def code():
            
             col3a,col3b = st.columns(2)
             with col3a:
+                mobilephone = st.text_input('Mobile Phone')
                 homephone = st.text_input('Home Phone')
-                workphone = st.text_input('Work Phone')
                 city = st.text_input('City||Town')
 
             with col3b:
-                mobilephone = st.text_input('Mobile Phone')
+                address = st.text_input('Address')
                 email = st.text_input('Email')
                 postcode = st.text_input('Postcode')
             if st.form_submit_button('Register'):
 #                if all([selected_title,reg,firstname,lastname,dob,secondname,prefer,
 #            selected_gender,homephone,workphone,city,mobilephone,email,postcode]):
                 df = new_patient(patient_id,selected_title,reg,firstname,lastname,dob,secondname,prefer,
-        selected_gender,homephone,workphone,city,mobilephone,email,postcode,df)
+        selected_gender,mobilephone,homephone,city,address,email,postcode,df)
                 df.to_csv(patientsrecord, index= False)
                 st.success('DONE')
                 # else:
@@ -116,14 +116,22 @@ def code():
                     search_result = df[df['Patient ID'].str.contains(usersearch, case=False)]
                     if not search_result.empty:
                         # Access specific values without converting to lists
-                        firstname = search_result['First Name'].iloc[0]
-                        lastname = search_result['Last Name'].iloc[0]
+                        getfirstname = search_result['First Name'].iloc[0]
+                        getlastname = search_result['Last Name'].iloc[0]
+                        getgender = search_result['Gender'].iloc[0]
+                        getdob = search_result['Date of Birth'].iloc[0]
+                        getcontact = search_result['Mobile Phone'].iloc[0]
+                        getemail = search_result['Email'].iloc[0]
+                        getaddress = search_result['Address'].iloc[0]
+
+
+
                         #st.write(f'First Name: {firstname}, Last Name: {lastname}')
   
                     else:
                         # If no matching records found, initialize empty variables
-                        firstname = ""
-                        lastname = ""
+                        getfirstname = ""
+                        getlastname = ""
                         # Initialize additional variables if needed
             if search:
                 t11,t12,t13 = st.columns([0.5,4,0.5])
@@ -152,7 +160,12 @@ def code():
                     st.write('Address')
 
                 with info3:
-                    st.write(f'**{firstname} {lastname}**')
+                    st.write(f'**{getfirstname} {getlastname}**')
+                    st.write(f'**{getgender}**')
+                    st.write(f'**{getdob}**')
+                    st.write(f'**{getcontact}**')
+                    st.write(f'**{getemail}**')
+                    st.write(f'**{getaddress}**')
 
 
 
