@@ -22,7 +22,7 @@ def code():
 
 
     def new_patient(patient_id,selected_title,reg,firstname,lastname,dob,secondname,prefer,
-                    selected_gender,homephone,workphone,city,mobilephone,email,postcode,df): #func to process each patient data
+                    selected_gender,mobilephone,workphone,city,address,email,postcode,df): #func to process each patient data
 
         patient_dict = {"Patient ID":patient_id,"Title":selected_title,"Registration":reg,"First Name":firstname,"Last Name":lastname,
                         "Date of Birth":dob,"Second Name":secondname,"Prefer":prefer,
