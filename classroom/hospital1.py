@@ -22,11 +22,11 @@ def code():
 
 
     def new_patient(patient_id,selected_title,reg,firstname,lastname,dob,secondname,prefer,
-                    selected_gender,mobilephone,workphone,city,address,email,postcode,df): #func to process each patient data
+                    selected_gender,mobilephone,homephone,city,address,email,postcode,df): #func to process each patient data
 
         patient_dict = {"Patient ID":patient_id,"Title":selected_title,"Registration":reg,"First Name":firstname,"Last Name":lastname,
                         "Date of Birth":dob,"Second Name":secondname,"Prefer":prefer,
-                        "Gender":selected_gender,"Mobile Phone":mobilephone,"Work Phone":str(workphone),"City":city,
+                        "Gender":selected_gender,"Mobile Phone":mobilephone,"Home Phone":str(homephone),"City":city,
                         "Address":address,"Email":email,"Postcode":str(postcode)} #create a dict for each student data
         patient_df = pd.DataFrame([patient_dict]) #convert the dict to a df
         df = pd.concat([df,patient_df], ignore_index = True) #append new df above to the exisiting df (df)
@@ -85,7 +85,7 @@ def code():
                 postcode = st.text_input('Postcode')
             if st.form_submit_button('Register'):
 #                if all([selected_title,reg,firstname,lastname,dob,secondname,prefer,
-#            selected_gender,homephone,workphone,city,mobilephone,email,postcode]):
+#            selected_gender,homephone,address,city,mobilephone,email,postcode]):
                 df = new_patient(patient_id,selected_title,reg,firstname,lastname,dob,secondname,prefer,
         selected_gender,mobilephone,homephone,city,address,email,postcode,df)
                 df.to_csv(patientsrecord, index= False)
