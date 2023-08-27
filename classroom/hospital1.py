@@ -140,8 +140,14 @@ def code():
                     st.title('LASTH MEDICAL RECORDS REQUEST')
                 t21,t22,t23 = st.columns([1.5,2,1])
                 with t21:
-                    logo = Image.open("https://raw.githubusercontent.com/mr-temiitayo/pythonstreamlit/main/beta/logo2.png")
-                    st.image(logo,50,50) #to use full width
+                    #logo = Image.open(r'C:/Users/USER/Downloads/logo2.png') for local image
+                    #st.image(logo,50,50) #to use full width
+                    # Corrected image URL
+                    image_url = "https://raw.githubusercontent.com/mr-temiitayo/pythonstreamlit/main/beta/logo2.png"
+
+                    # Load and display the image directly
+                    st.image(image_url, width=50, caption="Logo")  # Adjust width and add a caption if needed
+
                 with t23:
                     st.write('eduSTEMlab')
                     st.write('327a,coporation drive, Ikoyi')
