@@ -124,6 +124,8 @@ def code():
                         getcontact = search_result['Mobile Phone'].iloc[0]
                         getemail = search_result['Email'].iloc[0]
                         getaddress = search_result['Address'].iloc[0]
+                        getid = search_result['Patient ID'].iloc[0]
+
 
 
 
@@ -135,36 +137,41 @@ def code():
                         getlastname = ""
                         # Initialize additional variables if needed
             if search:
-                t11,t12,t13 = st.columns([0.5,4,0.5])
+                t11,t12,t13 = st.columns([1.5,3.5,2])
                 with t12:
-                    st.title('LASTH MEDICAL RECORDS REQUEST')
-                t21,t22,t23 = st.columns([1.5,2,1])
-                with t21:
+                    st.header('LASTH MEDICAL RECORDS REQUEST')
+                t21,t22,t23,t24 = st.columns([0.5,2.5,2,2])
+                with t22:
                     #logo = Image.open(r'C:/Users/USER/Downloads/logo2.png') for local image
                     #st.image(logo,50,50) #to use full width
                     # Corrected image URL
+                    
                     image_url = "https://raw.githubusercontent.com/mr-temiitayo/pythonstreamlit/main/beta/logo2.png"
 
                     # Load and display the image directly
-                    st.image(image_url, width=50, caption="Logo")  # Adjust width and add a caption if needed
+                    st.image(image_url, width=50)  # Adjust width and add a caption if needed
+                    st.write('**LASTH TEACHING HOSPITAL**')
 
-                with t23:
-                    st.write('eduSTEMlab')
+                with t24:
+                    
                     st.write('327a,coporation drive, Ikoyi')
                     st.write('Lagos. Nigeria')
+                    st.write('teeakintoye@yahoo.com')
+                    st.write('+2348162644554')
                     
                 st.write('')
                 st.write('')
-                t31,t32,t33 = st.columns([1,2,1])
+                t31,t32,t33 = st.columns([1.5,2,1])
                 with t32:
-                    st.header("PATIENT'S INFORMATION")
-                info1,info2,info3,info4 = st.columns([1,2,2,1])
+                    st.subheader("PATIENT'S INFORMATION")
+                info1,info2,info3,info4 = st.columns([1.5,2,2,0.5])
                 with info2:
-                    st.write('Name of patient')
+                    st.write('Name of Patient')
                     st.write('Gender')
-                    st.write('Date of birth')
-                    st.write('Contact number')
-                    st.write('Address')
+                    st.write('Date of Birth')
+                    st.write('Contact Number')
+                    st.write('Email Address')
+                    st.write('Home Address')
 
                 with info3:
                     st.write(f'**{getfirstname} {getlastname}**')
@@ -173,6 +180,19 @@ def code():
                     st.write(f'**{getcontact}**')
                     st.write(f'**{getemail}**')
                     st.write(f'**{getaddress}**')
+                    st.write('')
+                    st.write('')
+                t41,t42,t43 = st.columns([1,2,0.5])
+                with t42:
+                    st.subheader("MEDICAL RECORDS REQUEST FORM")
+                info11,info22,info33,info44 = st.columns([1.5,2,2,0.5])
+                with info22:
+                    st.write('Request Date')
+                    st.write('Medical Records Number')
+                with info33:
+                    st.write('**2023-08-28**')
+                    st.write(f'**{getid}**')
+                    
 
 
 
