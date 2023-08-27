@@ -15,6 +15,7 @@ def code():
     zerostr = {'ID': str,"Home Phone": str,"Work Phone":str,"Postcode":str,"Mobile Phone":str}
  
      #Load the employee CSV file as a dataframe
+    #patientsrecord = 'patientrecords.csv'
     patientsrecord = 'https://raw.githubusercontent.com/mr-temiitayo/pythonstreamlit/main/classroom/patientrecords.csv'
     df = pd.read_csv(patientsrecord,dtype=zerostr)
 
