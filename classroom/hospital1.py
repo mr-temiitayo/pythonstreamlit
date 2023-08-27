@@ -140,7 +140,7 @@ def code():
                     st.title('LASTH MEDICAL RECORDS REQUEST')
                 t21,t22,t23 = st.columns([1.5,2,1])
                 with t21:
-                    logo = Image.open(r'C:/Users/USER/Downloads/logo2.png')
+                    logo = Image.open("https://raw.githubusercontent.com/mr-temiitayo/pythonstreamlit/main/beta/logo2.png")
                     st.image(logo,50,50) #to use full width
                 with t23:
                     st.write('eduSTEMlab')
