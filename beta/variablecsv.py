@@ -4,41 +4,44 @@ import os
 
 # Streamlit app title
 st.title("Variable to CSV Example")
+csv_filename = "C:\\Users\\USER\\Desktop\\streamlipython\\pythonstreamlit\\beta\\user_data.csv"
+df = pd.read_csv(csv_filename)  # Load the CSV file
 
-# Input field to get a user's name
+# Input fields to get user's information
 user_name = st.text_input("Enter your name:")
+city = st.text_input("Enter your city:")
+age = st.number_input("Enter your age:")
+dob = st.date_input('Date')
 
-# Button to save the name to a CSV file
-if st.button("Save Name"):
-    # Create a DataFrame with the user's name
-    data = {'Name': [user_name]}
-    st.text(user_name)
-    df = pd.DataFrame(data)
+# Button to save the information to the CSV file
+if st.button("Save Information"):
+    # Create a DataFrame with the user's information
+    data = {'Name': [user_name], 'City': [city], 'Age': [age],'Date':[dob]}
+    df = pd.DataFrame(data,columns=['Name','City','Age','Date'])
 
-    # Check if the CSV file exists
-    csv_filename = "C:\\Users\\USER\\Desktop\\streamlipython\\pythonstreamlit\\beta\\user_data.csv"
-    if not os.path.exists(csv_filename):
-        # If the file doesn't exist, create an empty DataFrame
-        df = pd.DataFrame(columns=["Name", "Age", "City"])
-        # Save the empty DataFrame to create the CSV file
-        df.to_csv(csv_filename, index=False)
-    else:
-        # If the file exists, load its content into a DataFrame
-        df = pd.read_csv(csv_filename)
+    # Save the DataFrame to the CSV file
+    df.to_csv(csv_filename, index=False)
 
-    st.success(f"Name '{user_name}' saved to user_data.csv")
+    st.success(f"Information saved to user_data.csv")
 
-    # Read and display the name from the CSV file
-    st.write("Name uploaded from CSV:")
+    #OR create a function to overwrite it when need be
+    # Create a DataFrame with the user's information
+    #data = {'Name': [user_name], 'City': [city], 'Age': [age],'Date':[dob]}
+    #df = pd.DataFrame(data,columns=['Name','City','Age','Date'])
+
+
+
+    # Save the DataFrame to the CSV file
+    df.to_csv(csv_filename, index=False)
+
+# Button to extract and display the information from the CSV file
+if st.button("Extract Information"):
     loaded_data = pd.read_csv(csv_filename)
-    new_name = loaded_data['Name']
-    st.text(new_name)
+    if not loaded_data.empty:
+        extracted_name = loaded_data['Name'].iloc[0] #wxtract from the first row
+        extracted_city = loaded_data['City'].iloc[0]
+        extracted_age = loaded_data['Age'].iloc[0]
+        st.write(f"Name: {extracted_name}, City: {extracted_city}, Age: {extracted_age}, Date: {dob}")
+    else:
+        st.write("No data saved yet.")
 
-
-
-# try:
-#     loaded_data = pd.read_csv('user_data.csv')
-#     if not loaded_data.empty:
-#         st.write(loaded_data['Name'][0])
-# except FileNotFoundError:
-#     st.write("No data saved yet.")

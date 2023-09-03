@@ -5,33 +5,53 @@
 # -Save all data in a csv file
 # -Show current csv database file
 
+
 import streamlit as st
-import pandas as pd #this is used to create dataframes
-st.title('Students Database')
+import pandas as pd
+st.header('Student Database')
 
-
-#what is csv file?
-#csv file are text files that each data is separated by a comma (comma separated values)
-df = pd.read_csv('scores.csv') #same folder that is why it as no address
+df=pd.read_csv('scores.csv')
 st.dataframe(df)
 
-name = st.text_input('Enter your name')
-maths = st.number_input('Enter Maths score',0,100,value=0)
-science = st.number_input('Enter Science score',0,100,value=0)
-history = st.number_input('Enter History score',0,100,value=0)
-total = maths + science + history
-average = total/3
-
-#function to add new student values to the Dataframe
-def new_student(name,maths,science,history,total,average,df):
-    student_dict = {'Name':name,'Maths':maths,'Science':science,'History':history,'Total':total,'Average':average}
-    #the above is used to save the values gotten to a key with is the same as the CSV columns variables
-    new_df = pd.DataFrame([student_dict]) #convert the dict into a dataframe
-    df = pd.concat([df,new_df],ignore_index=True) #this will join the old df to the new df
-    return df
 
 
-if st.button("Add Student Scores"):
-    df = new_student(name,maths,science,history,total,average,df) #add this to df
-    df.to_csv('scores.csv',index=False) #save new student data to dataframe
-    st.success('Student score added')
+name=st.text_input('Enter student name')
+
+math=st.number_input('Enter your math score',0,100,value=0)
+english=st.number_input('Enter your english score',0,100,value=0)
+physics=st.number_input('Enter your physics score',0,100,value=0)
+chemistry=st.number_input('Enter your chemistry score',0,100,value=0)
+
+average=(math+english+physics+chemistry)/4
+
+if average > 80:
+    grade = "A"
+    st.write('Your grade is A')
+elif (average>=70) and (average<=80):
+    grade ="B"
+    st.write('Your grade is B')
+elif(average>=60) and (average<70):
+    grade ="C"
+    st.write('Your grade is C')
+elif(average>=50) and (average<60):
+    grade ="D"
+    st.write ('Your grade is D')
+elif(average>=45) and (average<50):
+    grade ="E"
+    st.write('Your grade is E')
+elif(average<=44):
+    grade ="F"
+    st.write('Your grade is F')
+
+
+
+def new_student(name,math,english,physics,chemistry,average,grade,df):
+  student_dict= {'Name':name,'Math':math,'English':english,'Physics':physics,'Chemistry':chemistry,'Average':average,'Grade':grade}
+  new_df = pd.DataFrame([student_dict],columns=["Name",'Maths','English','Pyhsics','Chemistry','Average','Grade'])  
+  df = pd.concat([df,new_df],ignore_index=True)
+  return df 
+
+if st.button ('Add Student score'):
+  df=new_student(name,math,english,physics,chemistry,average,grade,df)
+  df.to_csv('scores.csv',index=False)
+  st.success('Student Scores Added')

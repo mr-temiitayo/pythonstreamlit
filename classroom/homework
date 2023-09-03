@@ -1,0 +1,64 @@
+
+
+Create an age calculator app
+
+
+Savings App
+Create a python program for daily savings for a user, 
+add up all his savings from sunday to saturday
+
+create a chicken app to ask users how many chicken they want to get
+show them the total amount
+
+A barber app to show service categories and fee
+
+A fashion app 
+-title
+-image
+-categories
+Men's Fashion
+
+Women's Fashion
+
+Children's Fashion
+
+(each category must havedifferent types of unique items and the prices like shirts(long sleeves,short, round neck, polo etc), boxers, trousers, shoes, bags etc)
+
+
+
+-Add a restaurant picture
+-Create a restaurant app that welcomes users and shows them the food selections
+-If they choose/select their meals, show them the total amount
+-Ask a question if you want to share the bill with others #use checkbox
+-if yes, then ask how many people want to share the bill
+-Then show the amount each person must contribute to pay the bill
+
+
+ Create a student scores database which can 
+ -get the name
+ -4 subjects
+ -calculate the average
+ -calculate the grade (A,B,C,D,E,F)
+ -update your csv file
+
+Create an employee database, that shows 
+the name of employee, date of employment (use st.date), salary, 
+gender, position/role, education level, contract status (full/part)
+
+
+Create a simple furniture store that has categories of 
+home, office and school furnitures to get
+
+-Create a dinner app that welcomes users and shows them the food selections
+-Add a restaurant picture
+-If they choose/select their meals, show them the total amount
+-Ask a question if you want to share the bill with others
+-if yes, then ask how many people want to share the bill
+-Then show the amount each person must contribute to pay the bill
+
+ create menu
+ create form
+ create df
+ create numbers as strings
+ retain leading zeros in numbers
+ create unique ids to search or phone numbers if patient dont remember ID

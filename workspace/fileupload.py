@@ -9,9 +9,6 @@ import pdfplumber #also to read pdf
 
 #load images
 @st.cache
-def load_image(image_file):
-    img =Image.open(image_file)
-    return img
 
 
 def code():
@@ -28,7 +25,7 @@ def code():
             #st.write(dir(image_file)) #image attr
             image_details = {"filename":image_file.name,"filetype":image_file.type,"filesize":image_file.size} 
             st.write(image_details)
-            st.image(load_image(image_file),250,250) #open the image uploaded
+            st.image(Image.open(image_file),250,250) #open the image uploaded
 
 
     elif choice =='Dataset':

@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image
+import requests
 st.set_page_config(layout='wide')
 
 # create menu
@@ -14,9 +15,9 @@ st.set_page_config(layout='wide')
 def code():
     zerostr = {'ID': str,"Home Phone": str,"Work Phone":str,"Postcode":str,"Mobile Phone":str}
  
-     #Load the employee CSV file as a dataframe
+    #Load the employee CSV file as a dataframe
     #patientsrecord = 'patientrecords.csv'
-    patientsrecord = 'https://raw.githubusercontent.com/mr-temiitayo/pythonstreamlit/main/classroom/patientrecords.csv'
+    patientsrecord = 'patientrecords.csv'
     df = pd.read_csv(patientsrecord,dtype=zerostr)
 
     patient_id = "USER_" + str(len(df) + 1) #generate user id 
@@ -31,7 +32,7 @@ def code():
                         "Address":address,"Email":email,"Postcode":str(postcode)} #create a dict for each student data
         patient_df = pd.DataFrame([patient_dict]) #convert the dict to a df
         df = pd.concat([df,patient_df], ignore_index = True) #append new df above to the exisiting df (df)
-        #ignore means if dupplicate data then overwrite existing one
+        
         return df
 
 
@@ -101,6 +102,7 @@ def code():
         with col5:
             st.title(":orange[Patient Records]")
         st.dataframe(df) # display df on streamlit 
+        
 
 
 #------------------------------PATIENTS FILE --------------------------------------
