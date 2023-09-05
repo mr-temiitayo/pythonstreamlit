@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-#https://www.youtube.com/watch?v=5l9COMQ3acc
-#how to use sessionstate and callbacks
+# create a quiz
+# store user details and score and grade in csv file
 
 if 'score' not in st.session_state:
     st.session_state.score = 0

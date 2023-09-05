@@ -1,5 +1,4 @@
 
-
 Create an age calculator app
 
 
@@ -32,6 +31,8 @@ Children's Fashion
 -Ask a question if you want to share the bill with others #use checkbox
 -if yes, then ask how many people want to share the bill
 -Then show the amount each person must contribute to pay the bill
+
+homework: find a csv file on google and read it using pandas, and display it with streamlit
 
 
  Create a student scores database which can 
