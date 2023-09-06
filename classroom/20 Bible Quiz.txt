@@ -1,0 +1,21 @@
+Question,Options,Correct Answer
+1,Who was the first man created according to the Bible?;Abraham;Moses;David;Adam
+2,What is the name of Noah's Ark?;Ark of the Covenant;Ark of Salvation;Ark of Noah;Ark of Safety;Ark of Noah
+3,Which river was Jesus baptized in?;Euphrates River;Nile River;Jordan River;Tigris River;Jordan River
+4,Who is known as the father of faith in the Bible?;Moses;Abraham;Joseph;Isaac;Abraham
+5,What was the forbidden fruit in the Garden of Eden?;Pear;Apple;Fig;Grape;Apple
+6,Who led the Israelites out of Egypt?;Moses;David;Joseph;Abraham;Moses
+7,What is the last book of the New Testament?;Genesis;Exodus;Revelation;Psalms;Revelation
+8,What is the first book of the Bible?;Exodus;Genesis;Leviticus;Numbers;Genesis
+9,Who wrote most of the Psalms in the Bible?;Solomon;David;Isaiah;Moses;David
+10,What is the shortest verse in the Bible?;John 3:16;Matthew 6:10;Genesis 1:1;1 Corinthians 15:3;John 11:35
+11,Who betrayed Jesus to the authorities for 30 pieces of silver?;Peter;James;Judas Iscariot;John;Judas Iscariot
+12,What type of wood was Noah's Ark made of?;Oak;Cypress;Pine;Cedar;Cypress
+13,Who was the mother of Jesus?;Hannah;Ruth;Mary;Esther;Mary
+14,What is the fifth book of the New Testament?;Mark;Luke;John;Acts;Acts
+15,What did Jesus turn water into at the wedding in Cana?;Oil;Wine;Honey;Milk;Wine
+16,How many disciples did Jesus have?;3;10;12;7;12
+17,Who was thrown into a den of lions but survived?;Daniel;Joseph;David;Moses;Daniel
+18,Which apostle is known as "Doubting Thomas"?;James;John;Andrew;Thomas;Thomas
+19,What is the first commandment in the Bible?;You shall not steal;You shall not murder;You shall have no other gods before me;You shall not commit adultery;You shall have no other gods before me
+20,What is the final word in the Bible?;Amen;Hallelujah;Love;Grace;Amen
