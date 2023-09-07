@@ -14,7 +14,7 @@ if 'lenght' not in st.session_state:
     st.session_state.lenght = 0
 
 # Load quiz data from the CSV file
-quiz_data = pd.read_csv('quiz_data.csv')
+quiz_data = pd.read_csv('20 Bible Quiz.csv')
 
 def submit():
     st.subheader("Quiz Results")

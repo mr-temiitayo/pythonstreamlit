@@ -8,13 +8,23 @@ df = pd.read_csv('grades.csv')
 
 st.dataframe(df, use_container_width=True)
 
-# Create a list of the gender columns you want to display
-gender_columns = ['Male', 'Female']
+st.title('Students Database Chart')
 
-# Use the multiselect widget to select the gender columns
-gender_choices = st.selectbox('Choose genders', gender_columns) #, default=['Male']
+Xcolumns = ['Gender','ParentMaritalStatus'] 
 
-# Filter the DataFrame to include only the selected columns
-gender_df = df[gender_choices]
+Ycolumns = ['Maths','Reading','Writing']
 
-st.line_chart(gender_df)
+st.write('')
+chart1,chart2,chart3 = st.columns([1,1,2])
+# Use the multiselect widget to select the Scores to draw
+with chart1:
+    selectedY = st.multiselect('**Select Grades To Plot**', Ycolumns) #, default=['Male']
+
+with chart2:
+    selectedX = st.radio('**Select Categories to plot**',Xcolumns,horizontal = True)
+
+# Create a line chart
+fig = px.bar(df, x=selectedX, y=selectedY, orientation='v',color = selectedX)
+
+# Show the chart
+st.plotly_chart(fig)
