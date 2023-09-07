@@ -23,8 +23,15 @@ with chart1:
 with chart2:
     selectedX = st.radio('**Select Categories to plot**',Xcolumns,horizontal = True)
 
+
+# Calculate the mean values for the selected grades
+mean_values = df.groupby(selectedX)[selectedY].mean().reset_index()
+
 # Create a line chart
-fig = px.bar(df, x=selectedX, y=selectedY, orientation='v',color = selectedX)
+fig = px.bar(mean_values, x=selectedX, y=selectedY, orientation='v',color = selectedX)
+
+# Customize the y-axis tick labels format (e.g., as integers)
+# fig.update_yaxes(title_text='')
 
 # Show the chart
 st.plotly_chart(fig)

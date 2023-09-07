@@ -63,3 +63,25 @@ home, office and school furnitures to get
  create numbers as strings
  retain leading zeros in numbers
  create unique ids to search or phone numbers if patient dont remember ID
+
+
+
+
+'''
+# Define a conditional color mapping
+color = {
+    'Gender': {
+        'Male': 'Blue',
+        'Female': 'Red',
+        'Other': 'Green'  # You can add more categories and colors as needed
+    },
+    'ParentMaritalStatus': {
+        'Married': 'Purple',
+        'Single': 'Yellow',
+        'Divorced': 'Orange'  # Add colors for different marital status values
+    }
+}
+
+# Create a bar chart with custom colors based on the selected category
+fig = px.bar(df, x=selectedX, y=selectedY, orientation='v', color=selectedX, color_discrete_map=color[selectedX])
+'''
