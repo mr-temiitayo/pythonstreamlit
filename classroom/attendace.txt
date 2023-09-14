@@ -1,0 +1,17 @@
+you fully understand right?
+
+
+
+i have a page to select and mark attendance (default date is today) but i can mark previous days i forgot
+
+
+
+And a remark dropdown (Paid, Completed, New Class, I also need to indicate number of classes unpaid(Maybe a space/dropdown to type/choose a digit/number of classes left (beside remark label). Your suggestion is welcome and required 
+
+
+
+I can also delete if i mistakenly picked wrong date and remember 
+
+
+
+student have individual view so i can show parent the attendance

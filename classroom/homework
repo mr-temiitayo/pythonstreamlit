@@ -85,3 +85,10 @@ color = {
 # Create a bar chart with custom colors based on the selected category
 fig = px.bar(df, x=selectedX, y=selectedY, orientation='v', color=selectedX, color_discrete_map=color[selectedX])
 '''
+
+Test:
+Create a simple and short web page that
+-Ask for student name on the left column and their age on the right column
+-create a button
+- save this in a csv file
+show it on top of the page (dont create a new page)

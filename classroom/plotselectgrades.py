@@ -15,6 +15,7 @@ Xcolumns = ['Gender','ParentMaritalStatus']
 Ycolumns = ['Maths','Reading','Writing']
 
 st.write('')
+
 chart1,chart2,chart3 = st.columns([1,1,2])
 # Use the multiselect widget to select the Scores to draw
 with chart1:
@@ -35,3 +36,5 @@ fig = px.bar(mean_values, x=selectedX, y=selectedY, orientation='v',color = sele
 
 # Show the chart
 st.plotly_chart(fig)
+
+#fig= px.pie(df,values='Sum',names='lang)

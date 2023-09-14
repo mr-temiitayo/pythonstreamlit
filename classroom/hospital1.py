@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image
+import streamlit.components as stc
 st.set_page_config(layout='wide')
 
 # create menu
@@ -10,6 +11,16 @@ st.set_page_config(layout='wide')
 # retain leading zeros in numbers
 # create unique ids to search or phone numbers if patient dont remember ID
 #using qr code for website
+
+#------------------
+# Define styles for the red and blue containers
+blue_container_style = """
+    background-color: blue;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+"""
+
 
 def code():
     zerostr = {'ID': str,"Home Phone": str,"Work Phone":str,"Postcode":str,"Mobile Phone":str}
@@ -135,8 +146,13 @@ def code():
                         # If no matching records found, initialize empty variables
                         getfirstname = ""
                         getlastname = ""
-                        # Initialize additional variables if needed
+                     
+
+            # Create the blue container
+
+
             if search:
+                #with st.container(style=blue_container_style):
                 t11,t12,t13 = st.columns([1.5,3.5,2])
                 with t12:
                     st.header('LASTH MEDICAL RECORDS REQUEST')
@@ -159,6 +175,7 @@ def code():
                     st.write('teeakintoye@yahoo.com')
                     st.write('+2348162644554')
                     
+
                 st.write('')
                 st.write('')
                 t31,t32,t33 = st.columns([1.5,2,1])
