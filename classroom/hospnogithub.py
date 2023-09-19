@@ -102,12 +102,16 @@ def code():
         with col5:
             st.title(":orange[Patient Records]")
         st.dataframe(df) # display df on streamlit 
-        
+        with open(patientsrecord,'rb') as file: #open&read the contents as binary without any interpretation or modification
+            data = file.read() #read the content
+        st.download_button(label='Download Patients Database CSV',data=data,file_name='Patients Database.csv')
+
 
 
 #------------------------------PATIENTS FILE --------------------------------------
     if choice == 'Patient File':
 #        with st.form(key='search',clear_on_submit=True):
+
             col7,col8,col9 = st.columns([1.5,2,1])
             with col7:
                 st.title(":orange[Patient File]")
@@ -139,29 +143,31 @@ def code():
                         getlastname = ""
                         # Initialize additional variables if needed
             if search:
-                t11,t12,t13 = st.columns([1.5,3.5,2])
-                with t12:
-                    st.header('LASTH MEDICAL RECORDS REQUEST')
-                t21,t22,t23,t24 = st.columns([0.5,2.5,2,2])
-                with t22:
-                    #logo = Image.open(r'C:/Users/USER/Downloads/logo2.png') for local image
-                    #st.image(logo,50,50) #to use full width
-                    # Corrected image URL
-                    
-                    image_url = "https://raw.githubusercontent.com/mr-temiitayo/pythonstreamlit/main/beta/logo2.png"
+                container1 = st.container()
+                with container1:
+                    t11,t12,t13 = st.columns([1.5,3.5,2])
+                    with t12:
+                        st.header('LASTH MEDICAL RECORDS REQUEST')
+                    t21,t22,t23,t24 = st.columns([0.5,2.5,2,2])
+                    with t22:
+                        #logo = Image.open(r'C:/Users/USER/Downloads/logo2.png') for local image
+                        #st.image(logo,50,50) #to use full width
+                        # Corrected image URL
+                        
+                        image_url = "https://raw.githubusercontent.com/mr-temiitayo/pythonstreamlit/main/beta/logo2.png"
 
-                    # Load and display the image directly
-                    st.image(image_url, width=50)  # Adjust width and add a caption if needed
-                    st.write('**LASTH TEACHING HOSPITAL**')
+                        # Load and display the image directly
+                        st.image(image_url, width=50)  # Adjust width and add a caption if needed
+                        st.write('**LASTH TEACHING HOSPITAL**')
 
-                with t24:
-                    
-                    st.write('327a,coporation drive, Ikoyi')
-                    st.write('Lagos. Nigeria')
-                    st.write('teeakintoye@yahoo.com')
-                    st.write('+2348162644554')
-                    
-                st.write('')
+                    with t24:
+                        
+                        st.write('327a,coporation drive, Ikoyi')
+                        st.write('Lagos. Nigeria')
+                        st.write('teeakintoye@yahoo.com')
+                        st.write('+2348162644554')
+                        
+                    st.write('')
                 st.write('')
                 t31,t32,t33 = st.columns([1.5,2,1])
                 with t32:

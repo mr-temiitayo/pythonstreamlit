@@ -114,6 +114,7 @@ def code():
         st.dataframe(df) # display df on streamlit 
 
 
+
 #------------------------------PATIENTS FILE --------------------------------------
     if choice == 'Patient File':
 #        with st.form(key='search',clear_on_submit=True):

@@ -1,3 +1,17 @@
+Things to do:
+-toggle autosave on
+-disable parameter in settings
+-clean output in code runner settings (disable exe message)
+
+
+
+
+
+
+
+img = Image.open(r'C:/Users/USER/Desktop/streamlipython/pythonstreamlit/media/Golfcart Robot.jpg')
+
+r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
 
 Create an age calculator app
 
