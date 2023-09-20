@@ -49,12 +49,12 @@ Children's Fashion
 homework: find a csv file on google and read it using pandas, and display it with streamlit
 
 
- Create a student scores database which can 
- -get the name
- -4 subjects
- -calculate the average
- -calculate the grade (A,B,C,D,E,F)
- -update your csv file
+#  Create a student scores database which can 
+#  -get the name of the student
+#  -get 4 subjects score
+#  -calculate the average of the subjects
+#  -calculate the grade (A,B,C,D,E,F) using the average
+#  -update your csv file
 
 Create an employee database, that shows 
 the name of employee, date of employment (use st.date), salary, 
