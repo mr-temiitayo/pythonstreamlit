@@ -37,6 +37,6 @@ print(name,"is",country)
 print(name,"is studying",course)
 
 
-#classwork 
-#create 3 variables and data. Display them with come texts
+#variableclasswork 
+#create 3 variables and data. Display them with some texts
 
