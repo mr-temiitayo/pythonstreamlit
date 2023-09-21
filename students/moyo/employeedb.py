@@ -14,7 +14,7 @@ df = pd.read_csv("employee_db.csv")
 
 employee_id = 'USER' + str(len(df) +1)
 
-def new_employee(employee_id,firstname,email,education,dept,date,lastname,gender,salary,job,emp_status,df):
+def new_employee(employee_id,firstname,lastname,email,education,dept,date,gender,salary,job,emp_status,df):
     employee_dict = {"Employee ID":employee_id,"Firstname":firstname,"Email" : email,"Education":education,"Dept":dept,"Registrationdate": date,"Lastname" : lastname,"Gender" : gender,"Salary" :salary,"Job" : job,"Employee" : emp_status}
     employee_df = pd.DataFrame([employee_dict])
     df = pd.concat([df,employee_df],ignore_index = True)
