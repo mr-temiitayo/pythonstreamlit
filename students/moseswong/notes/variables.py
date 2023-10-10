@@ -54,3 +54,15 @@ print("I study",code) #separate texts and variables with a comma
 print("I am a",gender) #separate texts and variables with a comma
 
 print(name,gender,age,city,code) #separate variables with a comma 
+
+
+
+class = 
+classs = 
+Class = 
+
+if = 
+
+If = 
+
+iff =

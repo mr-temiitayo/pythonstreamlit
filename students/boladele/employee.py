@@ -36,8 +36,9 @@ if choice =='Register Staff':
         with eg1:
             email=st.text_input('Email')
         with eg2:
+            st.write('')
             gender=['Male','Female']
-        selectedgender=st.radio('Select Gender',gender,horizontal=True)
+            selectedgender=st.radio('Select Gender',gender,horizontal=True)
 
 
         stat1,stat2=st.columns(2)

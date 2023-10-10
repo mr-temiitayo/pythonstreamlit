@@ -19,36 +19,37 @@ I will need your:
 
 """
 
+with st.form(key='savings',clear_on_submit=True):
 
-Name = st.text_input("Enter your name")
-
-
-Monady= st.number_input("How much do you want to save on Monday",value=0,step= 1,format="%d")
+    Name = st.text_input("Enter your name")
 
 
-Tuesday= st.number_input("How much do you want to save on Tuesday",value=0,step= 1,format="%d")
+    Monady= st.number_input("How much do you want to save on Monday",value=0,step= 1,format="%d")
 
 
-Wednasday= st.number_input("How much do you want to save on Wednasday",value=0,step= 1,format="%d")
+    Tuesday= st.number_input("How much do you want to save on Tuesday",value=0,step= 1,format="%d")
 
 
-Thursday= st.number_input("How much do you want to save on Thursday",value=0,step= 1,format="%d")
+    Wednasday= st.number_input("How much do you want to save on Wednasday",value=0,step= 1,format="%d")
 
 
-Friday= st.number_input("How much do you want to save on Friday",value=0,step= 1,format="%d")
+    Thursday= st.number_input("How much do you want to save on Thursday",value=0,step= 1,format="%d")
 
 
-Saturday= st.number_input("How much do you want to save on Saturday",value=0,step= 1,format="%d")
+    Friday= st.number_input("How much do you want to save on Friday",value=0,step= 1,format="%d")
 
 
-Sunday= st.number_input("How much do you want to save on Sunday",value=0,step= 1,format="%d")
+    Saturday= st.number_input("How much do you want to save on Saturday",value=0,step= 1,format="%d")
 
 
-saved = Monady + Tuesday + Wednasday + Thursday + Friday + Saturday + Sunday
+    Sunday= st.number_input("How much do you want to save on Sunday",value=0,step= 1,format="%d")
 
 
-if st.button("Show How much i saved"):
- st.write("You have saved",saved,"Dollars")
+    saved = Monady + Tuesday + Wednasday + Thursday + Friday + Saturday + Sunday
+
+
+    if st.form_submit_button("Show How much i saved"):
+        st.write("You have saved",saved,"Dollars")
 
 
 

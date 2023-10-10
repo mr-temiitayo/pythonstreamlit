@@ -1,0 +1,23 @@
+git init
+
+git status
+
+git add .
+
+git status
+
+git commit -m "first commit" or python commit
+
+---
+git config --global user.email "emailadd" 
+
+git config --global user.name "username" 
+ 
+git commit -m "first commit" or python commit
+
+-----
+git branch -M main
+
+git remote origin https://github*****
+
+git push -u origin main

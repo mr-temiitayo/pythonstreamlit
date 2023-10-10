@@ -1,0 +1,31 @@
+#RULES IN NAMING VARIABLES
+
+You can give any names to your variables but you must follow some rules
+
+1. Rule: Do not have a space in between your variable name
+
+my name = "Moses" WRONG
+myname = "Moses" CORRECT
+my_name = "Moses" CORRECT
+
+2. Rule: Do not start with a number. Numbers can be inside or at the end of the variable
+2eggs = 50 WRONG
+eggs2 = 50 CORRECT
+e2g = 50 CORRECT
+
+3. Rule: Do not use special characters ATALL only underscore is allowed
+@#$%^&*()-=+;:'">.<!/? NOT ALLOWED!!
+Only underscore 
+my_name = "Moses" CORRECT
+_name_ = "Moses" CORRECT
+
+4. Rule: Do not use python keywords. Python is using it for specific functions/reasons
+if else or and elif while class in 
+change the spelling or add a prefix or suffix
+classs or clazz or Class
+
+5. Rule: Python is case-sensitive
+name = "moses"
+NAME = "mio
+print(name)
+print(NAME)

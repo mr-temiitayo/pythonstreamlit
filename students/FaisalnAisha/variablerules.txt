@@ -1,0 +1,41 @@
+RULES IN NAMING VARIABLES
+
+You can actually name your variables anyhow you want to
+
+name = "Faisal"
+name is the variable while "Faisal" is the data (string)
+
+Rule 1:
+Do not have space in between your variable name
+my school = "Grange" WRONG
+myschool = "Grange" CORRECT
+
+Rule 2:
+Do not start with a number
+2eggs = 50 WRONG
+You can put the number inside or after the name
+eggs2 = 50 CORRECT
+e2g2 = 50 CORRECT
+
+Rule 3:
+Do NOT use any special character except UNDERSCORE _
+@$%^&*()-+={]}[:;'/.,><!``] WRONG NOT ALLOWED ATALL
+
+my_school = "Grange"
+_na_me = "Faisal"
+_2023 = "year"
+
+
+Rule 4:
+Do not use any of python keywords
+Python uses them for specific reasons/functions
+class if else True while or and elif WRONG
+
+classs or clazz or Class
+
+Rule 5:
+Python is case-sensitive
+name = "Kyra"
+Name = 'Aisha'
+print(name) #displays Kyra
+print(Name) #displays Aisha

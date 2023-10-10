@@ -71,14 +71,6 @@ with rice4:
      total += 20
    
  
-
-
-
-
-
-
-
-
 st.title("Fruits")
 fruits1,fruits2,fruit3 = st.columns(3)
 with fruits1:

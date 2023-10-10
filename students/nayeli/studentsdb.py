@@ -15,7 +15,7 @@ st.set_page_config(layout='wide')
 #What is a CSV file?
 #csv file is a text file that each data is separated by a comma (comma separated values)
 
-df = pd.read_csv('scores.csv')
+df = pd.read_csv('score.csv')
 st.dataframe(df,use_container_width=True)
 
 name = st.text_input("Enter the student's name: ")
@@ -27,26 +27,44 @@ geography = st.number_input("Enter the student's score for Geography: ",0,value=
 total = maths + english + science + history + geography
 average = total / 5
 
-if average <= 100 and average >= 95:
+if average >= 95:
   grade = "A+"
-elif average < 95 and average <= 90:
+elif average >= 90 and average < 95:
   grade = "A" 
-elif average < 90 and average >= 80:
+elif average >= 80 and average < 90:
   grade = "B"
-elif average < 80 and average >=75:
+elif average >= 70 and average <80:
   grade = "B-"
-elif average <= 70 and average >= 60:
+elif average >= 60 and average < 70:
   grade = "C"
-elif average < 60 and average >= 50:
+elif average >= 50 and average < 60:
   grade = "D"
-elif average < 50 and average >= 40:
+elif average >= 40 and average < 50:
   grade = "E"
 elif average < 40:
   grade = "F"
 
 
+#this function below is to get the values for each new student, after the submit button has been pressed
+
+#student_dict will create a dictionary and the key will be your CSV column names while the values
+#will be the data gotten from the variables above
+
+#Next the student_df is to convert the student_dict into a dataframe
+
+#Next we concatenate (join) the old df with the student_df. Do NOT include the index position in the CSV file
+
 def add_student(name,maths,english,science,history,geography,total,average,grade,df):
+
   student_dict = {'Name':name,'Maths':maths,'English':english,"Science":science,
                   'History':history,'Geography':geography,'Total':total,'Average':average,
                   'Grade':grade}
-  
+  student_df = pd.DataFrame([student_dict])
+  df = pd.concat([df,student_df],ignore_index=True)
+  return df
+
+
+if st.button("Submit Student Scores"):
+  new_df= add_student(name,maths,english,science,history,geography,total,average,grade,df) #gets the function values
+  new_df.to_csv('score.csv',index=False) #overwrites the csv file with the new df (old df+ student_df)
+  st.success(f"{name}'s total score is {total}. The average is {average} and the grade is {grade}")

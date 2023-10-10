@@ -5,7 +5,13 @@ Things to do:
 
 
 
-
+#co-teacher Jeida will teach us the following:
+# set the page to be full width
+# the dataframe on full width
+# add total, avearge and grade to also appear on CSV file
+# collect students data, save as dictionary and convert to a dataframe
+# overwrite the CSV file and display it
+#In the end of the class, student should be able to add the name and the scores and it all appears in the CSV file
 
 
 
@@ -20,6 +26,7 @@ Savings App
 Create a python program for daily savings for a user, 
 add up all his savings from sunday to saturday
 
+1 chicken sot 5 dollars
 create a chicken app to ask users how many chicken they want to get
 show them the total amount
 
@@ -56,11 +63,45 @@ homework: find a csv file on google and read it using pandas, and display it wit
 #  -calculate the grade (A,B,C,D,E,F) using the average
 #  -update your csv file
 
+
 Create an employee database, that shows 
 the name of employee, date of employment (use st.date), salary, 
 gender, position/role, education level, contract status (full/part)
+-------------
+Test 1
+Employee database (40 marks):
+-Create a new menu page for 'employee file'
+in the page place a search text on the 3rd column
+
+Also Test 2 (60 marks):
+open a txt file named employee and write a complete algorithm for the employee database you have coded 
+
+IMPORTING MODULES:
+streamlit: this will be used to design the software page
+pandas
 
 
+MENU:
+This will be sued to navigate between ------
+
+Pages:
+registration page: use
+employees database
+employee file: use
+
+
+Regisrtaion page
+explain key functionalities
+Here i will create functionalities to get each employee data (name, etc)
+
+CSV file??
+reading, viewing 
+
+submit button:
+explain what this does and how it links to the database page
+
+
+---------------
 Create a simple furniture store that has categories of 
 home, office and school furnitures to get
 
