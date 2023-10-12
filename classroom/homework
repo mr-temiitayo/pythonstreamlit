@@ -1,3 +1,13 @@
+dataframe
+new_df = pd.DataFrame( {"Name": [name], "Position": [position], "Salary": [salary]})
+df = pd.concat([df, new_df], ignore_index=True)
+df.to_csv("employees_database.csv", index=False)
+
+
+check no case sensitivity
+user_exists = (user_df["Username"].str.lower() == username.lower()) & (user_df["Password"] == password)
+
+
 Things to do:
 -toggle autosave on
 -disable parameter in settings
