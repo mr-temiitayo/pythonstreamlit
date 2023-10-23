@@ -1,6 +1,6 @@
 """
 -Add a restaurant picture
--Create a restaurant app that shows them the food selections
+-Create a restaurant app that shows users the food selections
 -After they choose/select their meals, show them the total amount
 -Ask a question if you want to share the bill with others #use checkbox
 -if yes, then ask how many people want to share the bill
@@ -8,25 +8,17 @@
 """
 
 import streamlit as st
-
-st.set_page_config(layout='wide')
+st.set_page_config(layout='wide') #this makes your page full width
 
 bill = 0
+st.header("Pay N Eat Food Menu")
 
-st.title("Pay N Eat Restaurant")
+st.subheader("Meals Selection")
 
-st.image("https://cdn.pixabay.com/photo/2017/09/23/12/40/catering-2778755_1280.jpg")
-
-st.header('Meals')
-
-meal1,meal2,meal3,meal4 = st.columns(4)
+meal1,meal2,meal3,meal4 = st.columns(4) #creating 4 columns for meal category
 
 with meal1:
-    if st.checkbox('Rice & Chicken: $10'):
-        bill += 10
-        st.success('Added to menu')
-
-with meal2:
-    if st.checkbox('Pasta & Sauce: $8'):
-        bill +=8
-        st.success('Added to menu')
+    st.image("https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_1280.jpg")
+    if st.checkbox('Pasta & Salad: $12'):
+        bill+=12
+        st.write('Added')

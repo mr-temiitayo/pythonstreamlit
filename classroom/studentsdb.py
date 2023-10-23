@@ -14,18 +14,25 @@ import pandas as pd
 
 st.set_page_config(layout='wide')
 st.header('Student Scores Database')
+
+
 #Open a csv file
 df= pd.read_csv('scores.csv')
-st.dataframe(df)
+st.dataframe(df,use_container_width=True)
 
 name = st.text_input("Enter the student's name: ")
-maths = st.number_input("Enter the student's score for Maths: ",0,value=70,step=1)
-english = st.number_input("Enter the student's score for English: ",0,value=70,step=1)
-science = st.number_input("Enter the student's score for Science: ",0,value=70,step=1)
-history = st.number_input("Enter the student's score for History: ",0,value=70,step=1)
-geography = st.number_input("Enter the student's score for Geography: ",0,value=70,step=1)
+col1,col2=st.columns(2)
+with col1:
+  maths = st.number_input("Enter the student's score for Maths: ",0,value=70,step=1)
+  english = st.number_input("Enter the student's score for English: ",0,value=70,step=1)
+  science = st.number_input("Enter the student's score for Science: ",0,value=70,step=1)
+with col2:
+  
+  history = st.number_input("Enter the student's score for History: ",0,value=70,step=1)
+  geography = st.number_input("Enter the student's score for Geography: ",0,value=70,step=1)
 total = maths + english + science + history + geography
 average = total / 5
+
 
 if average <= 100 and average >= 95:
   grade = "A+"
@@ -44,19 +51,13 @@ elif average < 50 and average >= 40:
 elif average < 40:
   grade = "F"
 
-#here is the function to get all the data for each student
-def add_student(name,maths,english,science,history,geography,total,average,grade,df):
-  student_dict = {'Name':name,'Maths':maths,'English':english,'Science':science,
-                  'History':history,'Geography':geography,'Total':total,'Average':average,'Grade':grade}
-  student_df = pd.DataFrame([student_dict]) #convert student dict into a df with columns and data
-  df = pd.concat([df,student_df],ignore_index=True) #append, concatenate the new student df to the existiing df
-  return df
 
-
-if st.button("Submit Student Scores"):
-     df= add_student(name,maths,english,science,history,geography,total,average,grade,df)
-     df.to_csv('scores.csv',index=False)
-     st.success(f"{name}'s total score is {total}. The average is {average}. And the grade is {grade}")
-
-
-#Jeida
+with col2:
+  st.write('')
+  st.write('')
+  if st.button("Submit Student Scores"):
+    student_df = pd.DataFrame({'Name':[name],'Maths':[maths],'English':[english],'Science':[science],
+                    'History':[history],'Geography':[geography],'Total':[total],'Average':[average],'Grade':[grade]})
+    df = pd.concat([df,student_df],ignore_index=True)
+    df.to_csv('scores.csv',index=False)
+    st.success(f"{name}'s total score is {total}. The average is {average}. And the grade is {grade}")

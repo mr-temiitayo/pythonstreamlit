@@ -51,19 +51,15 @@ elif average >= 40 and average < 50:
 elif average < 40:
   grade = "F"
 
-#here is the function to get all the data for each student
-def add_student(name,maths,english,science,history,geography,total,average,grade,df):
-  student_dict = {'Name':name,'Maths':maths,'English':english,'Science':science,
-                  'History':history,'Geography':geography,'Total':total,'Average':average,'Grade':grade}
-  student_df = pd.DataFrame([student_dict]) #convert student dict into a df with columns and data
-  df = pd.concat([df,student_df],ignore_index=True) #append, concatenate the new student df to the existiing df
-  return df
-
 with col5:
   st.write('')
   st.write('')
   if st.button("Submit Student Scores"):
-      df= add_student(name,maths,english,science,history,geography,total,average,grade,df)
-      df.to_csv('scores.csv',index=False)
+      students_df= pd.DataFrame({'Name':[name],'Maths':[maths],'English':[english],'Science':[science],
+                  'History':[history],'Geography':[geography],'Total':[total],'Average':[average],'Grade':[grade]})
+      st.dataframe(students_df)
+      new_df=pd.concat([df,students_df],ignore_index=True)
+      new_df.to_csv('scores.csv',index=False)
       st.success(f"{name}'s total score is {total}. The average is {average}. And the grade is {grade}")
 
+#adjust hospital and employ

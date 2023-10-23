@@ -15,26 +15,9 @@ st.set_page_config(layout='wide')
 def code():
     zerostr = {'ID': str,"Home Phone": str,"Work Phone":str,"Postcode":str,"Mobile Phone":str}
  
-    #Load the employee CSV file as a dataframe
-    #patientsrecord = 'patientrecords.csv'
-    patientsrecord = 'patientrecords.csv'
-    df = pd.read_csv(patientsrecord,dtype=zerostr)
+    df = pd.read_csv('patientrecords.csv',dtype=zerostr)
 
     patient_id = "USER_" + str(len(df) + 1) #generate user id 
-
-
-    def new_patient(patient_id,selected_title,reg,firstname,lastname,dob,secondname,prefer,
-                    selected_gender,mobilephone,homephone,city,address,email,postcode,df): #func to process each patient data
-
-        patient_dict = {"Patient ID":patient_id,"Title":selected_title,"Registration":reg,"First Name":firstname,"Last Name":lastname,
-                        "Date of Birth":dob,"Second Name":secondname,"Prefer":prefer,
-                        "Gender":selected_gender,"Mobile Phone":mobilephone,"Home Phone":str(homephone),"City":city,
-                        "Address":address,"Email":email,"Postcode":str(postcode)} #create a dict for each student data
-        patient_df = pd.DataFrame([patient_dict]) #convert the dict to a df
-        df = pd.concat([df,patient_df], ignore_index = True) #append new df above to the exisiting df (df)
-        
-        return df
-
 
     menu= ['Register','Patient File','Patients Database','About'] #list for menu options
     choice = st.sidebar.selectbox('Menu',menu) #create list for menu options
@@ -85,12 +68,14 @@ def code():
                 address = st.text_input('Address')
                 email = st.text_input('Email')
                 postcode = st.text_input('Postcode')
+
             if st.form_submit_button('Register'):
-#                if all([selected_title,reg,firstname,lastname,dob,secondname,prefer,
-#            selected_gender,homephone,address,city,mobilephone,email,postcode]):
-                df = new_patient(patient_id,selected_title,reg,firstname,lastname,dob,secondname,prefer,
-        selected_gender,mobilephone,homephone,city,address,email,postcode,df)
-                df.to_csv(patientsrecord, index= False)
+                patients_df = pd.DataFrame({"Patient ID":[patient_id],"Title":[selected_title],"Registration":[reg],"First Name":[firstname],"Last Name":[lastname],
+                        "Date of Birth":[dob],"Second Name":[secondname],"Prefer":[prefer],
+                        "Gender":[selected_gender],"Mobile Phone":[mobilephone],"Home Phone":[str(homephone)],"City":[city],
+                        "Address":[address],"Email":[email],"Postcode":[str(postcode)]})
+                new_df = pd.concat([df,patients_df],ignore_index=False)
+                new_df.to_csv(df, index= False)
                 st.success('DONE')
                 # else:
                 #     st.error('Fill all boxes')
@@ -102,7 +87,9 @@ def code():
         with col5:
             st.title(":orange[Patient Records]")
         st.dataframe(df) # display df on streamlit 
-        with open(patientsrecord,'rb') as file: #open&read the contents as binary without any interpretation or modification
+        
+        #DOWNLOAD THE FILE
+        with open(df,'rb') as file:
             data = file.read() #read the content
         st.download_button(label='Download Patients Database CSV',data=data,file_name='Patients Database.csv')
 
@@ -121,9 +108,11 @@ def code():
                 if search:
                     # Filter the DataFrame based on the search query
                     search_result = df[df['Patient ID'].str.contains(usersearch, case=False)]
+                    
                     if not search_result.empty:
                         # Access specific values without converting to lists
                         getfirstname = search_result['First Name'].iloc[0]
+                        
                         getlastname = search_result['Last Name'].iloc[0]
                         getgender = search_result['Gender'].iloc[0]
                         getdob = search_result['Date of Birth'].iloc[0]

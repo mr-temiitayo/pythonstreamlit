@@ -7,6 +7,28 @@ df.to_csv("employees_database.csv", index=False)
 check no case sensitivity
 user_exists = (user_df["Username"].str.lower() == username.lower()) & (user_df["Password"] == password)
 
+------------------------------------------------------------------------------
+projects:
+login/register done
+notebook done
+school portal
+https://preschool.dreamguystech.com/template/teacher-dashboard.html
+
+loan app
+https://www.youtube.com/watch?v=Gi1-jEqbKbw
+
+send mail
+enable 2fa
+app password: create password
+githubtee@gmail.com
+cczaelfrzzyywngz
+
+bibleapp done
+timezone
+recipe
+
+
+------------------------------------------------------------------
 
 Things to do:
 -toggle autosave on

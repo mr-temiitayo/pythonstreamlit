@@ -34,7 +34,7 @@ if menu == 'Registration':
     with row1:
         firstname = st.text_input("Enter in your firstname")
         email = st.text_input("Enter in your email")
-        education = st.selectbox("Education level",["Masters","Bacherlors","OND","HND"])
+        education = st.selectbox("Education level",["Masters","Bachelors","OND","HND"])
         dept = st.selectbox("Department",["Department","Manegment","Acounting Dept","Engineering Dept","HumanResources Dept","Security","Medical Dept","Transportation"]) #dropdown
         date = st.date_input('Enter the Employment date')
 

@@ -7,7 +7,6 @@
 # What is a CSV file?
 # A CSV file is a text file that each data is seperated by a comma (comma seperated values)
 
-
 import streamlit as st
 import pandas as pd #pandas help to open, read, and display CSV files as a table (dataframe)
 
@@ -51,20 +50,6 @@ if average >=50 and average <=59:
 if average <50:
     grade = "F"
 
-#1this function will get the data for each new student
-#2dictionary will be used to get the CSV columns names and assign it to it's variable
-#Name,Maths,English,Science,Media,Total,Average,Grade
-#3 next, we convert the dictionary now to a dataframe
-#4 next is concatenation. Append/concatenate the new student_df to the exisiting df
-#5 next is to return new_df (when you call the function, runs the new_df)
-def new_student(inputname,engscore,matscore,sciscore,totalscore,average,grade,medscore,df):
-    student_dict = {'Name':inputname,'Maths':matscore,'English':engscore,'Science':sciscore,
-                    'Media':medscore,'Total':totalscore,'Average':average,'Grade':grade}
-    student_df = pd.DataFrame([student_dict])
-    new_df = pd.concat([df,student_df],ignore_index = True)
-    return new_df
-
-if st.button ("Submit student score"):
+if st.button ("Submit Student score"):
     st.write(inputname,"your total score is",totalscore,"your average is",average,"and your grade is", grade)
-    new_df = new_student(inputname,engscore,matscore,sciscore,totalscore,average,grade,medscore,df)
-    new_df.to_csv('scores.csv',index=False)
+

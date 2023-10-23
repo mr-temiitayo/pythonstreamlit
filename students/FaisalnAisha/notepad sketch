@@ -1,0 +1,22 @@
+if baby is crying -condition
+    attend to baby -decision
+
+else -condition
+    do nothing -decision
+
+
+
+example 2
+if rain is falling: -condition  must be
+    get an umbrella - decision -indentation
+
+else -condition
+    you do not need an umbrella
+
+example 3
+
+if the alarm rings: -condition
+    wake up to start your class -decision
+
+else: condition
+    -you can sleep some more -decision

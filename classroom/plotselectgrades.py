@@ -19,7 +19,7 @@ st.write('')
 chart1,chart2,chart3 = st.columns([1,1,2])
 # Use the multiselect widget to select the Scores to draw
 with chart1:
-    selectedY = st.multiselect('**Select Grades To Plot**', Ycolumns) #, default=['Male']
+    selectedY = st.selectbox('**Select Grades To Plot**', Ycolumns) #, default=['Male']
 
 with chart2:
     selectedX = st.radio('**Select Categories to plot**',Xcolumns,horizontal = True)

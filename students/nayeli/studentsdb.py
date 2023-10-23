@@ -45,26 +45,17 @@ elif average < 40:
   grade = "F"
 
 
-#this function below is to get the values for each new student, after the submit button has been pressed
-
-#student_dict will create a dictionary and the key will be your CSV column names while the values
-#will be the data gotten from the variables above
-
-#Next the student_df is to convert the student_dict into a dataframe
+#The student_df will create a dictionary and convert immediately to a dataframe
 
 #Next we concatenate (join) the old df with the student_df. Do NOT include the index position in the CSV file
 
-def add_student(name,maths,english,science,history,geography,total,average,grade,df):
-
-  student_dict = {'Name':name,'Maths':maths,'English':english,"Science":science,
-                  'History':history,'Geography':geography,'Total':total,'Average':average,
-                  'Grade':grade}
-  student_df = pd.DataFrame([student_dict])
-  df = pd.concat([df,student_df],ignore_index=True)
-  return df
-
+#Finally write the the new df in the csv file
 
 if st.button("Submit Student Scores"):
-  new_df= add_student(name,maths,english,science,history,geography,total,average,grade,df) #gets the function values
-  new_df.to_csv('score.csv',index=False) #overwrites the csv file with the new df (old df+ student_df)
+  students_df = pd.DataFrame({'Name':[name],'Maths':[maths],'English':[english],"Science":[science],
+                  'History':[history],'Geography':[geography],'Total':[total],'Average':[average],
+                  'Grade':[grade]})
+  new_df = pd.concat([df,students_df])
+  new_df.to_csv('score.csv',index=False)
+
   st.success(f"{name}'s total score is {total}. The average is {average} and the grade is {grade}")

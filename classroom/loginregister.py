@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import os
 
 # Initialize a CSV file to store user data
 user_data_file = "user_data.csv"
@@ -27,7 +26,7 @@ if page == "Register":
             new_user = pd.DataFrame({"Username": [username], "Password": [password]})
             user_df = pd.concat([user_df, new_user], ignore_index=True)
             user_df.to_csv(user_data_file, index=False)
-            st.sidebar.success("Registration successful. You can now log in.")
+            st.sidebar.success("Registration successful. You can log in.")
         else:
             st.sidebar.error("Please enter a username and password.")
 
@@ -41,8 +40,6 @@ elif page == "Login":
         user_exists = (user_df["Username"].str.lower() == username.lower()) & (user_df["Password"] == password)
         if user_exists.any():
             st.sidebar.success("Login successful. You have access.")
-
-            # Show a notepad after successful login
             st.title("You are now logged in")
 
         else:
@@ -52,4 +49,4 @@ elif page == "View Users":
     if not user_df.empty:
         st.dataframe(user_df, use_container_width=True)
     else:
-        st.sidebar.info("No users registered yet.")
+        st.error("No users registered yet.")

@@ -22,10 +22,3 @@ print("A litre of fuel cost $20")
 quantity = input("How many litres do you want: ") #string
 total = litre*int(quantity)
 print("The total cost for",litre,'litres is',total,'dollars')
-
-#int to str
-#str to int
-# float to str
-# str to float
-# bool to str
-# str to bool
