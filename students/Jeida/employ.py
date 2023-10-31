@@ -15,7 +15,7 @@ if choice == 'Staff Database':
 
 
 if choice == 'Register Staff':
- st.subheader("Employee's Name")
+ st.subheader("Register Here")
  fn,ln = st.columns(2)
  with fn:
      name = st.text_input("First Name: ")
@@ -53,7 +53,7 @@ if choice == 'Register Staff':
  
  df= pd.read_csv('employee.csv')
 
- if st.button("Submit Employee Survey"):
+ if st.button("Submit Employee Data"):
      if (user_id and name and name2 and date and salary and gender and mail and department and jobttle and edulevel and timespent):
 
              employees_df = pd.DataFrame({'User ID':[user_id],'First Name':[name],'Last Name':[name2],'Date of Employment':[date],'Salary':[salary],'Gender':[gender],'Mail Address':[mail],'Department':[department],

@@ -44,10 +44,14 @@ elif avg <= 3:
 
 # Name,Maths,English,Humanities,Science,Art,Total,Average,Grade
 if st.button("Submit student scores"):
-    student_database = pd.DataFrame({'Name':[name],'Maths':[math],'English':[english],
-                                     'Humanities':[hum],'Science':[science],'Art':[art],'Total':[total],'Average':[avg],'Grade':[grade]})
-    #i created a dictionary of csv columns:python variable, then converted it to a dataframe (table)
+    student_dict = {'Name':[name],'Maths':[math],'English':[english],
+                                     'Humanities':[hum],'Science':[science],'Art':[art],'Total':[total],'Average':[avg],'Grade':[grade]}
+    student_database = pd.DataFrame(student_dict)
+    #i created a dictionary of csv columns:python variable, 
+    # then converted it to a dataframe (table)
     # st.dataframe(student_database)
     new_database = pd.concat([database,student_database],ignore_index=True) #Join the old database with the new one (student_database)
     new_database.to_csv('scores.csv',index=False) #write/save the new_database to a csv file
     st.success(f"{name} total score is {total}. {name}'s average is {avg}, {name}'s final grade is {grade}")
+
+    

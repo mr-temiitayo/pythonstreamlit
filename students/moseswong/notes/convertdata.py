@@ -1,5 +1,11 @@
 # Learn how to convert data from one type to another
 
+#remember the types of data
+# int
+# float
+# str
+# bool
+
 score = 90 #data type integer
 
 print(score)
@@ -58,7 +64,7 @@ height = 9.7
 
 weight = "75.9"
 
-weight2 = int(weight) #integer
+weight2 = float(weight) #integer
 
 reject = False
 
@@ -74,4 +80,8 @@ weight = 170.989687967567
 
 date = 2023.8
 
-average = 75
+
+
+average = float(75)
+
+print(average)

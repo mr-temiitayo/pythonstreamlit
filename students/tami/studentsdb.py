@@ -1,5 +1,5 @@
 import streamlit as st
-import pandas as pd #used to read CSV and display as table
+import pandas as pd #used to read CSV and display as dataframe (table)
 
 st.set_page_config(layout="wide")
 st.header("Student's Grades Database")
@@ -66,13 +66,10 @@ sub1,sub2 = st.columns(2)
 with sub1:
     if st.button("Submit student scores"):
         st.success(f"{name} your Total score is: {totalscore}, Average score is: {averagescore}, your Grade is: {grade}")
-        
-        
-
-
-
-
-
-
+        student_database = pd.DataFrame({'Name':[name],'Maths':[mathscore],'English':[englishscore],'Science':[sciencescore],
+                                 'History':[historyscore],'Total':[totalscore],'Average':[averagescore],'Grade':[grade]})
+        st.dataframe(student_database)
+        new_database = pd.concat([db,student_database],ignore_index=True) #join the old db to the student database
+        new_database.to_csv('scores.csv',index=False) #write the new new database (concat) in the file
 
 

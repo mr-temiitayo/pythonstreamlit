@@ -45,13 +45,21 @@ Things to do:
 # overwrite the CSV file and display it
 #In the end of the class, student should be able to add the name and the scores and it all appears in the CSV file
 
-
+filter link
+https://youtu.be/BtiVbY7lhqw?si=nPp_UreLjeBln-un&t=236
 
 img = Image.open(r'C:/Users/USER/Desktop/streamlipython/pythonstreamlit/media/Golfcart Robot.jpg')
 
 r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
 
 Create an age calculator app
+
+Test:
+test1 
+create a dictionary with 5 attributes and display it on streamlit
+
+test2
+convert the dictionary into a dataframe and display it on streamlit
 
 
 Savings App
