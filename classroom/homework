@@ -1,12 +1,21 @@
+-----------------------------------
 dataframe
 new_df = pd.DataFrame( {"Name": [name], "Position": [position], "Salary": [salary]})
 df = pd.concat([df, new_df], ignore_index=True)
 df.to_csv("employees_database.csv", index=False)
 
-
+-----------------------------------
 check no case sensitivity
 user_exists = (user_df["Username"].str.lower() == username.lower()) & (user_df["Password"] == password)
 
+
+filter link
+https://youtu.be/BtiVbY7lhqw?si=nPp_UreLjeBln-un&t=236
+
+img = Image.open(r'C:/Users/USER/Desktop/streamlipython/pythonstreamlit/media/Golfcart Robot.jpg')
+
+r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+-----------------------------------
 ------------------------------------------------------------------------------
 projects:
 login/register done
@@ -27,6 +36,44 @@ bibleapp done
 timezone
 recipe
 
+project
+2 sidebar options: Save Now, View Savings
+
+Save Now
+-New week Date - To choose new start date of the week st.date_input(‘Enter the first date”)
+-Monday savings- Enter monday savings (use 2 columns for 2 days)
+Continue all the way to sunday
+Use a submit button to save into csv file
+
+CSV file
+Days | Amount | Total Saved 
+
+
+View Savings (database )
+This shows everything in the CSV file
+
+
+Test:
+Create a simple python program that
+-create a menu for student details and students database
+-Ask for student name on the left column and their age on the right column
+-create a submit button
+- save this in a csv file
+show the dataframe in database page 
+
+
+write a python program for students age 
+Ask them for their name
+ask them for their age
+If they are between 0-4 they should be in Reception class
+If they are between 5-11 they should be in elementary school
+if they are between 12-19 they should be in college
+
+write a python program for students age 
+Ask them for their name
+ask them for their age
+If they are younger than 12 should be in elementary school
+if they are older than 11 they should be in college
 
 ------------------------------------------------------------------
 
@@ -45,14 +92,8 @@ Things to do:
 # overwrite the CSV file and display it
 #In the end of the class, student should be able to add the name and the scores and it all appears in the CSV file
 
-filter link
-https://youtu.be/BtiVbY7lhqw?si=nPp_UreLjeBln-un&t=236
+------------------------------------------------------------------
 
-img = Image.open(r'C:/Users/USER/Desktop/streamlipython/pythonstreamlit/media/Golfcart Robot.jpg')
-
-r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
-
-Create an age calculator app
 
 Test:
 test1 
@@ -60,6 +101,7 @@ create a dictionary with 5 attributes and display it on streamlit
 
 test2
 convert the dictionary into a dataframe and display it on streamlit
+------------------------
 
 
 Savings App
@@ -182,8 +224,9 @@ fig = px.bar(df, x=selectedX, y=selectedY, orientation='v', color=selectedX, col
 '''
 
 Test:
-Create a simple and short web page that
+Create a simple python program that
+-create a menu for student details and students database
 -Ask for student name on the left column and their age on the right column
--create a button
+-create a submit button
 - save this in a csv file
-show it on top of the page (dont create a new page)
+show the dataframe in database page 

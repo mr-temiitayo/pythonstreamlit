@@ -1,0 +1,61 @@
+EMPLOYEE TEST 1 (60 MARKS)
+What is the purpose of this Streamlit application? Describe its main functionalities.
+
+
+Which libraries are imported at the beginning of the code, and what are their roles?
+
+
+How is the menu structured in this application, and what options are available to the user?
+
+
+What type of data is loaded from the 'employee.csv' file, and how is it represented in the code?
+
+
+What is the significance of the 'user_id' variable in the code?
+
+
+In the 'Register Staff' section, what user inputs are collected, and how are they processed?
+
+
+Which departments and job titles are available for selection when registering a new staff member?
+
+
+What is the purpose of the 'Contract Status' selection, and how does it affect the staff member's employment status?
+
+
+Explain how the employee's data is saved when the "Submit Employee Data" button is clicked.
+
+
+What happens if any of the required fields for registering a staff member are left blank?
+
+
+In the 'Staff File' section, how can an employee's details be found, and what input is required?
+
+
+Describe what happens when the "Find Employee" button is pressed.
+
+
+When an employee's details are found, what information is displayed on the page?
+
+
+How is the employee's full name displayed in the application, and what elements are used to format it?
+
+
+What details about the employee's personal information are displayed, and how are they formatted?
+
+
+What job-related information is shown for the employee, and how is it organized on the page?
+
+
+Explain how the salary is displayed and formatted in the Streamlit application.
+
+
+How is the code ensuring that the user inputs for email, gender, and other details are correctly processed and displayed?
+
+
+What happens if an invalid employee ID is entered, or if no employee is found with the specified ID?
+
+
+In the 'Register Staff' section, if you wanted to add more options for 'Department' and 'Job Title', how would you do it?
+
+

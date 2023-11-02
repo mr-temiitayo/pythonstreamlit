@@ -142,6 +142,3 @@ if choice == 'Staff File':
                  st.write("**Salary**")
                  st.write(f'#{getsal:,}')
 
-
-
-
