@@ -230,3 +230,29 @@ Create a simple python program that
 -create a submit button
 - save this in a csv file
 show the dataframe in database page 
+
+
+Homework
+Create a simple python program that
+-create a menu for student details
+-Ask for student name on the left column and their age on the right column
+-create a submit button
+-show their name and age after submit button is clicked
+
+
+Create a menu for Registration and Database
+Design a blood donation database that can get donor input
+-Name of donor -Contact Number (use text)
+-Blood group A, B, AB, O(use radio or selectbox) -Disease/Infection (use radio or selectbox)
+
+-Submit donor details
+
+Next, save these in a csv file and show the database in a Database page in the menu
+
+
+
+School management System project in PHP Design a database to maintain information about school staff(staff management system in ms access) and students satisfying following properties: 
+1.     Staff will have their id, name, and classes they are teaching 
+2.     Student will be having name, roll no, section, class 
+3.     Another table containing section, subject and teacher information 
+4.     Next will contain fee information for students 5.     One contains salary information for teachers 6.     Rooms are assigned to classes keeping in mind that there is no time clash of same room or lab, students can not be entered in more than one section,  no student should be there who have not paid fees up to a particular date.

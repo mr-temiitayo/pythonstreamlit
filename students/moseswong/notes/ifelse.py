@@ -11,7 +11,7 @@
 
 # example 2
 # if student is in class (condition True)
-#     start teaching
+#     teacher should start teaching
 
 # else (no student in class)
 # do not teach yet

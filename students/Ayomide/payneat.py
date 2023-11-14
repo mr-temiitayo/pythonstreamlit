@@ -28,3 +28,18 @@ with food2:
     if st.checkbox('Pasta & Sauce: $8'):
         bill +=8
         st.success('Added to Menu')
+
+st.subheader('Food Menu')
+
+food1,food2,food3,food4 = st.columns(4)
+
+with food1:
+    if st.checkbox('Rice & Chicken: $10'):
+        bill +=10
+        st.success('Added to Menu')
+
+with food2:
+    if st.checkbox('Pasta & Sauce: $8'):
+        bill +=8
+        st.success('Added to Menu')
+        

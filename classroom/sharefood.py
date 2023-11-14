@@ -255,7 +255,7 @@ with Pizza3:
 
 
 if st.button("Show the bill"):
-  st.write("Your total is",total,"dollars")
+  st.subheader(f"Your total is {total} dollars")
 
 
 if st.checkbox("Click to share your bill with others"):

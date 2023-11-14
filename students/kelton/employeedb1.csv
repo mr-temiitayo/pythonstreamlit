@@ -1,2 +1,4 @@
 User ID,Firstname,Lastname,email,gender,education level,salary,department,job title,employment date,employee status,Registration
-USER1,Dickson,Wong,dickson@yahoo.com,Male,Masters,79994,Security,Entry,2023-10-14,Part time,2023-10-14
+User1,Dickson,Wong,dickson@yahoo.com,Male,Masters,79994,Security,Entry,2023-10-14,Part time,2023-10-14
+User2,Tee,Jason,tee@yahoo.com,Male,Masters,600000,Security,Entry,2023-11-11,Part time,2023-11-11
+User3,Kelton,Jackson,kelton@gmail.com,Male,OND,9000000,Security,Vice chief,2023-11-08,Full time,2023-11-11
