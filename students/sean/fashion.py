@@ -8,7 +8,8 @@ Women's Fashion
 
 Children's Fashion
 
-(each category must havedifferent types of unique items and the prices like shirts(long sleeves,short, round nexk, polo etc), boxers, trousers, shoes, bags etc)
+(each category must havedifferent types of unique items and the prices 
+like shirts(long sleeves,short, round nexk, polo etc), boxers, trousers, shoes, bags etc)
 
 Show the total bill
 """  

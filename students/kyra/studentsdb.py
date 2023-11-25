@@ -39,17 +39,21 @@ average = totalscore /4
 
 if average >=90:
     grade ='A+'
-if average >=80 and average <89:
+elif average >=80 and average <89:
     grade = "A"
-if average >=70 and average <79:
+elif average >=70 and average <79:
     grade = "B"
-if average >=60 and average <=69:
+elif average >=60 and average <=69:
     grade = "C"
-if average >=50 and average <=59:
+elif average >=50 and average <=59:
     grade = "D"
-if average <50:
+elif average <50:
     grade = "F"
 
-if st.button ("Submit Student score"):
-    st.write(inputname,"your total score is",totalscore,"your average is",average,"and your grade is", grade)
+but1,but2 = st.columns(2)
+
+with but1:
+    if st.button ("Submit Student score"):
+        st.success(f'{inputname} your total score is {totalscore} your average is {average} and your grade is {grade}')
+        # f-string is used to print all data in variables as a string.All variables must be in a curly/dict brackets
 

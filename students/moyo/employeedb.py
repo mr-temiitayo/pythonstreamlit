@@ -18,6 +18,17 @@ df = pd.read_csv("employee_db.csv")
 
 employee_id = 'USER' + str(len(df) +1)
 
+def login():
+    global correctpassword,password,login
+    correctpassword = '12345Moyo'
+
+    pass1,pass2 = st.sidebar.columns(2)
+
+    with pass1:
+        password = st.sidebar.text_input("Enter Admin Password",type='password')
+        login = st.sidebar.button("Login")
+
+
 
 def new_employee(employee_id,firstname,lastname,email,education,dept,date,gender,salary,job,emp_status,df):
     employee_dict = {"Employee ID":employee_id,"Lastname" : lastname,"Email": email,"Education":education,"Dept":dept,"Registrationdate": date,"Gender" : gender,"Salary" :salary,"Job" : job,"Employee" : emp_status,"Firstname":firstname}
@@ -63,33 +74,40 @@ if menu == 'Registration':
 
 
 if menu == 'Database':
-    st.title('Employee Database')
-
-
-    st.dataframe(df,use_container_width=True)
+    login()
+    if login:
+        if password:
+            if password == correctpassword:
+                 st.title('Employee Database')
+                 st.dataframe(df,use_container_width=True)
  
 
 if menu == 'Employee File':
-    col1,col2,col3 = st.columns([2,2,1])
-    with col3:
-        employeesearch = st.text_input("Enter Employee",label_visibility='collapsed',placeholder='Enter Employee ID')
-        search = st.button('Search Employee')
-        if search:
-            if employeesearch:
-                search_result = df[df['Employee ID']== employeesearch] 
-                #the above is a new df that has been filtered to show only the row in employee ID that contains employeesearch
-                st.dataframe(search_result)
-                getfirstname = search_result['Firstname'].iloc[0]
-               
-                
+    login()
+    if login:
+        if password:
+            if password == correctpassword:
 
-            else:
-                st.write("Enter an Employee ID")
-        
-        #let's start the design page
-        if search: 
-            if employeesearch:
-                st.write(getfirstname)
+                col1,col2,col3 = st.columns([2,2,1])
+                with col3:
+                    employeesearch = st.text_input("Enter Employee",label_visibility='collapsed',placeholder='Enter Employee ID')
+                    search = st.button('Search Employee')
+                    if search:
+                        if employeesearch:
+                            search_result = df[df['Employee ID']== employeesearch] 
+                            #the above is a new df that has been filtered to show only the row in employee ID that contains employeesearch
+                            st.dataframe(search_result)
+                            getfirstname = search_result['Firstname'].iloc[0]
+                        
+                            
+
+                        else:
+                            st.write("Enter an Employee ID")
+                    
+                    #let's start the design page
+                    if search: 
+                        if employeesearch:
+                            st.write(getfirstname)
 
 
 

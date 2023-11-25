@@ -57,12 +57,3 @@ print(name,gender,age,city,code) #separate variables with a comma
 
 
 
-class = 
-classs = 
-Class = 
-
-if = 
-
-If = 
-
-iff =

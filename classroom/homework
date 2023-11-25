@@ -105,9 +105,10 @@ convert the dictionary into a dataframe and display it on streamlit
 
 
 Savings App
-Create a python program for daily savings for a user, 
-add up all his savings from sunday to saturday
-
+Create a python program to ask how much a user wants to save on Monday, Tuesday, up to sunday  
+Add up all his savings
+Show him the total savings for the week
+-------------------------------------
 1 chicken sot 5 dollars
 create a chicken app to ask users how many chicken they want to get
 show them the total amount
@@ -256,3 +257,38 @@ School management System project in PHP Design a database to maintain informatio
 2.     Student will be having name, roll no, section, class 
 3.     Another table containing section, subject and teacher information 
 4.     Next will contain fee information for students 5.     One contains salary information for teachers 6.     Rooms are assigned to classes keeping in mind that there is no time clash of same room or lab, students can not be entered in more than one section,  no student should be there who have not paid fees up to a particular date.
+
+
+simple test
+
+write a program for a use
+-ask for the name and -age - use a radio to ask for gender
+-use a selectbox to ask to choose best color - use a type to ask best game
+-use a type to ask to type best movie - use a type to ask best friend
+create a submit button and show this in a success bar
+Jeida (F), your best game is: Minecraft, Color: Blue, Movie: Spiderman, Friend: Tofe
+
+
+
+Restaurant update test
+Create a csv file with a database that 
+when you click the show bill button, it saves the user total bill 
+
+
+
+
+
+#create a simple church age range database
+#This will get the name, age, gender of the church memeber
+#save this in a database and display on a new page (this page MUST have a login feature)
+#Group members in differnt category based on their age 
+# (Kids(3- 12), Teens, Youth(13-19), Adult(20-64), Elders(65+) )
+
+
+-what is a list in python?
+-create 3 examples of a list and display them
+
+
+-create a dictionary of 5 cars and their country
+-then convert this dictionary into a dataframe
+no csv file is needed

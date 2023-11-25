@@ -43,6 +43,14 @@ menu = st.sidebar.selectbox("Menu items",['Home','About','Teachers'])
 gender = st.radio('Select your gender',['Male','Female'])
 
 #classwork
-#1 what is a list?
-#2 give an examoke of a list and display it on streamlit
-#3 give 3 ways of using a list in streamlit and let us the function of each method you use
+# -what is a list in python?
+# -create 3 examples of a list
+# -display all items in the 3 lists
+# -display only the first item in the 3 lists
+
+
+#A list is used to store multiple data in one variable
+
+games = ['FIFA23','Roblox','Minecraft','Basketball']
+st.write(games)
+st.write(games[0])

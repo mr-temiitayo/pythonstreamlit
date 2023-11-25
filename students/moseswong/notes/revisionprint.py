@@ -40,3 +40,10 @@ print(name,"is studying",course)
 #variableclasswork 
 #create 3 variables and data. Display them with some texts
 
+name = 'Temi'
+
+age = '10'
+
+color = 'rose gold'
+
+print("My name is",name,'I am',age,'and love',color)
