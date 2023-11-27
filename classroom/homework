@@ -72,6 +72,7 @@ if they are between 12-19 they should be in college
 write a python program for students age 
 Ask them for their name
 ask them for their age
+ask for the sport they want to join
 If they are younger than 12 should be in elementary school
 if they are older than 11 they should be in college
 
