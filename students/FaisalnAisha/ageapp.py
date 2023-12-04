@@ -19,3 +19,7 @@ checkage = st.button("Check my age")
 
 if checkage:
     st.write(name,'you will be',age,'in',currentyear)
+
+s = [1,2,3,4]
+
+s.

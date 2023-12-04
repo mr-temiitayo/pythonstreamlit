@@ -1,6 +1,7 @@
-# A boy went to the supermarket to get a list of items, ask the user for the 5 items he wants to get
-# Put the items in the customer’s list
-# Display the customer’s list
+# A boy went to the supermarket to get a list of items, 
+# use ONLY one text box to ask the user for the 5 items he wants to get each time 
+# Put each item entered/submitted in the customer’s list
+# Display all items in the customer’s list
 
 import streamlit as st
 st.title('Welcome to the Mart')
@@ -23,3 +24,4 @@ if select:
     items_text = ", ".join(st.session_state.itemslist) 
     st.write("Customer's List:")
     st.write(items_text)
+

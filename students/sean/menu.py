@@ -8,8 +8,7 @@ menu = st.sidebar.selectbox('Menu',['Furnitures','About Us']) #name of menu, men
 
 if menu == 'Furnitures':
     st.header(':orange[Welcome To The Furniture Store]')
-
-
+    
 
 if menu == 'About Us':
     st.header('This Is About Us')
