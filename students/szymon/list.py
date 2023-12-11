@@ -45,5 +45,6 @@ game = st.radio('Select your game',['Minecraft','Roblox'],horizontal=True)
 # classwork:
 # create a list.py file
 # -tell us what a list is in python
-# -create an example of a list and display it in python
-# -give 3 examples of how to use a list in streamlit
+# -create an example of a list and display all the list items in python
+# -give 3 examples of how to use a list in streamlit (radio, selectbox, sidebar)
+

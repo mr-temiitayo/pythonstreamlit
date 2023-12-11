@@ -302,8 +302,11 @@ save all information in a csv file
 
 
 
--what is a list in python?
--create 3 examples of a list and display them
+# classwork:
+# create a list.py file
+# -tell us what a list is in python
+# -create an example of a list and display all the list items in python
+# -give 3 examples of how to use a list in streamlit (radio, selectbox, sidebar)
 
 
 -create a dictionary of 5 cars and their country
@@ -325,9 +328,30 @@ CLASS ASSESSMENT
 and convert it to a dataframe/table
 
 
-#Szymon should read a createa a loginfile.py
+#Jeida should create a a loginfile.py
+#make sure the correct password is saved in a CSV file
 #show a database when a user login
-#make sure you save the password in a CSV file
+
 
 
 create a variable that you can use a button to add 1 to increase it
+
+
+
+#create a register and login side bar to allow many people to register (username, password)
+#then ask them to login checking if their credentials are correct.
+#display their name and middle name after a succesful login
+
+
+#guess the number game. addd a restart button
+
+
+
+#create a new python program
+#create a csvfile and display is using streamlit
+#Ask user for their best game and best movie using two columns
+
+
+Homework:
+Create a python program to ask the user to enter 2 numbers
+Then create a dictionary to show the numbers the user entered, show the addition and the multiplication of the numbers also in the dictionary
