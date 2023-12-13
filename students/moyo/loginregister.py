@@ -20,4 +20,4 @@ if menu == 'Login':
 
 #create a register and login side bar to allow many people to register (username, password)
 #then ask them to login checking if their credentials are correct.
-#display their name and middle name after a succesful login
+#display their name after a succesful login
