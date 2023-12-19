@@ -18,9 +18,9 @@ if upload_csv:
 
     if st.button("Save Edited CSV"):    
         st.success("Edited CSV File Saved")
-        new_csvname = f'{upload_csv.name}'
-        saved_csv = edit_csv.to_csv(new_csvname,index=False)
+        saved_csv = edit_csv.to_csv(upload_csv.name,index=False)
 
 #what if you want to edit and save a copy, not overwrite the original data??
+# new_csvname = f'{upload_csv.name}'
 
 

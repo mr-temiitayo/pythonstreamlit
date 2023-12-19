@@ -89,7 +89,7 @@ def code():
         st.dataframe(df) # display df on streamlit 
         
         #DOWNLOAD THE FILE
-        with open(df,'rb') as file:
+        with open('patientrecords.csv','rb') as file:
             data = file.read() #read the content
         st.download_button(label='Download Patients Database CSV',data=data,file_name='Patients Database.csv')
 

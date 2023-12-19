@@ -236,7 +236,6 @@ show the dataframe in database page
 
 Homework
 Create a simple python program that
--create a menu for student details
 -Ask for student name on the left column and their age on the right column
 -create a submit button
 -show their name and age after submit button is clicked
@@ -358,3 +357,9 @@ Then create a dictionary to show the numbers the user entered, show the addition
 
 
 
+Test 30mins
+Create a simple store python program that
+-Ask for customer name on the left column and their email on the right column
+next create a text input to ask 
+-create a submit button
+-show their name and age after submit button is clicked

@@ -13,7 +13,7 @@ if 'number' not in st.session_state:
     st.session_state.number = 0
 
 
-number = st.number_input("Enter a number here",key='number',value=0)
+number = st.number_input("Enter a number here",key='number')
 
 st.write(st.session_state.number )
 

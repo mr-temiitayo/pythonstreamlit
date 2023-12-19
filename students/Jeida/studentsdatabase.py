@@ -18,18 +18,18 @@ with col2:
   st.header(':orange[Student Grades Database]')
 #Open a csv file
 df= pd.read_csv('scores.csv')
-st.dataframe(df,use_container_width=True)
+# st.dataframe(df,use_container_width=True)
 
 
 name = st.text_input("Enter the student's name: ")
 col4,col5 = st.columns(2)
 with col4:
-  maths = st.number_input("Enter the student's score for Maths: ",0,value=70,step=1)
-  english = st.number_input("Enter the student's score for English: ",0,value=70,step=1)
-  geography = st.number_input("Enter the student's score for Geography: ",0,value=70,step=1)
+  maths = st.number_input("Enter the student's score for Maths: ",0,100,value=50)
+  english = st.number_input("Enter the student's score for English: ",0,100,value=50)
+  geography = st.number_input("Enter the student's score for Geography: ",0,100,value=50)
 with col5:
-  science = st.number_input("Enter the student's score for Science: ",0,value=70,step=1)
-  history = st.number_input("Enter the student's score for History: ",0,value=70,step=1)
+  science = st.number_input("Enter the student's score for Science: ",0,100,value=50)
+  history = st.number_input("Enter the student's score for History: ",0,100,value=50)
 
 total = maths + english + science + history + geography
 average = total / 5
@@ -51,15 +51,17 @@ elif average >= 40 and average < 50:
 elif average < 40:
   grade = "F"
 
+show1,show2 = st.columns(2)
 with col5:
   st.write('')
   st.write('')
   if st.button("Submit Student Scores"):
       students_df= pd.DataFrame({'Name':[name],'Maths':[maths],'English':[english],'Science':[science],
                   'History':[history],'Geography':[geography],'Total':[total],'Average':[average],'Grade':[grade]})
-      st.dataframe(students_df)
+  
       new_df=pd.concat([df,students_df],ignore_index=True)
       new_df.to_csv('scores.csv',index=False)
-      st.success(f"{name}'s total score is {total}. The average is {average}. And the grade is {grade}")
+      with show1:
+        st.success(f"{name}'s total score is {total}. The average is {average}. And the grade is {grade}")
 
 #adjust hospital and employ
