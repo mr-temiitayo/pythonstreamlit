@@ -13,3 +13,7 @@ df = pd.read_csv('grades.csv') #pd will help me read the csv file
 st.dataframe(df) #show the dataframe
 
 # classwork: create a csv file named scores.csv and read it using pandas, and display it with streamlit
+
+#HOMEWORK: WHY DID JESUS HAVE TO DIE FOR MY SINS? WHO TOLD HIM TO DIE? HE GAVE HIM THAT PUNISHMENT TO DO SO? WHY??
+#WHAT NEXT? WHAT DOES THAT DO TO ME OR MAKE ME? IF HE TRULY DID THAT, WHAT SHOULD I DO WITH THAT?
+

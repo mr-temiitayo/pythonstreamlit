@@ -21,3 +21,10 @@ st.info("Info: Blue bar")
 name = st.text_input("Enter your name here")
 
 score = st.number_input("Enter your number here")
+
+if st.button("Check your score"):
+    st.write('Your score is 10')
+
+
+# revision test:
+# A gas per litre is sold for 25 dollars. Ask the user how many litres to buy and calculate the total cost
