@@ -18,7 +18,7 @@ st.header("Student's Scores Database")
 
 
 df = pd.read_csv('scores.csv') # here pandas will read the csv file  
-st.dataframe(df,use_container_width= True)#here streamlit will display it as a table (dataframe)
+st.table(df)#here streamlit will display it as a table
 
 
 inputname = st.text_input("Student name:")
@@ -51,9 +51,12 @@ elif average <50:
     grade = "F"
 
 but1,but2 = st.columns(2)
-
+# Name,Maths,English,Science,Media,Total,Average,Grade
 with but1:
     if st.button ("Submit Student score"):
         st.success(f'{inputname} your total score is {totalscore} your average is {average} and your grade is {grade}')
         # f-string is used to print all data in variables as a string.All variables must be in a curly/dict brackets
+        #create a dictionary that stores the variable names and the data inside
+        studentdict = {'Name':[inputname],'Maths':[matscore],'English':[engscore],'Science':[sciscore],'Media':[medscore],'Total':[totalscore]}
+
 

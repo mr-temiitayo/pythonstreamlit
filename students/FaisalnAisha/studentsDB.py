@@ -39,7 +39,7 @@ with colu5:
 combinescore=mathscore+englishscore+geoscore+histscore+sciscore+arabscore
 averagescore= combinescore / 6
 
-averageround = round(averagescore, 2)  #round to 2 dp
+averageround = str(round(averagescore, 2))  #round to 2 dp
 
 
 if averagescore >= 90:
@@ -56,9 +56,17 @@ elif averagescore <  50:
     grade="F"
 
 
+# Name,Mathematics,English,Geography,History,Science,Arabic,Total,Average,Grade
 if st.button("Submit Scores"):
     st.write(name,"your Total Score: ",combinescore,"Average Score: ",averageround,"Grade: ",grade)
-
+    studentsdict = {'Name':[name],'Mathematics':[mathscore],'English':[englishscore],
+                    'Geography':[geoscore],'History':[histscore],'Science':[sciscore],
+                    'Arabic':[arabscore],'Total':[combinescore],'Average':[averageround],
+                    'Grade':[grade]}
+    
+    st.write(studentsdict)
+    students_table = pd.DataFrame(studentsdict)
+    st.table(students_table)
 
 
 

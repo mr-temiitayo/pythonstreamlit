@@ -12,3 +12,14 @@ import streamlit as st
 
 
 #classwork: create a simple app that asks users to enter a number then you can add 10 to their number
+
+
+if 'number' not in st.session_state:
+    st.session_state.number = 0
+
+
+number = st.number_input('Enter a number',0,key='number')
+
+if st.button("Add 10"):
+    st.session_state +=10
+    st.write(st.session_state.number)

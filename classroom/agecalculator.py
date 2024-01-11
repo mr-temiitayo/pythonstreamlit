@@ -1,17 +1,16 @@
-#Streamlit is an API called an Application Programming Interface, used to build and use application software
 
-import streamlit as st
-import os
+import streamlit as st #this is the page for your python program
 
-st.title("Welcome to my Age Calculator")
+st.title("Age Calculator")
 
-name = st.text_input("Enter your name: ")
+name = st.text_input('Enter your name')
 
-yob = st.number_input("Enter your year of birth: ",1950)
+yearofbirth = st.number_input("Enter your year of birth",1950,2023)
 
-curr = st.number_input("Enter your current year: ",2023,2050)
+currentyear = st.number_input("Enter the current year",2023)
 
-age = curr - yob
+age = currentyear - yearofbirth
 
-if st.button("Show My Age"):
-  st.write(f"{name} you are {age} years old in {curr}")
+
+if st.button("Check Your Age"):
+    st.write(name,"you are",age,'in',currentyear)

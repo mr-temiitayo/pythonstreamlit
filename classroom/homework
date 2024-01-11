@@ -364,12 +364,48 @@ next create a text input to ask
 -create a submit button
 -show their name and age after submit button is clicked
 
+#create a register and login side bar to allow many people to register (username, password)
+#then ask them to login checking if their credentials are correct.
+#display their name after a succesful login
 
+-----------------------------------------------
 Major Project:
 CREATE A USER REGISTRATION PAGE WITH FILLING OF INFOMATION, EDITING PROFILE, IMAGE UPLOAD
 THEN A PAGE TO SHOW USER INFORMATION AFTER LOGIN (PICTURE ETC)
 This will be for each user
+-----------------------------------------------
 
-
+create a church membership form that contains a list which has age from 1-65
+-----------------------------------------------
 dictionary to dataframe
 mini project: login sessionstate
+
+-----------------------------------------------
+create a simple page for a school. Show on the page the Elementary fee is 50000 dollars and the college fee is 25000 dollars
+
+Ask how many kids the parent have for elementary and ask if they have for college
+
+
+create a csv file database to store this information with a submit button
+
+
+Then show them their total tuition fee
+
+
+-------------------------------------------------------------------------
+
+#homework: create a simple church form that has a name, age range and gender on 3 columns
+#then a text area to ask for other additional message
+#create a login feature to let them in if they enter the correct password
+
+
+-----------------------------------------------
+create a simple page for a school. Show on the page the Elementary fee is 5000 dollars and the college fee is 15000 dollars
+
+Ask how many kids the parent have for elementary and ask if they have for college
+
+
+create a dictionary and convert all information to a dataframe after clicking a submit button
+
+Then show them their total tuition fee
+

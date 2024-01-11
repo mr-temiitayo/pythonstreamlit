@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd #pandas helps us to convert a dictionary to a table
 
-#A dictionary allows you sto store multiple variables and data
+#A dictionary allows you to store multiple variables and data
 
 students = {'Name':['Kyra','Erin'],'English':[90,76],'Maths':[86,82],'Science':[95,65]}
 
