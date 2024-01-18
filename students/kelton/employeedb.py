@@ -21,8 +21,8 @@ if menu == 'Register Here':
         employeestatus = st.selectbox('Employee status',['Part time','Full time'])
     Registration = st.date_input('Enter the Registration date')
     if st.button('Add Employee Data'):
-        employee_df = pd.DataFrame({'User ID':[employee_id],'Firstname':[firstname],'Lastname':[lastname],'email': [email],'gender':[gender],'education level':[el],
-                    'salary':salary,'department':[department],'job title':[jobtitle],'employment date':[date],'employee status':[employeestatus],'Registration':[Registration]})
+        employee_df = pd.DataFrame({'User ID':[employee_id],'First Name':[firstname],'Last Name':[lastname],'Email Address': [email],'Gender':[gender],'Education Level':[el],
+                    'Salary':salary,'Department':[department],'Job Title':[jobtitle],'Employment Date':[date],'Employee Status':[employeestatus],'Registration Date':[Registration]})
         new_df = pd.concat([df,employee_df],ignore_index=True)
         new_df.to_csv('employeedb1.csv',index=False)
         st.success('New Employee Added')
@@ -34,8 +34,10 @@ if menu == 'Employee File':
         Search = st.button('Find Employee')
     if Search:
         if EmployeeID:
-            search_result = df[df['User ID'] == EmployeeID]
-            st.write(search_result)
+            search_result = df[df['User ID'] == EmployeeID] #filter to generate just one id
+            # st.write(search_result)
+            getfn = search_result['First Name'].iloc[0] #specify the index position 0 to get the first item
+            # st.write(getfn)
 
 
 if menu ==('Employee data base'):

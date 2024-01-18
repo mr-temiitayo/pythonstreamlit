@@ -394,7 +394,7 @@ Then show them their total tuition fee
 
 -------------------------------------------------------------------------
 
-#homework: create a simple church form that has a name, age range and gender on 3 columns
+#homework: create a simple church form that has a name (text), age range (selectbox) and gender (radio) on 3 columns
 #then a text area to ask for other additional message
 #create a login feature to let them in if they enter the correct password
 
