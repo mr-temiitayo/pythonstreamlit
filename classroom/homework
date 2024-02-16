@@ -1,4 +1,12 @@
- user_exists = (user_df["Username"].str.lower() == username.lower()) & (user_df["Password"] == password)
+----------------------------------------------------------------
+https://youtu.be/yG9kmBQAtW4?si=J3iEEi5LkTwxvtrm
+
+Fix python virtual environment
+
+------------------------------------------------------------
+
+
+user_exists = (user_df["Username"].str.lower() == username.lower()) & (user_df["Password"] == password)
 -----------------------------------
 dataframe
 new_df = pd.DataFrame( {"Name": [name], "Position": [position], "Salary": [salary]})
@@ -111,8 +119,8 @@ Create a python program to ask how much a user wants to save on Monday, Tuesday,
 Add up all his savings
 Show him the total savings for the week
 -------------------------------------
-1 chicken sot 5 dollars
-create a chicken app to ask users how many chicken they want to get
+1 chicken is sold for 15 dollars
+create a chicken app to ask users how many chicken users want to get
 show them the total amount
 
 A barber app to show service categories and fee
@@ -411,3 +419,13 @@ create a dictionary and convert all information to a dataframe after clicking a 
 Then show them their total tuition fee
 
 --------------------
+
+create a dictionary of messi and Ronaldo with the following attributes:
+the country they play for
+the clubs they play for
+how many games played
+how many goals scored
+how many assist made
+
+then convert to a table
+-------------------------------------

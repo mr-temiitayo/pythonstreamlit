@@ -19,12 +19,12 @@ st.set_page_config(layout='wide')
 csvlink = pd.read_csv('scores.csv') #pd helps to read the csv file/link
 menu = st.sidebar.selectbox('Menu',['Submit Scores','Database'])
 
-colu1,colu2,colu3=st.columns([1,2,3])
-with colu2:
-    st.header("Pupil Database")
-
 
 if menu == 'Submit Scores':
+    colu1,colu2,colu3=st.columns([1,2,1])
+    with colu2:
+        st.header("Submit Student Scores")
+
     name=st.text_input("Enter The Pupil's Name")
     colu4,colu5=st.columns(2)
     with colu4:
@@ -59,10 +59,12 @@ if menu == 'Submit Scores':
 
     # Name,Mathematics,English,Geography,History,Science,Arabic,Total,Average,Grade
     if st.button("Submit Scores"):
-        st.write(name,"your Total Score: ",combinescore,"Average Score: ",averageround,"Grade: ",grade)
+        success1,success2 = st.columns(2)
+        with success1:
+            st.success('Student scores submitted')
         studentsdict = {'Name':[name],'Mathematics':[mathscore],'English':[englishscore],
                         'Geography':[geoscore],'History':[histscore],'Science':[sciscore],
-                        'Arabic':[arabscore],'Total':[combinescore],'Average':[averageround],
+                        'Arabic':[arabscore],'Total':[combinescore],'Average':[averagescore],
                         'Grade':[grade]}
         
         students_table = pd.DataFrame(studentsdict)
@@ -70,4 +72,7 @@ if menu == 'Submit Scores':
         new_table.to_csv("scores.csv",index=False)#both should ignore index positions in the table
 
 if menu == 'Database':
+    colu1,colu2,colu3=st.columns([1,2,1])
+    with colu2:
+        st.header("Students Database")
     st.table(csvlink) #streamlit displays as a table

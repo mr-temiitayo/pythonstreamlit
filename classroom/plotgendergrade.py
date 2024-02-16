@@ -11,6 +11,7 @@ st.dataframe(df, use_container_width=True)
 # Create a bar chart for gender vs. math scores
 gender_math_scores = df[['Gender', 'Maths']].groupby('Gender').mean().reset_index()
 
+st.write(gender_math_scores)
 #LINE CHART---------------
 
 # Display the line chart with the selected columns

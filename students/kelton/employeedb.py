@@ -26,18 +26,73 @@ if menu == 'Register Here':
         new_df = pd.concat([df,employee_df],ignore_index=True)
         new_df.to_csv('employeedb1.csv',index=False)
         st.success('New Employee Added')
+
+
 if menu == 'Employee File':
     s1,s2,s3 = st.columns(3)
     with s3:
-        st.header('Find Employee')
+        st.header('Find Employee Details')
         EmployeeID = st.text_input('Search Employee Details')
         Search = st.button('Find Employee')
     if Search:
-        if EmployeeID:
-            search_result = df[df['User ID'] == EmployeeID] #filter to generate just one id
-            # st.write(search_result)
-            getfn = search_result['First Name'].iloc[0] #specify the index position 0 to get the first item
-            # st.write(getfn)
+            if EmployeeID:
+
+                try:
+                    search_result = df[df['User ID'].str.lower() == EmployeeID.lower()] #user2 == user2
+
+                    getfn = search_result['First Name'].iloc[0]
+                    getln = search_result['Last Name'].iloc[0]
+                    getEmail = search_result['Email Address'].iloc[0]
+                    getGender = search_result['Gender'].iloc[0]
+                    getel = search_result['Education Level'].iloc[0]
+                    getsa = search_result['Salary'].iloc[0]
+                    getde = search_result['Department'].iloc[0]
+                    getjt = search_result['Job Title'].iloc[0]
+                    geted = search_result['Employment Date'].iloc[0]
+                    getes = search_result['Employee Status'].iloc[0]
+                    getrd = search_result['Registration Date'].iloc[0]
+                    getid = search_result['User ID'].iloc[0]
+
+                    st.header( f":orange[{getfn} {getln}]")
+                    st.header('')
+                    st.header('Personal Information')
+                    st.divider()
+                    a, b, c = st.columns(3)
+                    with a:
+                        st.write('Email')
+                        st.write(getEmail)
+                    with b:
+                        st.write('Gender')
+                        st.write(getGender)
+                    with c:
+                        st.write('Education Level')
+                        st.write(getel)
+                    st.divider()
+                    e, f, g = st.columns(3)
+                    with e:
+                        st.write('Department')
+                        st.write(getde)
+                    with f:
+                        st.write('Employee ID')
+                        st.write(getid)
+                    with g:
+                        st.write('Date Of Employment')
+                        st.write(geted)
+                    st.divider()
+                    h, i, j = st.columns(3)
+                    with h:
+                        st.write('Job Title')
+                        st.write(getjt)
+                    with i:
+                        st.write('Employee Status')
+                        st.write(getes)
+                    with j:
+                        st.write('Salary')
+                        st.write(getsa)
+
+                except:
+                    st.subheader("Enter correct User ID")
+
 
 
 if menu ==('Employee data base'):
