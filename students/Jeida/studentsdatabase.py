@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+import plotly.express as px #to plot graphs/charts
 
 #Project Objective
 # Create a student scores database which can 
@@ -16,34 +16,35 @@ import plotly.express as px
 st.set_page_config(layout='wide')
 
 menu = st.sidebar.selectbox('Menu',['Submit Students Scores', 'Students Database'])
+df= pd.read_csv('scores.csv')
 
 if menu == 'Students Database':
   col1,col2,col3 = st.columns([1,2,1])
   with col2:
     st.header(':orange[Student Grades Database]')
   #Open a csv file
-  df= pd.read_csv('scores.csv')
+  
   st.table(df)
 
-  # Extracting subject columns
-  subjects = ['Maths', 'English', 'Science', 'History', 'Geography']
+  subjects = ['English','Science','History','Geography']
 
-  # Create a bar chart for gender vs. math scores
-  subject_scores = df[subjects].sum().reset_index()
-  subject_scores = subject_scores.rename(columns={'index': 'Subject', 0: 'Score'})
+  subjects_scores = df[subjects].sum().reset_index()
+  subjects_renamed = subjects_scores.rename(columns={'index': 'Subject', 0: 'Total'})
+  # st.write(subjects_renamed)
+
+  barchart = px.bar(subjects_renamed, x='Subject',y='Total')
+
+  st.plotly_chart(barchart)
+
+  # Create a pie chart for different grade column counts
+  grade_counts = df['Grade'].value_counts().reset_index()
+  st.write(grade_counts)
+  # grade_counts = grade_counts.rename(columns={'index': 'Grade', 'Grade': 'Count'})
+  # st.write(grade_counts)
+
+  piechart = px.pie(grade_counts, names='Grade', values='count')
+  st.plotly_chart(piechart)
   
-  chart1,chart2 = st.columns(2)
-  # st.write(subject_scores)
-
-  with chart1:
-      # Create a vertical bar chart using Plotly Express #title='Math Scores by Gender',
-      figbar = px.bar(subject_scores, x= 'Subject', y= 'Score', 
-                      orientation='v')
-                      # color_discrete_map={'Male': 'red', 'Female': 'blue'})
-
-  # Show the plot
-  st.plotly_chart(figbar)
-
 
 if menu == "Submit Students Scores":
   name = st.text_input("Enter the student's name: ")
