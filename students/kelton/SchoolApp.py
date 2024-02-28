@@ -5,6 +5,7 @@ df = pd.read_csv('SchoolApp.csv')
 CountryLink = pd.read_csv('countries.csv')
 age = [i for i in range(1,21)]
 
+
 st.title('Private School Application Form')
 menu = st.sidebar.selectbox('Menu',['Application','Data'])
 if menu == 'Application':

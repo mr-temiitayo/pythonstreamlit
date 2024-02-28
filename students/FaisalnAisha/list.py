@@ -14,6 +14,8 @@ score = 90 #int
 
 bestfriends = ['Blue','Yellow','Red']
 
+st.write(len(bestfriends))
+
 st.write(bestfriends)
 
 st.write(bestfriends[0]) #index position. First item position is 0 not 1
