@@ -3,11 +3,11 @@ import pandas as pd #this helps to read, write CSV files, and convert them to a 
 
 # submit students information (student name, scores) DONE
 # The computer will calc the (total, average, grade of student) DONE
-# save each submitted info into a CSV file 
+# save each submitted info into a CSV file (appear and fade singular table)
 # create a database with chart and with filter
+# download the database
 # teacher can edit the database
 # search students file
-# download the database
 # computer send a mail
 
 #CSV file is a text file that has all it's data separated by a comma (COMMA SEPARETED VALUES)
@@ -15,7 +15,7 @@ import pandas as pd #this helps to read, write CSV files, and convert them to a 
 readcsv = pd.read_csv('scores.csv') #pandas reads CSV file
 
 
-menu = st.sidebar.selectbox('Menu',['Submit Scores', 'Search Student', 'Students Database', 'Edit Database'])
+menu = st.sidebar.selectbox('Menu',['Submit Scores',  'Students Database', 'Search Student','Edit Database'])
 
 
 if menu == 'Submit Scores':
@@ -88,21 +88,16 @@ if menu == 'Submit Scores':
                         'Geography':[geography],'History':[history],'Total Score':[totalscore],'Average':[average],'Grade':[grade]}
         # st.write(studentsdict)
         studentsdf = pd.DataFrame(studentsdict) #converts to dataframe
-        st.table(studentsdf)
-
+        # st.table(studentsdf)
+        newtable = pd.concat([readcsv,studentsdf],ignore_index=True) #joins the 2 tables together. old + new
+        newtable.to_csv('scores.csv',index=False) #saves the newtable into the csv file
         #Next we join the existing df with the new df and save it on the csv file
         
-    firstname = 'Jason'
-
-    lastname = 'Todd'
-
-    st.write(firstname+lastname) #the comma is the separator, str+str with strings is concatenate
 
 if menu == "Students Database":
     st.table(readcsv) #streamlit displays the csv file
 
 
+#edit database page should have clear data button
+    
 
-# eduSTEMlab
-#Classwork: create a dictionary of any 5 cars 
-# with their car names, country made, year, transmission and convert it to a table

@@ -25,6 +25,8 @@ img = Image.open(r'C:/Users/USER/Desktop/streamlipython/pythonstreamlit/media/Go
 
 r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
 -----------------------------------
+
+create a simple program, that ask for name, number of ice-cream to buy and it shows the amount. then display all the details in a dataframe (table)
 ------------------------------------------------------------------------------
 projects:
 login/register done
@@ -390,8 +392,10 @@ dictionary to dataframe
 mini project: login sessionstate
 
 -----------------------------------------------
-create a simple page for a school. Show on the page the Elementary fee is 50000 dollars and the college fee is 25000 dollars
+create a simple page for a school. Show on the page the Elementary fee is 5,000 dollars and the college fee is 25,000 dollars
 
+
+Ask the parent name, address
 Ask how many kids the parent have for elementary and ask if they have for college
 
 
@@ -399,6 +403,7 @@ create a csv file database to store this information with a submit button
 
 
 Then show them their total tuition fee
+
 
 
 -------------------------------------------------------------------------

@@ -21,8 +21,8 @@ import plotly.express as px #this is used for the charts
 
 
 st.set_page_config(layout='wide')    
-df=pd.read_csv('Studentdb.csv') #pandas should read this csv file
-menu = st.sidebar.selectbox('Menu',['Student Score Input','Student Data Base'])
+df=pd.read_csv('Studentdb.csv',dtype={'Average':str}) #pandas should read this csv file
+menu = st.sidebar.selectbox('Menu',['Student Score Input','Student Database|Chart'])
 
 
 
@@ -58,27 +58,25 @@ if menu == 'Student Score Input':
         grade = ("E")
     if average <=50:
         grade = ("Fail")
-    def new_student(n,e,m,s,c,total,average,grade,df):
+
+    if submit:
         student_df = pd.DataFrame({'Name':[n],'English':[e],'Maths':[m],'Science':[s],'Computer':[c],'Total':[total],'Average':[average],'Grade':[grade]})
         new_df = pd.concat([df,student_df],ignore_index=True)
         new_df.to_csv('Studentdb.csv',index=False)
-        return new_df
-
-
-    if submit:
         st.success(f'Your total is {total} mark, average is {average} mark, your grade is {grade}')
-        new_df = new_student(n,e,m,s,c,total,average,grade,df)
-        new_df.to_csv('score.csv',index=False)
+     
 
 
-if menu == 'Student Data Base':
-    st.title('Students Scores Database')
+
+if menu == 'Student Database|Chart':
+    st.title('Student Database|Chart')
     st.table(df) #streamlit should display as dataframe
 
 
     subjects = ['English','Maths','Science','Computer'] #these are the subjects i want to plot
     subjects_ave = df[subjects].mean().reset_index() #this will create a new df with just 4 columns and the average score
     subjects_rename = subjects_ave.rename(columns = {'index': 'Subject', 0: 'Average'})
+    subjects_rename['Average'] = subjects_rename['Average'].astype(float).round(2).astype(str)
     st.table(subjects_rename)
 
 

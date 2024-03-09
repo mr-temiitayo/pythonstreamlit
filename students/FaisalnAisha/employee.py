@@ -43,4 +43,37 @@ if menu=='Database':
 
     
 if menu == "Employee File":
-    pass
+    top1,top2,top3 = st.columns(3)
+
+    with top3:
+        st.subheader("Find Employee Details")
+        search = st.text_input("Find Employe ID")
+        find = st.button("Find Employee")
+# User ID,First Name,Last Name,Email,Gender,Department,
+# Job Title,Contract Status,Monthly Income,Education Degree,Employment Date
+
+    if find: #check if button clicked
+        if search: #check if data is in the variable
+            search_result = csvlink[csvlink['User ID'] == search ]
+            #above, we created a filtered table from the original table, 
+            # using the ID column and looking for search input text
+            st.table(search_result)
+            newfn = search_result['First Name'].iloc[0] #get table,check column and extract first item!
+            st.write(newfn)
+
+
+
+
+
+        else:
+            st.error("Please enter a user ID")
+
+
+
+
+
+#1 how do i ensure it shows the result of the button
+#on the full page to the left?
+            
+#2 how do i ensure it informs you if nothing is in 
+# the box but you clicked the button?
