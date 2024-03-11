@@ -72,7 +72,6 @@ if menu == 'Student Database|Chart':
     st.title('Student Database|Chart')
     st.table(df) #streamlit should display as dataframe
 
-
     subjects = ['English','Maths','Science','Computer'] #these are the subjects i want to plot
     subjects_ave = df[subjects].mean().reset_index() #this will create a new df with just 4 columns and the average score
     subjects_rename = subjects_ave.rename(columns = {'index': 'Subject', 0: 'Average'})
@@ -84,5 +83,8 @@ if menu == 'Student Database|Chart':
 
     st.plotly_chart(barchart)
 
+    with open('Studentdb.csv','rb') as csvfile:
+        data = csvfile.read() #read the content
+    st.download_button(label='Download Students Database CSV File',data=data,file_name='Studentdb.csv')
 
    
