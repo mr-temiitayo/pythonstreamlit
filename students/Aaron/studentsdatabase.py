@@ -1,5 +1,6 @@
 import streamlit as st #this is the webpage for our python projects
 import pandas as pd #this helps to read, write CSV files, and convert them to a table 
+import plotly.express as px #helps us to plot charts
 
 # submit students information (student name, scores) DONE
 # The computer will calc the (total, average, grade of student) DONE
@@ -9,10 +10,13 @@ import pandas as pd #this helps to read, write CSV files, and convert them to a 
 # teacher can edit the database
 # search students file
 # computer send a mail
+#edit database page should have clear data button
+
+
 
 #CSV file is a text file that has all it's data separated by a comma (COMMA SEPARETED VALUES)
 
-readcsv = pd.read_csv('scores.csv') #pandas reads CSV file
+readcsv = pd.read_csv('scores.csv',dtype={'Average': str}) #pandas reads CSV file
 
 
 menu = st.sidebar.selectbox('Menu',['Submit Scores',  'Students Database', 'Search Student','Edit Database'])
@@ -96,8 +100,14 @@ if menu == 'Submit Scores':
 
 if menu == "Students Database":
     st.table(readcsv) #streamlit displays the csv file
+    #now let's plot the bar chart
+    subjects = ['Maths','English','Science','Art','Geography','History'] #subjects for new table
+    subjectstable = readcsv[subjects].mean().reset_index() #displays only the 5 columns on the table
+    renamedcolumns = subjectstable.rename(columns = {'index': 'Subject', 0: "Score"})
+    st.table(renamedcolumns)
 
+    barchart = px.bar(renamedcolumns, x = 'Subject', y = 'Score')
 
-#edit database page should have clear data button
+    st.plotly_chart(barchart)
     
 

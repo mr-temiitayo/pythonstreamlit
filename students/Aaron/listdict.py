@@ -8,7 +8,11 @@ name = 'Jason' #you cant store more than one data in a variable
 numbers = [1,2,3,4,5,6,7]
 
 
+
+
 colors = ['blue','orange','red']
+
+print(colors[1])
 
 
 

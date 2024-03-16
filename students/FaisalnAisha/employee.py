@@ -7,7 +7,7 @@ user_id = 'USER_' + str(len(csvlink) + 1)
 
 
 menu=st.sidebar.selectbox("Select Menu",["Register","Database","Employee File"])
-
+space = ' '
 if menu == "Register":
     st.title(":orange[Register Here]")
     co1,co2=st.columns(2)
@@ -47,20 +47,24 @@ if menu == "Employee File":
 
     with top3:
         st.subheader("Find Employee Details")
-        search = st.text_input("Find Employe ID")
+        search = st.text_input("Find Employee ID")
         find = st.button("Find Employee")
 # User ID,First Name,Last Name,Email,Gender,Department,
 # Job Title,Contract Status,Monthly Income,Education Degree,Employment Date
 
     if find: #check if button clicked
         if search: #check if data is in the variable
-            search_result = csvlink[csvlink['User ID'] == search ]
-            #above, we created a filtered table from the original table, 
-            # using the ID column and looking for search input text
-            st.table(search_result)
-            newfn = search_result['First Name'].iloc[0] #get table,check column and extract first item!
-            st.write(newfn)
-
+            try:
+                search_result = csvlink[csvlink['User ID']== search]  #USER4
+                #above, we created a filtered table from the original table, 
+                #1 using the ID column and 2. now looking for search input text from the column
+                st.table(search_result)
+                newfn = search_result['First Name'].iloc[0] #get table,check column and extract first item!
+                newln = search_result['Last Name'].iloc[0]
+                st.subheader(f':orange[{newfn}  {space}  {newln}]')
+            
+            except IndexError:
+                st.error("I can't find that USER ID")
 
 
 
