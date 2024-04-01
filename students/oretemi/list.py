@@ -3,7 +3,15 @@ import streamlit as st
 name = 'Temi' #this variable can only store one data at a time
 
 #we can create a list to store multiple items/data in just one variable
+
+numbers = [0,2,9,1]
+
+numbers[2]
 bestfriends = ['Ore','Ebun','Jason','Jane']
+
+choosefriend = bestfriends[numbers[3]]
+
+st.write(choosefriend)
 
 # st.write(bestfriends)
 

@@ -22,3 +22,12 @@ if passwordbutton:
             st.sidebar.error("Error! Wrong password")
     else:
         st.sidebar.error('Input Password!')
+
+
+
+#student revision + teacher guide
+#-create a login sidebar page to show the database
+        
+# Teacher activity for student learning:
+# -create an app to upload & display database
+       

@@ -1,8 +1,9 @@
 '''
 Create a menu for Registration and Database
-Design a blood donation database that can get donor input
+Design a blood donation application that can get donor input
 -Name -Contact Number (use text)
--Blood group (use radio or selectbox) -Disease/Infection (use radio or selectbox)
+-Blood group (selectbox) -Disease/Infection (use radio )
+'A', 'B', 'AB', 'O'
 
 -Submit donor details
 

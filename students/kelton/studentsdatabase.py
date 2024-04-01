@@ -88,3 +88,7 @@ if menu == 'Student Database|Chart':
     st.download_button(label='Download Students Database CSV File',data=data,file_name='Studentdb.csv')
 
    
+
+
+#button to choose if barchart or piechart
+#then it ask you to import data then it shows

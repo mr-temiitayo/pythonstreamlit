@@ -7,7 +7,7 @@ import pandas as pd
 #st.set_page_config(layout="wide")
 total=0
 
-csv_filename = "C:\\Users\\USER\\Desktop\\streamlipython\\pythonstreamlit\\beta\\user_data.csv"
+csv_filename = "user_data.csv"
 df = pd.read_csv(csv_filename)  # Load the CSV file
 
 menu = ['Create Invoice','Download Invoice']
@@ -81,7 +81,7 @@ if choice == "Create Invoice":
     with col5a:
         st.write('**Payment Info**')
         st.write('Acc name: eduSTEMlab')
-        st.write('Acc number: 0026593992')
+        st.write('Acc number: 0097593992')
         st.write('Bank nmae: StanbiC IBTC')
     with col5b:
         pass
@@ -186,8 +186,8 @@ if choice == "Download Invoice":
     with col5a:
         st.write('**Payment Info**')
         st.write('Acc name: eduSTEMlab')
-        st.write('Acc number: 0026593992')
-        st.write('Bank nmae: StanbiC IBTC')
+        st.write('Acc number: 00298673992')
+        st.write('Bank name: StanbiC IBTC')
     with col5b:
         pass
     with col5c:
