@@ -1,3 +1,6 @@
+create a python app to upload csv file and user can use buttons to choose if they want a bar chart or a pie chart
+
+
 robotics link
 https://www.youtube.com/watch?v=MF-FqZn5e5M
 -----------------------------
@@ -5,6 +8,8 @@ https://www.youtube.com/watch?v=MF-FqZn5e5M
 
 colors in texts
  blue, green, orange, red, violet, gray/grey, and rainbow.
+
+
 ----------------------------------------------------------------
 https://youtu.be/yG9kmBQAtW4?si=J3iEEi5LkTwxvtrm
 
@@ -15,10 +20,8 @@ Fix python virtual environment
 
 user_exists = (user_df["Username"].str.lower() == username.lower()) & (user_df["Password"] == password)
 -----------------------------------
-dataframe
-new_df = pd.DataFrame( {"Name": [name], "Position": [position], "Salary": [salary]})
-df = pd.concat([df, new_df], ignore_index=True)
-df.to_csv("employees_database.csv", index=False)
+
+NOTHING HERE
 
 -----------------------------------
 check no case sensitivity
@@ -442,3 +445,20 @@ how many assist made
 
 then convert to a table
 -------------------------------------
+
+TEST1: (NOT REAL DATA)
+Create a dictionary of a store with 5 products
+product name - units(how many in store) - price - discount (e.g 2%) - sold (how many e.g 20)
+
+convert this dictionary to a table (no csv file etc)
+
+
+
+TEST 1
+write a python program for house buyers
+Ask them for their name
+ask them for their yearly salary
+If the earn between 100000-500,000 they can buy a bungalow
+If the earn between >500,000-1,000,000 they can buy a duplex
+If the earn between >1,000,000-5,000,000 they can buy a manshion
+create a database to to store and view their answers and display in another customer section

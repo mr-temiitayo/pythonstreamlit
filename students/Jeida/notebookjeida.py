@@ -31,29 +31,36 @@ if menu == 'create note':
                      note_df = pd.DataFrame(notedict)
                      notejoin = pd.concat([notes,note_df],ignore_index=True)
                      notejoin.to_csv('notes.csv',index=False)
-
-                     st.success('note saved succesfully!')
+                     
+                     st.success('succesfully saved!')
             
 elif menu == 'view notes':
     st.header(':green[**view notes**]')
     st.divider()
 
-    note_title = notes['Title'].to_list()
+    note_title = notes['title'].to_list()
     nt1,nt2 = st.columns([0.4,0.2])
 
     with nt1:
      select_title = st.selectbox('select note to view',note_title)
     
-    filter_title = notes[notes['Title'] == select_title]
+    filter_title = notes[notes['title'] == select_title]
     # st.table(filter_title)
-    content = filter_title['Note Content'].iloc[0]
+    content = filter_title['note content'].iloc[0]
     space = ''
 
     st.divider()
 
 
     st.write(space)
-    st.subheader(f':green[**selected note content:**]')
+    nc1,nc2 = st.columns([0.3,0.3])
+
+    with nc1:
+       st.subheader(f':green[**selected note content:**]')
+    with nc2:
+       date = filter_title['dates'].iloc[0]
+       st.subheader(f':green[**note date: {date}**]')
+       
     st.divider()
     st.write(space)
     st.write(content)
@@ -79,6 +86,13 @@ elif menu == 'update notes':
    with upd1:
      update_note = st.text_area('edit note',content,350)
 
-   
+   if st.button('save edits'):
+      notes.loc[notes['title'] == select_title, 'note content'] = update_note
+      notes.to_csv('notes.csv',index=False)
+      
+      ed1,ed2 = st.columns([0.3,0.3])
+      with ed1:
+         st.success('successfuly edited!')
+
 
 

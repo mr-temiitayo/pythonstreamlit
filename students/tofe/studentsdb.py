@@ -45,8 +45,9 @@ sub1,sub2 = st.columns(2)
 with sub1:
      if st.button("Submit Student score"):
           st.success(f'{name}, your total score is: {total}. The average is: {average}. The grade is: {grade}')
-          student_database = pd.DataFrame({'Name':[name],'Maths':[Math],'English':[English],'Art':[Art],'History':[History],
-                              'Total':[total],"Average":[average],'Grade':[grade]})
-          new_database = pd.concat([database,student_database],ignore_index=True) #join the old database with the new database
+          student_dict = {'Name':[name],'Maths':[Math],'English':[English],'Art':[Art],'History':[History],
+                              'Total':[total],"Average":[average],'Grade':[grade]}
+          student_table = pd.DataFrame(student_dict)
+          new_database = pd.concat([database,student_table],ignore_index=True) #join the old database with the new database
           new_database.to_csv('scores.csv',index=False) #save the database in a file
           
