@@ -26,3 +26,5 @@ def restart():
 
 st.write(st.session_state.cpunumber)
 
+
+

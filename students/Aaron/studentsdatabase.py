@@ -19,7 +19,7 @@ import plotly.express as px #helps us to plot charts
 readcsv = pd.read_csv('scores.csv',dtype={'Average': str}) #pandas reads CSV file
 
 
-menu = st.sidebar.selectbox('Menu',['Submit Scores',  'Students Database', 'Search Student','Edit Database'])
+menu = st.sidebar.selectbox('Menu',['Submit Scores',  'Students Database','Scores Charts', 'Search Student'])
 
 
 if menu == 'Submit Scores':
@@ -99,15 +99,36 @@ if menu == 'Submit Scores':
         
 
 if menu == "Students Database":
-    st.table(readcsv) #streamlit displays the csv file
-    #now let's plot the bar chart
-    subjects = ['Maths','English','Science','Art','Geography','History'] #subjects for new table
-    subjectstable = readcsv[subjects].mean().reset_index() #displays only the 5 columns on the table
-    renamedcolumns = subjectstable.rename(columns = {'index': 'Subject', 0: "Score"})
-    st.table(renamedcolumns)
+    editdb=st.sidebar.checkbox('Edit Database')
+    if editdb:
+        edit_table = st.data_editor(readcsv,width=800,height=800)
+    else:
+        st.table(readcsv) #streamlit displays the csv file
 
-    barchart = px.bar(renamedcolumns, x = 'Subject', y = 'Score')
-
-    st.plotly_chart(barchart)
     
 
+if menu == 'Scores Charts':
+    #what if teach wants to see gender based score chart?
+
+    radio1, radio2 = st.columns(2)
+
+    with radio1:
+        selectchart = st.radio('Choose Preferred Chart to Plot', ['Bar Chart', 'Pie Chart'],horizontal=True)
+    #now let's plot the bar chart
+    subjects = ['Maths','English','Science','Art','Geography','History'] #subjects for new table to plot
+    subjectstable = readcsv[subjects].mean().reset_index() #displays only the 5 columns on the table
+    renamedcolumns = subjectstable.rename(columns = {'index': 'Subject', 0: "Score"})
+    # st.table(renamedcolumns)
+
+    if selectchart == 'Bar Chart':
+        barchart = px.bar(renamedcolumns, x = 'Subject', y = 'Score')
+        st.plotly_chart(barchart)
+
+    elif selectchart == 'Pie Chart':
+        piechart = px.pie(renamedcolumns, names='Subject', values='Score')
+        st.plotly_chart(piechart)
+
+
+
+# if menu == 'Edit Database':
+#     edit_table = st.data_editor(readcsv)

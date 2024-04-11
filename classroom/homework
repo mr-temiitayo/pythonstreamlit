@@ -1,4 +1,5 @@
-create a python app to upload csv file and user can use buttons to choose if they want a bar chart or a pie chart
+create a python app to upload csv file 
+and user can use buttons to choose if they want a bar chart or a pie chart
 
 
 robotics link
@@ -462,3 +463,21 @@ If the earn between 100000-500,000 they can buy a bungalow
 If the earn between >500,000-1,000,000 they can buy a duplex
 If the earn between >1,000,000-5,000,000 they can buy a manshion
 create a database to to store and view their answers and display in another customer section
+
+
+-----------------------------
+create a job opportunity and job search python app.
+user can submit job oppurtunities with various categories
+user can search for jobs too with various categories and levels as filters
+like (job sector, experience, contract status, experience years, educational level etc)
+apply by sending a email to job poster
+
+
+
+-----------------------------------------------------------
+
+TECHIE TEST
+create an app to:
+upload any csv file 
+use a selectbox to get and display subjects users want to choose to plot
+use a button to choose if to view the chart as a barchart or piechart
