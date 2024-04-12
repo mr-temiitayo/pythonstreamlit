@@ -1,7 +1,7 @@
 import streamlit as st
 from fpdf import FPDF
 
-st.title('new2 pdf convert')
+st.title('image pdf convert')
 
 # Function to generate PDF
 def generate_pdf():
@@ -21,11 +21,25 @@ def generate_pdf():
     # Define the width of each column
     column_width = 90  # Adjust this value as needed
 
+
+
+ # Add image to the PDF in a specific column
+    pdf.image("employee.png", x=column1_x, y=120, w=50)  # Adjust the image path and size as needed
+
     # Add content to the PDF in different columns
     pdf.set_font(family='Arial', size=16, style='B')
     pdf.set_xy(column1_x, 20)
-    pdf.cell(column_width, 10, txt="New Column 1, Row 1", ln=True, align="L")
+    pdf.cell(column_width, 10, txt="New Column 1, Row 1", ln=True, align="L") #width/height
 
+
+    # Add a divider
+    pdf.set_line_width(0.5)  # Set the width of the line
+    pdf.line(12, 30, 70, 30)  # Draw a line from start x,y stop x,y
+    
+    # pdf.line(10, 100, 200, 100)  # Draw a line from (10, 100) to (200, 100)
+
+
+    
     pdf.set_font(family='Arial', size=12, style='')
     pdf.set_xy(column2_x, 20)
     pdf.cell(column_width, 10, txt="Column 2, Row 1", ln=True, align="L")
@@ -47,8 +61,8 @@ def generate_pdf():
 pdf_file_path = generate_pdf()
 
 # Read the generated PDF as binary data
-with open(pdf_file_path, "rb") as f:
-    pdf_data = f.read()
+with open(pdf_file_path, "rb") as f: #properly open and closed using the read binary mode
+    pdf_data = f.read() #reads as binary to be processed/downloaded
 
 # Display the download button
 st.download_button(label='Download PDF', data=pdf_data, file_name='pdfexample.pdf', mime='application/pdf')

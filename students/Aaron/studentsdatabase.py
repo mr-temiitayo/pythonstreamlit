@@ -99,9 +99,15 @@ if menu == 'Submit Scores':
         
 
 if menu == "Students Database":
-    editdb=st.sidebar.checkbox('Edit Database')
-    if editdb:
+    editcheckbox=st.sidebar.checkbox('Edit Database')
+    if editcheckbox:
         edit_table = st.data_editor(readcsv,width=800,height=800)
+
+        if st.sidebar.button("Save Database"):
+            saved_edit = edit_table.to_csv('scores.csv',index=False)
+            save1, save2 = st.sidebar.columns(2)
+            with save1:
+                st.sidebar.success('Edits Saved')
     else:
         st.table(readcsv) #streamlit displays the csv file
 
