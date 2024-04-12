@@ -4,14 +4,15 @@ import plotly.express as px #helps us to plot charts
 
 # submit students information (student name, scores) DONE
 # The computer will calc the (total, average, grade of student) DONE
-# save each submitted info into a CSV file (appear and fade singular table)
-# create a database with chart and with filter
-# download the database
-# teacher can edit the database
+# save each submitted info into a CSV file (appear and fade singular table) DONE
+# create a database with chart and with filter DONE
+# teacher can edit the database DONE
+# download the database csv file
+#sort database scores by grade
+#edit database page should have clear data button
+#how to make sure scores edited will be recalculated
 # search students file
 # computer send a mail
-#edit database page should have clear data button
-
 
 
 #CSV file is a text file that has all it's data separated by a comma (COMMA SEPARETED VALUES)
@@ -98,20 +99,34 @@ if menu == 'Submit Scores':
         #Next we join the existing df with the new df and save it on the csv file
         
 
+
+
+
+#--------------------------------STUDENTS DATABASE--------------------------------------------------
 if menu == "Students Database":
     editcheckbox=st.sidebar.checkbox('Edit Database')
     if editcheckbox:
         edit_table = st.data_editor(readcsv,width=800,height=800)
-
         if st.sidebar.button("Save Database"):
             saved_edit = edit_table.to_csv('scores.csv',index=False)
             save1, save2 = st.sidebar.columns(2)
             with save1:
-                st.sidebar.success('Edits Saved')
+                st.success('Edits Saved')
+                #how to make sure scores edited will be recalculated
     else:
         st.table(readcsv) #streamlit displays the csv file
 
+    #DOWNLOAD CSV FILE
+    with open('scores.csv', 'rb') as file: #open to make the file readable as each character
+        data = file.read() #read the content
+    st.sidebar.download_button(label = 'Download Database CSV', data=data,file_name='Students Scores Database.csv')
     
+
+
+
+
+#--------------------------------SCORES CHARTS--------------------------------------------------
+
 
 if menu == 'Scores Charts':
     #what if teach wants to see gender based score chart?
@@ -133,8 +148,3 @@ if menu == 'Scores Charts':
     elif selectchart == 'Pie Chart':
         piechart = px.pie(renamedcolumns, names='Subject', values='Score')
         st.plotly_chart(piechart)
-
-
-
-# if menu == 'Edit Database':
-#     edit_table = st.data_editor(readcsv)
