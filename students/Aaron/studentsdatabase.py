@@ -7,9 +7,9 @@ import plotly.express as px #helps us to plot charts
 # save each submitted info into a CSV file (appear and fade singular table) DONE
 # create a database with chart and with filter DONE
 # teacher can edit the database DONE
-# download the database csv file
+# download the database csv file DONE
 #sort database scores by grade
-#edit database page should have clear data button
+#edit database page should have clear data button for all db or just one student
 #how to make sure scores edited will be recalculated
 # search students file
 # computer send a mail
@@ -25,6 +25,11 @@ menu = st.sidebar.selectbox('Menu',['Submit Scores',  'Students Database','Score
 
 if menu == 'Submit Scores':
     st.header('Submit Students Scores Here')
+
+
+
+
+    #----------------TAKING INPUTS--------------------------------------
     name = st.text_input("Enter the student's name")
 
 
@@ -50,7 +55,7 @@ if menu == 'Submit Scores':
 
 
 
-
+# --------------------------CALCULATING SCORE TOTAL,AVE,GRADE-----------------------------
     totalscore = maths + science + art + english + history + geography
 
 
@@ -78,6 +83,8 @@ if menu == 'Submit Scores':
         grade = ("FAIL")
 
 
+
+# ------------------------------------BUTTON FOR DICT TO DATAFRAME-------------------
     savebutton = st.button("Save Students Scores")
 
 
@@ -100,9 +107,7 @@ if menu == 'Submit Scores':
         
 
 
-
-
-#--------------------------------STUDENTS DATABASE--------------------------------------------------
+#--------------------------------EDIT DATABASE VALUES--------------------------------------------------
 if menu == "Students Database":
     editcheckbox=st.sidebar.checkbox('Edit Database')
     if editcheckbox:
@@ -112,11 +117,25 @@ if menu == "Students Database":
             save1, save2 = st.sidebar.columns(2)
             with save1:
                 st.success('Edits Saved')
-                #how to make sure scores edited will be recalculated
+                #how to make sure scores edite d will be recalculated
     else:
-        st.table(readcsv) #streamlit displays the csv file
+        # -----------------------------RECALCULATE DATABASE------------------------------------------
+            readcsv['Total Score'] = readcsv[['Maths', 'Science', 'Art', 'English', 'History', 'Geography']].sum(axis=1)
+            readcsv['Average'] = round(readcsv['Total Score'] / 6, 2)
+            readcsv['Grade'] = pd.cut(readcsv['Average'], bins=[0, 65, 70, 75, 80, 85, 90, 100], labels=["FAIL", "C+", "B", "B+", "A-", "A", "A+"])
+            # This function is used to segment and sort data values into bins (or categories)
+            #  intervals (or bins) into which the values will be grouped
+            # Save the updated DataFrame to the CSV file
 
-    #DOWNLOAD CSV FILE
+            # -----------------------------VIEW DATABASE----------------------
+            readcsv.to_csv('scores.csv', index=False)
+            st.table(readcsv) #streamlit displays the csv file
+
+
+
+
+# -----------------------------DOWNLOAD CSV FILE------------------------------------------
+    
     with open('scores.csv', 'rb') as file: #open to make the file readable as each character
         data = file.read() #read the content
     st.sidebar.download_button(label = 'Download Database CSV', data=data,file_name='Students Scores Database.csv')
@@ -125,7 +144,7 @@ if menu == "Students Database":
 
 
 
-#--------------------------------SCORES CHARTS--------------------------------------------------
+#--------------------------------PLOT SCORES BAR/PIE CHARTS--------------------------------------------------
 
 
 if menu == 'Scores Charts':

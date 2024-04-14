@@ -1,5 +1,20 @@
 import streamlit as st
 import pandas as pd
+
+
+# submit students information (student name, scores) DONE
+# save each submitted info into a CSV file  DONE
+# create a database with chart and 
+# (gender or people per /dept/title/salary/)
+# teacher can edit the database 
+# download the database csv file DONE
+#sort database scores by grade
+#edit database page should have clear data button for all db or just one student
+#how to make sure scores edited will be recalculated
+# search students file
+# computer send a mail
+
+
 st.set_page_config(layout='wide')
 df=pd.read_csv('employeedb1.csv')
 employee_id = 'User' + str(len(df) + 1)
