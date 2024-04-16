@@ -4,8 +4,6 @@
 # use a multiselectbox to get and display subjects users want to choose to plot (use st.multiselect)
 # use a button to choose if to view the chart as a barchart or piechart
 
-
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -19,12 +17,18 @@ col1,col2 = st.columns(2)
 with col1:
     upload_csv= st.file_uploader("Upload CSV File",type=['csv'])
 
-    st.divider()
     st.write("")
 
 if upload_csv:
     csv_file = pd.read_csv(upload_csv)
-    st.table(csv_file)
+    
+
+    table1,table2 = st.columns(2)
+    with table1:
+        with st.expander('Open Database Table'):
+            # with col1:
+                st.table(csv_file)
+
 
     col3,col4 = st.columns(2)
     with col3:
