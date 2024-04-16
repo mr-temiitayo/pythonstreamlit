@@ -476,8 +476,13 @@ apply by sending a email to job poster
 
 -----------------------------------------------------------
 
-TECHIE TEST
+TECHIE SMART TEST 
 create an app to:
 upload any csv file 
 use a multiselectbox to get and display subjects users want to choose to plot (use st.multiselect)
 use a button to choose if to view the chart as a barchart or piechart
+
+
+
+CREATE A TO DO APP
+Set reminder, update and delete
