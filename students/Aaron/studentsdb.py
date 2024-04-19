@@ -8,7 +8,7 @@ import plotly.express as px #helps us to plot charts
 # create a database with chart and with filter DONE
 # teacher can edit the database DONE
 # download the database csv file DONE
-#how to make sure scores edited will be recalculated
+#how to make sure scores edited will be recalculated DONE
 #sort database scores by grade
 #edit database page should have clear data button for all db or just one student
 # search students file
@@ -17,7 +17,7 @@ import plotly.express as px #helps us to plot charts
 
 #CSV file is a text file that has all it's data separated by a comma (COMMA SEPARETED VALUES)
 
-readcsv = pd.read_csv('scores.csv',dtype={'Average': str}) #pandas reads CSV file
+readcsv = pd.read_csv('students/FaisalnAisha/employ.csv',dtype={'Average': str}) #pandas reads CSV file
 
 
 menu = st.sidebar.selectbox('Menu',['Submit Scores',  'Students Database','Scores Charts', 'Search Student'])
