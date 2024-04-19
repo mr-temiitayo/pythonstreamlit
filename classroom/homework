@@ -387,6 +387,7 @@ next create a text input to ask
 -create a submit button
 -show their name and age after submit button is clicked
 
+
 #create a register and login side bar to allow many people to register (username, password)
 #then ask them to login checking if their credentials are correct.
 #display their name after a succesful login

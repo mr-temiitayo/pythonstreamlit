@@ -123,12 +123,13 @@ if menu == "Students Database":
             readcsv['Total Score'] = readcsv[['Maths', 'Science', 'Art', 'English', 'History', 'Geography']].sum(axis=1)
             readcsv['Average'] = round(readcsv['Total Score'] / 6, 2)
             readcsv['Grade'] = pd.cut(readcsv['Average'], bins=[0, 65, 70, 75, 80, 85, 90, 100], labels=["FAIL", "C+", "B", "B+", "A-", "A", "A+"])
+            readcsv.to_csv('scores.csv', index=False)
             # This function is used to segment and sort data values into bins (or categories)
             #  intervals (or bins) into which the values will be grouped
             # Save the updated DataFrame to the CSV file
 
+
             # -----------------------------VIEW DATABASE----------------------
-            readcsv.to_csv('scores.csv', index=False)
             st.table(readcsv) #streamlit displays the csv file
 
 
