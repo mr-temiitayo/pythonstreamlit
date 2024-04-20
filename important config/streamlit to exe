@@ -1,0 +1,96 @@
+
+
+command to run:
+
+
+prerequisite
+1 create virtual environment
+python -m venv myenv
+
+myenv\Scripts\activate
+2 activate the env
+
+3 create a folder and name it streamlite_app
+
+4 inside the folder add your application and name it streamlit_app.py and employee.csv.
+
+5 install all necessary dependencies using pip install
+
+6 create package.json file and paste the code
+
+7 create a requirements.txt and type all dependencies in newline
+
+8 nmp install
+
+9 run all dependencies
+npm run dump streamlite_app pandas plotly 
+OR
+npm run dump streamlite_app -- -r requirements.txt
+
+10 freeze the requirements file: pip freeze > requirements.txt
+
+11 set NODE_ENV=production
+12 npm run servewindows
+13 npm run dist
+
+14 enable developer mode in settings
+
+first command after setting up your environment and putting the necessary file in place
+
+
+1:  npm install
+--npm run dump streamlite_app module_names
+2: npm run dump streamlite_app -- -requirements.txt
+
+3: set NODE_ENV=production
+4:npm run servewindows
+5: npm run dist
+
+after this check the dist folder and copy .exe file launch it on the screen
+
+ERROR IN ACTIVATING VENV
+Allow Windows PowerShell to Execute Scripts
+To fix the error, you need to change the PowerShell execution policy to remotesigned. This will allow you to run scripts that are on your local computer unsigned, and also remote scripts(from the internet) which have been signed.
+
+Type the following command in the PowerShell admin window to change the execution policy:
+
+set-executionpolicy remotesigned
+You will be prompted to accept the change, type A(Yes to all), and press ENTER on your keyboard to allow the change.
+
+
+{
+  "name": "employee-manager",
+  "version": "0.1.0",
+  "main": "./build/electron/main.js",
+  "scripts": {
+    "dump": "dump-stlite-desktop-artifacts",
+    "serve": "cross-env NODE_ENV=production electron .",
+    "servewindows": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "files": [
+      "build/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "win": {
+    "target": [
+      "portable"
+    ]
+  },
+  "devDependencies": {
+    "@stlite/desktop": "^0.51.0",
+    "cross-env": "^7.0.3",
+    "electron": "28.2.1",
+    "electron-builder": "^24.9.1"
+  }
+}
+
+
+
+Check devdependencies if any issue
