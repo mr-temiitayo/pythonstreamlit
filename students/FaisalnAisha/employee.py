@@ -1,7 +1,11 @@
 import streamlit as st
 import pandas as pd
+import plotly_express as px
+
 st.set_page_config(layout='wide')
 csvlink= pd.read_csv('students/FaisalnAisha/employ.csv')
+
+st.sidebar.write("Made By Mr.Tee 😎😎")
 menu=st.sidebar.selectbox("Select Menu",["Register","Database",'Employee File'])
 userid='User_'+str(len(csvlink)+1)
 if menu == "Register":
