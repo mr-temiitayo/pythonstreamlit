@@ -20,6 +20,7 @@ st.set_page_config(layout='wide')
 df=pd.read_csv('employeedb1.csv')
 employee_id = 'User' + str(len(df) + 1)
 menu = st.sidebar.selectbox('Employee',['Register Here','Employee data base','Employee File'])
+st.sidebar.write("Made By Mr.Tee 😎😎")
 if menu == 'Register Here':
     st.header('Register Here')
     firstn, lastn = st.columns(2)
