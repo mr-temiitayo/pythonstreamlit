@@ -17,7 +17,7 @@ import plotly.express as px #helps us to plot charts
 
 #CSV file is a text file that has all it's data separated by a comma (COMMA SEPARETED VALUES)
 
-readcsv = pd.read_csv('scores.csv',dtype={'Average': str}) #pandas reads CSV file
+readcsv = pd.read_csv('students/Aaron/scores.csv',dtype={'Average': str}) #pandas reads CSV file
 
 
 menu = st.sidebar.selectbox('Menu',['Submit Scores',  'Students Database','Scores Charts', 'Search Student'])
