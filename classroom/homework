@@ -405,11 +405,11 @@ dictionary to dataframe
 mini project: login sessionstate
 
 -----------------------------------------------
-create a simple page for a school. Show on the page the Elementary fee is 5,000 dollars and the college fee is 25,000 dollars
+create a simple page for a school. Show on the page the Elementary fee is 15,000 dollars and the college fee is 25,000 dollars
 
 
 Ask the parent name, address
-Ask how many kids the parent have for elementary and ask if they have for college
+Ask how many kids the parent have for elementary and ask if how many they have for college
 
 
 create a csv file database to store this information with a submit button

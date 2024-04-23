@@ -58,8 +58,9 @@ if page == 'Database':
 
 
     else:
-        salary_bins = [-float('inf'), 50000, 100000, 500000, float('inf')]
-        house_types = ['Apartment', 'Bungalow', 'Duplex', 'Mansion']
+        salary_bins = [-float('inf'), 50_000, 100_000, 500_000, 10_000_000, float('inf')]
+        house_types = ['Apartment', 'Bungalow', 'Duplex', 'Mansion','Estate']
+        
         readcsv['House_Type'] = pd.cut(readcsv['Salary'], bins=salary_bins, labels=house_types)
         readcsv.to_csv('salary.csv',index=False)
         st.table(readcsv)

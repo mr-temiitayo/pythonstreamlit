@@ -9,7 +9,7 @@ import pandas as pd
 import plotly.express as px
 
 st.set_page_config(layout='wide')
-st.title('Data Editor App')
+st.title('Subjects Chart App')
 
 
 col1,col2 = st.columns(2)
@@ -23,9 +23,9 @@ if upload_csv:
     csv_file = pd.read_csv(upload_csv)
     
 
-    table1,table2 = st.columns(2)
-    with table1:
-        with st.expander('Open Database Table'):
+    # table1,table2 = st.columns(2)
+    # with table1:
+    with st.expander('Open Database Table'):
             # with col1:
                 st.table(csv_file)
 
