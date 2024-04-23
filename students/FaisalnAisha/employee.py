@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly
 
 st.set_page_config(layout='wide')
 csvlink= pd.read_csv('students/FaisalnAisha/employ.csv')
