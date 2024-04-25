@@ -1,3 +1,18 @@
+To install extra python modules for your published project:
+
+-1 create a a file, name it requirements.txt
+-2 type in the file (separate lines)
+pandas
+plotly
+
+-3 run this code in your terminal:
+pip install -r requirements.txt
+
+This will install your modules
+publish your project and share the link here for me to see
+
+
+------------------------------------------
 create a python app to upload csv file 
 and user can use buttons to choose if they want a bar chart or a pie chart
 
@@ -492,3 +507,53 @@ CREATE A TO DO APP
 Set reminder
 -update 
 and delete
+
+
+-----------------------------------------------------------------------------------
+
+# idea is to create an input for teachers to enter name of subjects
+# this input is then converted to a list
+# this list is shown as a multiselect box
+# this is then asked to confirm or remove from subjects
+# then a button to confirm and to create df columns from
+
+# create a checkbox to create a multiselect delete subjects/students from
+# using clearing columns or rows
+
+
+-----------------------------------------------------------------------------
+
+
+MAKE IT JUST LIKE THE FOOD ORDER APP. THIS ONE IS A BOOKSTORE
+---
+
+📚 **Bookworm's Haven Activity** 📚
+
+**1. Name:**
+What is your name?
+
+
+**3. Book Selection:**
+Explore our library and choose your next read by selecting from the following options E.g:
+
+Make sure you arrange your books in different categories:
+
+Fiction
+Non-Fiction
+Mystery
+Fantasy
+Science Fiction
+Etc
+
+Books in checkboxes with images, names and prices
+
+Please check the boxes next to the books you'd like to purchase.
+
+**Total Amount:**
+Based on your selections, the total amount will be calculated automatically.
+
+
+Happy reading!
+
+--- 
+

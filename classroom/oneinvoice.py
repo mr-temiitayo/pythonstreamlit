@@ -1,6 +1,6 @@
 import streamlit as st
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+# from selenium import webdriver
+# from selenium.webdriver.chrome.options import Options
 import time  # Import time module
 from PIL import Image
 import pandas as pd
@@ -19,9 +19,11 @@ if choice == "Create Invoice":
     with col1c:
         st.header("INVOICE")
     
+    # logo = Image.open(r'C:/Users/USER/Downloads/logo2.png')
     with col1a:
-        logo = Image.open(r'C:/Users/USER/Downloads/logo2.png')
-        st.image(logo,50,50) #to use full width
+        image1, image2,image3 = st.columns(3)
+        with image1:
+            st.image('fb.png',use_column_width=True) #to use full width
 
     col2a,col2b,col2c = st.columns(3)
     if col2a:

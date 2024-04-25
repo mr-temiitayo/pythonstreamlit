@@ -102,7 +102,7 @@ if menu == 'Submit Scores':
         studentsdf = pd.DataFrame(studentsdict) #converts to dataframe
         # st.table(studentsdf)
         newtable = pd.concat([readcsv,studentsdf],ignore_index=True) #joins the 2 tables together. old + new
-        newtable.to_csv('scores.csv',index=False) #saves the newtable into the csv file
+        newtable.to_csv('students/Aaron/scores.csv',index=False) #saves the newtable into the csv file
         #Next we join the existing df with the new df and save it on the csv file
         
 
@@ -111,9 +111,9 @@ if menu == 'Submit Scores':
 if menu == "Students Database":
     editcheckbox=st.sidebar.checkbox('Edit Database')
     if editcheckbox:
-        edit_table = st.data_editor(readcsv,width=800,height=800)
+        edit_table = st.data_editor(readcsv,width=1500,height=800)
         if st.sidebar.button("Save Database"):
-            saved_edit = edit_table.to_csv('scores.csv',index=False)
+            saved_edit = edit_table.to_csv('students/Aaron/scores.csv',index=False)
             save1, save2 = st.sidebar.columns(2)
             with save1:
                 st.success('Edits Saved')
@@ -126,7 +126,7 @@ if menu == "Students Database":
         readcsv['Total Score'] = readcsv[['Maths','English','Science','Art','Geography','History']].sum(axis=1)
         readcsv['Average'] = readcsv['Total Score']/6
         readcsv['Grade'] = pd.cut(readcsv['Average'], bins=[0,65,70,75,80,85,90,100], labels=['FAIL','C+','B','B+','A-','A','A+'])
-        readcsv.to_csv('scores.csv',index=False)
+        readcsv.to_csv('students/Aaron/scores.csv',index=False)
 
             # -----------------------------VIEW DATABASE----------------------
         st.table(readcsv) #streamlit displays the csv file
