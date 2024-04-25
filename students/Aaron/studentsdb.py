@@ -161,3 +161,5 @@ if menu == 'Scores Charts':
     elif selectchart == 'Pie Chart':
         piechart = px.pie(renamedcolumns, names='Subject', values='Score')
         st.plotly_chart(piechart)
+
+

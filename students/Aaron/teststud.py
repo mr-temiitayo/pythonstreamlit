@@ -18,7 +18,7 @@ import plotly.express as px #helps us to plot charts
 #CSV file is a text file that has all it's data separated by a comma (COMMA SEPARETED VALUES)
 
 readcsv = pd.read_csv('scores.csv',dtype={'Average': str}) #pandas reads CSV file
-
+student_id = 'Student_' + str(len(readcsv) +1)
 
 menu = st.sidebar.selectbox('Menu',['Submit Scores',  'Students Database','Scores Charts', 'Search Student'])
 
@@ -96,7 +96,7 @@ if menu == 'Submit Scores':
         
     
         #Here we create the dictionary to store the key and the data, then we convert to a df using pandas
-        studentsdict = {'Name':[name],'Maths': [maths],'English':[english],'Science':[science],'Art':[art],
+        studentsdict = {'Student_ID':[student_id],'Name':[name],'Maths': [maths],'English':[english],'Science':[science],'Art':[art],
                         'Geography':[geography],'History':[history],'Total Score':[totalscore],'Average':[average],'Grade':[grade]}
         # st.write(studentsdict)
         studentsdf = pd.DataFrame(studentsdict) #converts to dataframe
@@ -168,3 +168,14 @@ if menu == 'Scores Charts':
     elif selectchart == 'Pie Chart':
         piechart = px.pie(renamedcolumns, names='Subject', values='Score')
         st.plotly_chart(piechart)
+
+
+if menu == 'Search Student':
+   space1,space2,finder = st.columns([2,1,1.7])
+   with finder:
+        st.subheader("Find Student's File")
+        st.write("")
+        find1, find2 = st.columns([2,1])
+        with find1:
+            find = st.text_input("Enter Student's ID ")
+            findbutton = st.button("Find Student")
