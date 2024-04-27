@@ -39,24 +39,18 @@ st.write('')
 st.write('')
 col3a,col3b,col3c = st.columns([4,1,2])
 with col3a:
-    #st.write('')
-    #st.write('')
     st.write('**Bill To:**')
     customer = st.text_input('w',placeholder='Customer name',label_visibility= 'collapsed')        
-    #st.write('')
+
     address=st.text_input('s',placeholder='Enter Address',label_visibility= 'collapsed')
-    #st.write("")
+   
 
 with col3b:
-    #st.write('')
+
     st.write('')
     st.write('**Invoice#**')
-    #st.write('')
-    #st.write('')
     st.write("")
     st.write('**Invoice Date**')
-    #st.write('')
-    #st.write('')
     st.write('')
     st.write('**Due Date**')
 
@@ -147,16 +141,17 @@ def generate_pdf():
     column_width = 100  # Adjust this value as needed
 
     # Add content to the PDF in different columns
-    pdf.set_xy(column1_x, 20)
+    pdf.set_font(family='Arial', size=15, style='B')
+    pdf.set_xy(column1_x, 15)
     pdf.cell(column_width, 10, txt="DESCRIPTION", ln=True, align="L") #width/height
     
-    pdf.set_xy(column2_x, 20)
+    pdf.set_xy(column2_x, 15)
     pdf.cell(column_width, 10, txt="QTY", ln=True, align="L")
 
-    pdf.set_xy(column3_x, 20)
+    pdf.set_xy(column3_x, 15)
     pdf.cell(column_width, 10, txt="PRICE", ln=True, align="L")
 
-    pdf.set_xy(column4_x, 20)
+    pdf.set_xy(column4_x, 15)
     pdf.cell(column_width, 10, txt="AMOUNT", ln=True, align="L")
 
     # pdf.set_xy(column2_x, 40)
@@ -164,6 +159,7 @@ def generate_pdf():
     # st.write(f"**Description:** {row['Description']}, **Quantity:** {row['Quantity']}, **Amount:** {row['Amount']}")
     st.write("**Invoice Details:**")
     for index, row in df.iterrows():
+        pdf.set_font(family='Arial', size=12, style='')
         pdf.set_xy(column1_x, column_y)
         pdf.cell(column_width, 10, txt=row['Description'], ln=True, align="L") #width/height
 
@@ -175,6 +171,11 @@ def generate_pdf():
 
         pdf.set_xy(column4_x, column_y)
         pdf.cell(column_width, 10, txt=str(row['Amount']), ln=True, align="L")
+
+        # Add a divider
+        pdf.set_line_width(0.5)  # Set the width of the line
+        pdf.line(column1_x, column_y-5, column4_x+20, column_y-5)  # Draw a line from start x,y stop x,y
+
 
         column_y +=10
 #          SPACES
@@ -191,6 +192,14 @@ def generate_pdf():
         pdf.cell(column_width, 10, '', ln=True, align="L") #space
 
         column_y +=10
+
+    # Add content to the PDF in different columns
+    pdf.set_font(family='Arial', size=15, style='B')
+    pdf.set_xy(column1_x, column_y)
+    pdf.cell(column_width, 10, txt="Bank Name", ln=True, align="L") #width/height
+
+    pdf.set_xy(column4_x, column_y)
+    pdf.cell(column_width, 10, txt="Amount Due", ln=True, align="L")
 
     # Save the PDF
     pdf_file = "example.pdf"
