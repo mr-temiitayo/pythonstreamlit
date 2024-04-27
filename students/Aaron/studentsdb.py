@@ -118,7 +118,7 @@ if menu == "Students Database":
             save1, save2 = st.sidebar.columns(2)
             with save1:
                 st.success('Edits Saved')
-                #how to make sure scores edite d will be recalculated
+                #how to make sure scores edite d will be recalculateddd
     else:
             
         #--------------------RECALCULATE DATABASE VALUES
@@ -134,11 +134,11 @@ if menu == "Students Database":
 
 # -----------------------------DOWNLOAD CSV FILE------------------------------------------
     
-    with open('scores.csv', 'rb') as file: #open to make the file readable as each character
+    with open(csvlink, 'rb') as file: #open to make the file readable as each character
         data = file.read() #read the content
     st.sidebar.download_button(label = 'Download Database CSV', data=data,file_name='Students Scores Database.csv')
 
-
+ 
 #--------------------------------PLOT SCORES BAR/PIE CHARTS--------------------------------------------------
 
 

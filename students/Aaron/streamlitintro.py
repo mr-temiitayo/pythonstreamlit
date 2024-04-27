@@ -15,4 +15,5 @@ st.success("This is a text with a green bar")
 st.error("This is a text with a red bar") #others: st.warning, st.info
 
 if st.button("Click me"):
-    st.write("Yaay you did!!!!")
+    st.write("Yaay you did it!!!!")
+    st.wrtie('yes')
