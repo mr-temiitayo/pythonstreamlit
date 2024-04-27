@@ -14,6 +14,8 @@ def generate_pdf():
 
     # Set font for the entire document
     pdf.set_font("Arial", size=12)
+    pdf.set_fill_color(255, 5, 255)
+    pdf.rect(0, 0, 210, 297, 'F') #F fill color from 0x-0y to 210x-297y
 
     # Define the positions for the columns
     column1_x = 10
