@@ -514,7 +514,7 @@ and delete
 # idea is to create an input for teachers to enter name of subjects
 # this input is then converted to a list
 # this list is shown as a multiselect box
-# this is then asked to confirm or remove from subjects
+# this is then asked to create or remove from the subjects
 # then a button to confirm and to create df columns from
 
 # create a checkbox to create a multiselect delete subjects/students from
@@ -539,10 +539,8 @@ Explore our library and choose your next read by selecting from the following op
 Make sure you arrange your books in different categories:
 
 Fiction
-Non-Fiction
-Mystery
-Fantasy
-Science Fiction
+True Storie
+Add 3 more genre categories
 Etc
 
 Books in checkboxes with images, names and prices
@@ -555,5 +553,25 @@ Based on your selections, the total amount will be calculated automatically.
 
 Happy reading!
 
---- 
+--- -----------------------------------------------------------------------
 
+Homework 1
+Create an python app
+-Ask for the user name on the left column and their email on the right column
+next create an age calculator to find out their age
+-create a submit button
+-show their name, email and age after submit button is clicked
+-create a csv and a table
+PUBLISH THIS ONE AND SHARE THE LINK
+
+-----------------------------------------------------------------------
+Homework 2:
+Create a python program to ask the user to enter 2 numbers
+Then create a dictionary to show the numbers the user entered, show the addition and the multiplication of the numbers also in the dictionary
+Convert the dictionary to a table
+-----------------------------------------------------------------------
+#    Classwork:
+# edit your student database and put the database in one page and the Students Chart on another page
+# Then when a user clicks on the chart page, show a radio button to select which chart to choose
+# between the bar and the pie chart
+# in the database page, put the download button there.

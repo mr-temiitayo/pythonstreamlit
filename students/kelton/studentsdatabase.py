@@ -75,19 +75,29 @@ if menu == 'Student Database|Chart':
     subjects = ['English','Maths','Science','Computer'] #these are the subjects i want to plot
     subjects_ave = df[subjects].mean().reset_index() #this will create a new df with just 4 columns and the average score
     subjects_rename = subjects_ave.rename(columns = {'index': 'Subject', 0: 'Average'})
-    subjects_rename['Average'] = subjects_rename['Average'].astype(float).round(2).astype(str)
-    st.table(subjects_rename)
+    # subjects_rename['Average'] = subjects_rename['Average'].astype(float).round(2).astype(str)
+    # st.table(subjects_rename)
 
-
+    #barchart
     barchart = px.bar(subjects_rename, x = 'Subject', y= 'Average')
 
     st.plotly_chart(barchart)
+
+
+    #piechart
+    piechart = px.pie(subjects_rename, names = 'Subject', values= 'Average' )
+    st.plotly_chart(piechart)
 
     with open('Studentdb.csv','rb') as csvfile:
         data = csvfile.read() #read the content
     st.download_button(label='Download Students Database CSV File',data=data,file_name='Studentdb.csv')
 
-   
+#    Classwork:
+# edit your student database and put the database in one page and the Students Chart on another page
+# Then when a user clicks on the chart page, show a radio button to select which chart to choose
+# between the bar and the pie chart
+# in the database page, put the download button there.
+
 
 
 #button to choose if barchart or piechart
