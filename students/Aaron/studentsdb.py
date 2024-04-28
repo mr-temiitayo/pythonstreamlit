@@ -134,9 +134,9 @@ if menu == "Students Database":
 
 # -----------------------------DOWNLOAD CSV FILE------------------------------------------
     
-    with open(csvlink, 'rb') as file: #open to make the file readable as each character
-        data = file.read() #read the content
-    st.sidebar.download_button(label = 'Download Database CSV', data=data,file_name='Students Scores Database.csv')
+    # with open(csvlink, 'rb') as file: #open to make the file readable as each character
+    #     data = file.read() #read the content
+    # st.sidebar.download_button(label = 'Download Database CSV', data=data,file_name='Students Scores Database.csv')
 
  
 #--------------------------------PLOT SCORES BAR/PIE CHARTS--------------------------------------------------
