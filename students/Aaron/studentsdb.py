@@ -19,7 +19,7 @@ import plotly.express as px #helps us to plot charts
 
 csvlink = 'https://raw.githubusercontent.com/mr-temiitayo/pythonstreamlit/main/students/Aaron/scores.csv'
 readcsv = pd.read_csv(csvlink,dtype={'Average': str}) #pandas reads CSV file
-
+student_id = 'Student_' + str(len(readcsv) +1)
 
 menu = st.sidebar.selectbox('Menu',['Submit Scores',  'Students Database','Scores Charts', 'Search Student'])
 
@@ -97,7 +97,7 @@ if menu == 'Submit Scores':
         
     
         #Here we create the dictionary to store the key and the data, then we convert to a df using pandas
-        studentsdict = {'Name':[name],'Maths': [maths],'English':[english],'Science':[science],'Art':[art],
+        studentsdict = {'Student_ID':[student_id],'Name':[name],'Maths': [maths],'English':[english],'Science':[science],'Art':[art],
                         'Geography':[geography],'History':[history],'Total Score':[totalscore],'Average':[average],'Grade':[grade]}
         # st.write(studentsdict)
         studentsdf = pd.DataFrame(studentsdict) #converts to dataframe
