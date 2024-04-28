@@ -1,6 +1,8 @@
 import streamlit as st #this is the webpage for our python projects
 import pandas as pd #this helps to read, write CSV files, and convert them to a table 
 import plotly.express as px #helps us to plot charts
+import requests
+
 
 # submit students information (student name, scores) DONE
 # The computer will calc the (total, average, grade of student) DONE
@@ -18,7 +20,15 @@ import plotly.express as px #helps us to plot charts
 #CSV file is a text file that has all it's data separated by a comma (COMMA SEPARETED VALUES)
 
 csvlink = 'https://raw.githubusercontent.com/mr-temiitayo/pythonstreamlit/main/students/Aaron/scores.csv'
-readcsv = pd.read_csv(csvlink,dtype={'Average': str}) #pandas reads CSV file
+response = requests.get(csvlink)
+
+
+if response.status_code == 200:
+    readcsv = pd.read_csv(csvlink,dtype={'Average': str}) #pandas reads CSV file
+else:
+    print("Failed to fetch CSV data")
+
+# readcsv = pd.read_csv(csvlink,dtype={'Average': str}) #pandas reads CSV file
 student_id = 'Student_' + str(len(readcsv) +1)
 
 menu = st.sidebar.selectbox('Menu',['Submit Scores',  'Students Database','Scores Charts', 'Search Student'])
