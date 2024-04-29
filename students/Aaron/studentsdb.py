@@ -18,7 +18,7 @@ import plotly.express as px #helps us to plot charts
 
 #CSV file is a text file that has all it's data separated by a comma (COMMA SEPARETED VALUES)
 
-csvlink = 'students/Aaron/scores.csv'
+csvlink = 'scores.csv'
 readcsv = pd.read_csv(csvlink,dtype={'Average': str})
 
 student_id = 'Student_' + str(len(readcsv) +1)
