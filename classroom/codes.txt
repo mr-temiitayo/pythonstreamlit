@@ -23,3 +23,16 @@ req.get(url)
 create a file in the immediate directory
 
 Path(__file__).parents[1] / 'dashboard/day_clear.csv'
+
+
+----------------------------------------
+import requests
+
+# response = requests.get(csvlink)
+
+# if response.status_code == 200:
+#     readcsv = pd.read_csv(csvlink,dtype={'Average': str}) #pandas reads CSV file
+# else:
+#     print("Failed to fetch CSV data")
+
+# readcsv = pd.read_csv(csvlink,dtype={'Average': str}) #pandas reads CSV file
