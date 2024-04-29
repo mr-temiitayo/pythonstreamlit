@@ -19,14 +19,15 @@ import requests
 
 #CSV file is a text file that has all it's data separated by a comma (COMMA SEPARETED VALUES)
 
-csvlink = 'https://raw.githubusercontent.com/mr-temiitayo/pythonstreamlit/main/students/Aaron/scores.csv'
-response = requests.get(csvlink)
+csvlink = 'scores.csv'
+# response = requests.get(csvlink)
+readcsv = pd.read_csv(csvlink,dtype={'Average': str})
 
 
-if response.status_code == 200:
-    readcsv = pd.read_csv(csvlink,dtype={'Average': str}) #pandas reads CSV file
-else:
-    print("Failed to fetch CSV data")
+# if response.status_code == 200:
+#     readcsv = pd.read_csv(csvlink,dtype={'Average': str}) #pandas reads CSV file
+# else:
+#     print("Failed to fetch CSV data")
 
 # readcsv = pd.read_csv(csvlink,dtype={'Average': str}) #pandas reads CSV file
 student_id = 'Student_' + str(len(readcsv) +1)

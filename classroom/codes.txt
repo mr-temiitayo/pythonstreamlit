@@ -1,0 +1,25 @@
+ st.balloons()
+ --
+ # Main Page
+selected = option_menu(menu_title=None,options=["Employee","Company","IFM Route"],icons=["person-vcard-fill","building","building"],orientation="horizontal")
+
+if selected == "Employee":
+
+
+------------------------------
+url="https://script.google.com/macros/s/AKfycbzsHJ5paT0EguvW4cYxpTtGGoY3MyO4qd7_7pzIfMbNHb6WjJLz9xzJNcABTWa97K6_YQ/exec?fname="+str(fullNum)+"&faname="+str(fatherName)+"&mname="+str(motherName)+"&age="+str(age)+"&gender="+str(gender)+"&nlty="+str(nationality)+"&add="+str(adress)+"&mail="+str(email)+"&mob="+str(mno)
+req.get(url)
+
+------------------------------
+        date = st.date_input(
+            label="Rentang Waktu", 
+            min_value=min_date, max_value=max_date,
+            value=[min_date, max_date],
+            on_change=on_change
+        )
+
+
+----------------------------------------
+create a file in the immediate directory
+
+Path(__file__).parents[1] / 'dashboard/day_clear.csv'

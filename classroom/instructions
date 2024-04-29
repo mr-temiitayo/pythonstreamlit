@@ -1,0 +1,81 @@
+To install extra python modules for your published project:
+
+-1 create a a file, name it requirements.txt
+-2 type in the file (separate lines)
+pandas
+plotly
+
+-3 run this code in your terminal:
+pip install -r requirements.txt
+
+This will install your modules
+publish your project and share the link here for me to see
+--------------------------------------------------------------------------
+
+robotics link
+https://www.youtube.com/watch?v=MF-FqZn5e5M
+-----------------------------
+
+
+colors in texts
+ blue, green, orange, red, violet, gray/grey, and rainbow.
+
+--------------------------------------------------------------------------
+
+https://youtu.be/yG9kmBQAtW4?si=J3iEEi5LkTwxvtrm
+
+Fix python virtual environment
+
+------------------------------------------------------------
+check no case sensitivity
+user_exists = (user_df["Username"].str.lower() == username.lower()) & (user_df["Password"] == password)
+
+user_exists = (user_df["Username"].str.lower() == username.lower()) & (user_df["Password"] == password)
+-----------------------------------
+
+
+filter link
+https://youtu.be/BtiVbY7lhqw?si=nPp_UreLjeBln-un&t=236
+
+
+-------------------------------------------------------------
+img = Image.open(r'C:/Users/USER/Desktop/streamlipython/pythonstreamlit/media/Golfcart Robot.jpg')
+
+-------------------------------------------------------------
+
+send mail
+enable 2fa
+app password: create password
+githubtee@gmail.com
+cczaelfrzzyywngz
+
+
+------------------------------------------------------------------
+
+Things to do:
+-toggle autosave on
+-disable parameter in settings
+-clean output in code runner settings (disable exe message)
+
+------------------------------------------------------------------
+
+# Define a conditional color mapping
+color = {
+    'Gender': {
+        'Male': 'Blue',
+        'Female': 'Red',
+        'Other': 'Green'  # You can add more categories and colors as needed
+    },
+    'ParentMaritalStatus': {
+        'Married': 'Purple',
+        'Single': 'Yellow',
+        'Divorced': 'Orange'  # Add colors for different marital status values
+    }
+}
+
+# Create a bar chart with custom colors based on the selected category
+fig = px.bar(df, x=selectedX, y=selectedY, orientation='v', color=selectedX, color_discrete_map=color[selectedX])
+'''
+
+
+
