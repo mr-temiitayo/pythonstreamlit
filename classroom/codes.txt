@@ -36,3 +36,19 @@ import requests
 #     print("Failed to fetch CSV data")
 
 # readcsv = pd.read_csv(csvlink,dtype={'Average': str}) #pandas reads CSV file
+
+-----------------------------------------------------------------
+DELETE A ROW OR COLUMN
+
+user_id_value = '12345'
+
+# Assuming 'user_id' is the name of the column containing user IDs
+# Replace it with the actual column name if different
+df = df.drop(df[df['user_id'] == user_id_value].index)
+
+# Save the DataFrame back to the CSV file if needed
+df.to_csv('your_file.csv', index=False)
+
+df.drop(columns=['Biology'], inplace=True)
+
+--------------------------------------------------------------
