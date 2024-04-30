@@ -166,3 +166,19 @@ if menu == 'Scores Charts':
         st.plotly_chart(piechart)
 
 
+if menu == 'Search Student':
+    space1,space2,finder = st.columns([2,1,1.7])
+    with finder:
+        st.subheader("Find Student's File")
+        st.write("")
+        find1, find2 = st.columns([2,1])
+        with find1:
+            findID = st.text_input("Enter Student's ID ")
+            findbutton = st.button("Find Student")
+
+    if findbutton: #check if button pressed
+        if findID: #check if text in the box
+            searchresult = readcsv[readcsv['Student_ID'] == findID]
+            st.table(searchresult)
+            ID = searchresult['Student_ID'].iloc[0]
+            name = searchresult['Name'].iloc[0]
