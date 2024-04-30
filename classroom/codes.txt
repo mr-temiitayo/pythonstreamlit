@@ -42,13 +42,31 @@ DELETE A ROW OR COLUMN
 
 user_id_value = '12345'
 
-# Assuming 'user_id' is the name of the column containing user IDs
-# Replace it with the actual column name if different
-df = df.drop(df[df['user_id'] == user_id_value].index)
-
-# Save the DataFrame back to the CSV file if needed
+df = df.drop(df[df['user_id'] == user_id_value].index) #ROW
 df.to_csv('your_file.csv', index=False)
+-----
+delete columns
+df.drop(columns=['Biology','Chemistry'], inplace=True) #COLUMN #inplace mean direct change to original file
+-----
+delete rows
+# Drop the specified rows
+df.drop(index=[1, 3, 5], inplace=True)
 
-df.drop(columns=['Biology'], inplace=True)
 
+
+
+To delete all rows in a DataFrame, you can use the drop() method with the index of all rows. Similarly, to delete all columns, you can use the drop() method with the column names. Here's how you can do it:
+
+python
+Copy code
+import pandas as pd
+
+# Create a sample DataFrame
+df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6], 'C': [7, 8, 9]})
+
+# Delete all rows
+df.drop(df.index, inplace=True)  # This will remove all rows
+
+# Delete all columns
+df.drop(columns=df.columns, inplace=True)  # This will remove all columns
 --------------------------------------------------------------
