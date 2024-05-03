@@ -17,11 +17,6 @@ with A1:
         total += 10
 
 
-    if st.checkbox("Hummus,Bread/tea:$15"):
-        st.success("You bought Hummus,Bread/tea✅")
-        total += 15
-
-
 
 
 with A2:
