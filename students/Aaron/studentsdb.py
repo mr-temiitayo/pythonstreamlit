@@ -10,7 +10,7 @@ import plotly.express as px #helps us to plot charts
 # teacher can edit the database DONE
 # download the database csv file DONE
 #how to make sure scores edited will be recalculated DONE
-#sort database scores by grade
+#sort database scores by grade DONE
 #edit database page should have clear data button for all db or just one student
 # search students file
 # computer send a mail
@@ -24,7 +24,7 @@ readcsv = pd.read_csv(csvlink,dtype={'Average': str})
 student_id = 'Student_' + str(len(readcsv) +1)
 
 menu = st.sidebar.selectbox('Menu',['Submit Scores',  'Students Database','Scores Charts', 'Search Student'])
-
+subjects = ['Maths','English','Science','Art','Geography','History'] #subjects for new table to plot
 
 if menu == 'Submit Scores':
     st.header('Submit Students Scores Here')
@@ -126,13 +126,28 @@ if menu == "Students Database":
         #--------------------RECALCULATE DATABASE VALUES
 
 
-        readcsv['Total Score'] = readcsv[['Maths','English','Science','Art','Geography','History']].sum(axis=1)
+        readcsv['Total Score'] = readcsv[subjects].sum(axis=1)
         readcsv['Average'] = readcsv['Total Score']/6
         readcsv['Grade'] = pd.cut(readcsv['Average'], bins=[0,65,70,75,80,85,90,100], labels=['FAIL','C+','B','B+','A-','A','A+'])
         readcsv.to_csv(csvlink,index=False)
 
+
             # -----------------------------VIEW DATABASE----------------------
-        st.table(readcsv) #streamlit displays the csv file
+
+        try:
+            sort1,sort2,sort3,sort4 = st.columns(4)
+            with sort1:
+                
+                sortsubjects = ['None','Maths','English','Science','Art','Geography','History','Total Score','Grade']
+                sort = st.selectbox('Sort DataFrame',sortsubjects,index=2)
+
+                            # Sort the DataFrame based on the selected order
+            if sort == 'Maths'or 'English'or'Science'or 'Art'or 'Geography'or 'History'or 'Total Score' or 'Grade':
+                sorted_table = readcsv.sort_values(by=sort, ascending=False)
+                st.table(sorted_table)
+        except KeyError:
+                sorted_table = readcsv.sort_values(by='Student_ID', ascending=True)
+                st.table(sorted_table) #streamlit displays the csv file
 
 # -----------------------------DOWNLOAD CSV FILE------------------------------------------
     
@@ -152,7 +167,7 @@ if menu == 'Scores Charts':
     with radio1:
         selectchart = st.radio('Choose Preferred Chart to Plot', ['Bar Chart', 'Pie Chart'],horizontal=True)
     #now let's plot the bar chart
-    subjects = ['Maths','English','Science','Art','Geography','History'] #subjects for new table to plot
+    
     subjectstable = readcsv[subjects].mean().reset_index() #displays only the 5 columns on the table
     renamedcolumns = subjectstable.rename(columns = {'index': 'Subject', 0: "Score"})
     # st.table(renamedcolumns)
@@ -176,9 +191,52 @@ if menu == 'Search Student':
             findID = st.text_input("Enter Student's ID ")
             findbutton = st.button("Find Student")
 
+# Maths,English,Science,Art,Geography,History,Total Score,Average,Grade
     if findbutton: #check if button pressed
         if findID: #check if text in the box
             searchresult = readcsv[readcsv['Student_ID'] == findID]
-            st.table(searchresult)
+            # st.table(searchresult)
             ID = searchresult['Student_ID'].iloc[0]
             name = searchresult['Name'].iloc[0]
+            eng = searchresult['English'].iloc[0]
+            maths = searchresult['Maths'].iloc[0]
+            sci = searchresult['Science'].iloc[0]
+            art = searchresult['Art'].iloc[0]
+            geo = searchresult['Geography'].iloc[0]
+            hist = searchresult['History'].iloc[0]
+            total = searchresult['Total Score'].iloc[0]
+            ave = searchresult['Average'].iloc[0]
+            grade = searchresult['Grade'].iloc[0]
+
+
+            head1,head2,head3 = st.columns([1,2,1])
+            with head2:
+                st.title(':blue[GRANGE SCHOOL]')
+                sub1,sub2,sub3 = st.columns([0.5,2,0.5])
+                with sub2:
+                    st.write(":orange[**FAUGET MODERN SCHOOL**]")
+            st.divider()
+
+            st.header(f':blue[{name}]')
+
+            st.write("")
+            st.write("")
+            subject, score = st.columns([2,1])
+
+            with subject:
+                st.subheader("Subject List")
+                st.write('Mathematics')
+                st.write('English')
+                # Science
+                # Art
+                # Geography
+                # History
+                # Total Score
+                
+            with score:
+                st.subheader("Score")
+                st.write(f'{maths}')
+                st.write(f'{eng}')
+                st.subheader(f':orange[GRADE:] {grade}')
+
+        

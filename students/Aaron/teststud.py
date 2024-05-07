@@ -179,3 +179,5 @@ if menu == 'Search Student':
         with find1:
             find = st.text_input("Enter Student's ID ")
             findbutton = st.button("Find Student")
+
+            

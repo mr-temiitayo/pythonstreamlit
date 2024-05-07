@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-
-
+from fpdf import FPDF
+import base64
 
 # submit students information (student name, scores) DONE
 # save each submitted info into a CSV file  DONE
@@ -105,10 +105,39 @@ if menu == 'Employee File':
                         st.write(getes)
                     with j:
                         st.write('Salary')
-                        st.write(getsa)
+                        st.write(f'${getsa:,}')
+
+
+                    if st.sidebar.button("Download User File"):
+                        def design_pdf():
+                            pdf = FPDF() #keyword to activate, name your pdf variable
+                            pdf.add_page() #keyword to create new page
+
+                            pdf.set_font('Arial', size=12)
+                            pdf.set_xy(20,20) #position of text
+                            pdf.cell(40,text=f":orange[{getfn} {getln}]",ln=True,align='L')
+
+                            pdf_file = 'database.pdf'
+                            pdf.output(pdf_file)
+                            return pdf_file
+                        
+                        callpdf = design_pdf()
+                        with open (callpdf,'rb') as file:
+                            pdf_data = file.read()
+
+                        # Encode the PDF data using base64
+                        pdf_data_base64 = base64.b64encode(pdf_data).decode('utf-8')
+
+                        # Generate an HTML tag to embed the PDF
+                        pdf_embedded_html = f'<embed src="data:application/pdf;base64,{pdf_data_base64}" type="application/pdf" width="100%" height="600px" />'
+
+                        # Display the embedded PDF in Streamlit
+                        st.markdown(pdf_embedded_html, unsafe_allow_html=True)
+
 
                 except:
                     st.subheader("Enter correct User ID")
+
 
 
 
