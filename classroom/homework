@@ -512,6 +512,7 @@ Homework 2:
 Create a python program to ask the user to enter 2 numbers
 Then create a dictionary to show the numbers the user entered, show the addition and the multiplication of the numbers also in the dictionary
 Convert the dictionary to a table
+no csv file
 -----------------------------------------------------------------------
 #    Classwork:
 # edit your student database and put the database in one page and the Students Chart on another page

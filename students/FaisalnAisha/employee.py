@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(layout='wide')
-csvlink= pd.read_csv('students/FaisalnAisha/employ.csv')
+csvlink= pd.read_csv('employ.csv')
 
 st.sidebar.write("Made By Mr.Tee 😎😎")
 menu=st.sidebar.selectbox("Select Menu",["Register","Database",'Employee File'])
