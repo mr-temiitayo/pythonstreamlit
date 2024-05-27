@@ -1,0 +1,23 @@
+Title,Date,Content
+Question 1,2024-05-23,"Mia is excited to explore the Minecraft store and purchase some exciting items for her gameplay. She wants to download the game itself, choose a world to play in, buy some costumes, and maybe even get a farm! Additionally, she’s eyeing some gems to enhance her gameplay. Write a Python program to help Mia calculate the total cost of her Minecraft adventure.
+
+Mia’s journey through the Minecraft store involves several steps:
+
+First, she needs to download the game itself, which costs $200.
+Mia will then enter her username and password to access the store.
+Next, she can choose between two worlds: the Survival world for $20 or the Creative world for $100.
+Mia can also browse through three different costume options, each with its own price tag.
+Additionally, Mia has the option to add a farm to her gameplay for an additional $25.
+Finally, she can purchase gems: diamonds for $45, silver for $20, or gold for $30.
+After making her selections, Mia wants to see the total cost of her Minecraft adventure. Let’s create a Python program to help her out."
+Question 2,2024-05-17,"Tim is opening a virtual pet shop where users can adopt virtual pets and buy various items for them. He wants to create a program to calculate the total cost for users based on their selections. Write a Python program to help Tim with his virtual pet shop calculations.
+
+Tim’s virtual pet shop offers the following items:
+
+Adoption Fee: There’s an adoption fee of $50 for each virtual pet.
+Pet Food: Users can purchase pet food for $10 per bag.
+Toys: Users can buy toys for their pets. Each toy costs $15.
+Accessories: Users can purchase accessories for their pets. Each accessory costs $20.
+Additionally, Tim wants to offer a discount of $5 for users who spend more than $50 in total.
+
+Write a Python program that prompts users to select the items they want to purchase and calculates the total cost, including any applicable discounts."

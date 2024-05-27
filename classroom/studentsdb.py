@@ -2,12 +2,13 @@ import streamlit as st
 import pandas as pd
 
 #Project Objective
-# Create a student scores database which can 
+# Create a student scores database for teachers which can 
 # -get the name
-# -4 subjects
+# -4 subjects scores
+# calculate the total scores
 # -calculate the average
 # -calculate the grade (A,B,C,D,E,F)
-# -update your csv file
+# -save data and update your csv file
 
 #what is csv file?
 #csv file are text files that each data is separated by a comma (comma separated values)

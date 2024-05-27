@@ -32,6 +32,10 @@ gender = st.radio("Choose gender", ['Male','Female'],horizontal = True)
 
 players = {'Name': ['Ronaldo','Messi'],'Country':['Portugal','Argentina'],'Club':['Madrid','Arsenal'],'Goals':[300,800],'Assists':[80,900]}
 
+
+
+st.write(players['Name'])
+
 st.write(players)
 
 cr7stats = pd.DataFrame(players)
