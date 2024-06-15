@@ -32,12 +32,12 @@ if menu == 'Submit Scores':
 
 
    with c1:
-      math = st.number_input("Enter the students math results: ",0,8)
-      english = st.number_input("Enter the students english results; ",0,8)
-      science = st.number_input("Enter the students science results: ",0,8)
+      math = st.number_input("Enter the students math results: ",1,7)
+      english = st.number_input("Enter the students english results; ",1,7)
+      science = st.number_input("Enter the students science results: ",1,7)
    with c2:
-      hum = st.number_input("Enter the students humanities results:",0,8)
-      art = st.number_input("Enter the students art results: ",0,8)
+      hum = st.number_input("Enter the students humanities results:",1,7)
+      art = st.number_input("Enter the students art results: ",1,7)
 
 
    total = hum + art + science + english + math
