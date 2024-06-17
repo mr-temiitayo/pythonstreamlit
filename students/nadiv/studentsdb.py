@@ -12,16 +12,7 @@ st.subheader("Student Grades")
 database = pd.read_csv("scores.csv")
 menu = st.sidebar.selectbox('Menu',['Submit Scores', 'Database|Chart'])
 
-
-
-if menu == 'Database|Chart':
-   st.table(database)
-
-   #now let's make a chart. First we need to get the subjects as a list
-
-   subjects = ['Maths','English','Humanities','Science','Art']
    
-
 
 if menu == 'Submit Scores':
 
@@ -38,6 +29,7 @@ if menu == 'Submit Scores':
    with c2:
       hum = st.number_input("Enter the students humanities results:",1,7)
       art = st.number_input("Enter the students art results: ",1,7)
+      tech = st.number_input("Enter the students tech results: ",1,7)
 
 
    total = hum + art + science + english + math
@@ -60,7 +52,7 @@ if menu == 'Submit Scores':
    # Name,Maths,English,Humanities,Science,Art,Total,Average,Grade
    if st.button("Submit student scores"):
       student_dict = {'Name':[name],'Maths':[math],'English':[english],
-                                       'Humanities':[hum],'Science':[science],'Art':[art],'Total':[total],'Average':[avg],'Grade':[grade]}
+                                       'Humanities':[hum],'Science':[science],'Art':[art],'Tech':[tech],'Total':[total],'Average':[avg],'Grade':[grade]}
       student_database = pd.DataFrame(student_dict)
       #i created a dictionary of csv columns:python variable, 
       # then converted it to a dataframe (table)
@@ -70,4 +62,15 @@ if menu == 'Submit Scores':
       st.success(f"{name} total score is {total}. {name}'s average is {avg}, {name}'s final grade is {grade}")
 
 
-      
+
+if menu == 'Database|Chart':
+   st.table(database)
+
+   #now let's make a chart. First we need to get the subjects as a list
+
+   subjects = ['Maths','English','Humanities','Science','Art','Tech']
+   subjectstable = database[subjects].mean().reset_index()
+   subjectsrename = subjectstable.rename(columns={'index':'Subject', 0:'Grade'})
+   # st.table(subjectsrename)
+   barchart = px.bar(subjectsrename, x='Subject',y='Grade')
+   st.plotly_chart(barchart)
