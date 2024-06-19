@@ -1,11 +1,14 @@
-import streamlit as st
-st.set_page_config(layout='wide')
-Image1,Image2,Image3=st.columns(3)
+import streamlit as st #python module to create framework/page
+from fpdf import FPDF #python module to generate PDFs
+import base64 #python module to convert binary data (of your code) to printable characters
+
+Image1,Image2,Image3=st.columns([0.5,2.5,1])
 with Image1:
-    st.image("Logo.png",width=50)
+
+    st.image("Logo.png",use_column_width=True)
 col1,col2=st.columns(2)
 with Image3:
-    st.title(":blue[INVOICE]")
+    st.header(":blue[INVOICE]")
 with col1:
     st.write(':blue[Faisaltech]')
     st.write(":blue[471, Camelia 7, Arabian Ranches 8]")
@@ -14,15 +17,7 @@ with col1:
     st.write(":blue[**Bill To:**]")
 
 
-
-
-
-
-
-
 colb1,colb2,colb3=st.columns([2,1,1])
-
-
 
 
 with colb1:
@@ -37,7 +32,7 @@ with colb2:
         st.write('')
         st.write(":blue[**Due Date:**]")
 with colb3:
-        invoicenum = st.text_input('w',placeholder='Phone Number',label_visibility= 'collapsed')
+        Invoicenum = st.text_input('w',placeholder='Invoice Number',label_visibility= 'collapsed')
         Date=st.date_input("Enter Invoice Date",label_visibility='collapsed')
         due=st.date_input("Enter Due Date",label_visibility='collapsed')
 st.write("")
@@ -52,7 +47,7 @@ with colc2:
      st.write(":blue[**Quantity**]")
      quantity=st.number_input("y",0,label_visibility='collapsed')
 with colc3:
-     st.write(":blue[**Price**]")
+     st.write(":blue[**Price|Unit**]")
      price=st.number_input("s",0,label_visibility='collapsed')
 with colc4:
      st.write(":blue[**Total Price**]")
@@ -67,5 +62,49 @@ with cold1:
     st.write(":blue[Bank Name: UAE Bank]")
 with cold2:
      st.write(":blue[**Payment Due:**]")
-     st.header(f":violet[**#{total:,}**]")
-st.button(":blue[Save Info]")
+     st.header(f":violet[**${total:,}**]")
+
+#function to generate our PDF
+
+def generate_pdf():
+     pdf = FPDF()
+
+     #Add a page
+     pdf.add_page()
+
+     #Set your default fonts
+     pdf.set_font("Arial", size=12)
+
+     #Set column1 x and y coord
+     col1x = 10
+     col1y = 100
+
+     #Add image
+     pdf.image("Logo.png",x=col1x, y=col1y)
+
+
+
+     
+     #Save the PDF
+     pdf_file = 'invoice.pdf'
+     pdf.output(pdf_file)
+     return pdf_file
+
+#Generate the PDF
+pdf_func = generate_pdf()
+
+#Read the PDF FUNCT as binary data
+with open(pdf_func, 'rb') as binary:
+     pdf_data = binary.read()
+
+if st.button(":blue[View Invoice]"):
+     #Write the PDF using base64
+     pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
+
+     #Generate the HTML to embed the PDF
+     pdf_embed = f'<embed src="data:application/pdf;base64,{pdf_base64}" type="application/pdf" width="100%" height="600px" />'
+
+     #Display the embedded pdf (Markdown helps us use HTML in streamlit)
+     st.markdown(pdf_embed,unsafe_allow_html=True)
+
+
