@@ -451,17 +451,6 @@ Set reminder
 and delete
 
 
------------------------------------------------------------------------------------
-
-# idea is to enter number of subjects 
-# create an input for teachers to enter name of subjects
-# this input is then converted to a list
-# this list is shown as a multiselect box
-# this is then asked to create or remove from the subjects
-# then a button to create df columns from
-# proceed to create submission area for the scores  
-# a multiselect to delete some subjects/students or all from in the admin page
-# using clearing columns or rows
 
 
 -----------------------------------------------------------------------------
@@ -565,3 +554,14 @@ If they earn above $200,000, they can buy a supercar.
 Implement the program so that it displays the appropriate message to the buyer based on their salary.
 
 
+-----------------------------------------------------------------------------------
+
+# idea is to enter number of subjects 
+# create an input for teachers to enter name of subjects
+# this input is then converted to a list
+# this list is shown as a multiselect box
+# this is then asked to create or remove from the subjects
+# then a button to create df columns from
+# proceed to create submission area for the scores  
+# a multiselect to delete some subjects/students or all from in the admin page
+# using clearing columns or rows

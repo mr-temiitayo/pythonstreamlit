@@ -5,7 +5,7 @@ import base64 #python module to convert binary data (of your code) to printable 
 Image1,Image2,Image3=st.columns([0.5,2.5,1])
 with Image1:
 
-    st.image("Logo.png",use_column_width=True)
+    st.image("Logobiz.png",use_column_width=True)
 col1,col2=st.columns(2)
 with Image3:
     st.header(":blue[INVOICE]")
@@ -22,7 +22,7 @@ colb1,colb2,colb3=st.columns([2,1,1])
 
 with colb1:
     customer = st.text_input('w',placeholder='Customer Name',label_visibility= 'collapsed')
-    adress = st.text_input('w',placeholder='Enter Adress',label_visibility= 'collapsed')  
+    adress = st.text_input('w',placeholder='Enter Email Address',label_visibility= 'collapsed')  
 
 
 with colb2:
@@ -77,14 +77,48 @@ def generate_pdf():
 
      #Set column1 x and y coord
      col1x = 10
-     col1y = 100
+     col1y = 25
+
+     #Set column width
+     colw = 90
+     #Set column height
+     colh = 10
+
 
      #Add image
-     pdf.image("Logo.png",x=col1x, y=col1y)
+     pdf.image("Logo.png",x=col1x, y=col1y,w=25)
+
+     #INVOICE
+     pdf.set_font(family='Arial',size=18,style='B')
+     pdf.set_xy(col1x+145,col1y+2)
+     pdf.cell(colw,colh, txt='INVOICE',ln=True,align='L')
 
 
-
+     #FAISALTECH
+     pdf.set_font("Arial", size=12)
+     pdf.set_xy(col1x,col1y+20)
+     pdf.cell(colw,colh,txt='Faisaltech',ln=True,align='L')
      
+
+     #ADDRESS
+     pdf.set_font("Arial", size=12)
+     pdf.set_xy(col1x,col1y+30)
+     pdf.cell(colw,colh,txt='471, Camelia 7, Arabian Ranches 8',ln=True,align='L')
+     
+     #COUNTRY
+     pdf.set_font("Arial", size=12)
+     pdf.set_xy(col1x,col1y+40)
+     pdf.cell(colw,colh,txt='Dubai, UAE',ln=True,align='L')
+       
+
+     #BILL TO
+     pdf.set_font("Arial", size=12,style='B')
+     pdf.set_xy(col1x,col1y+70)
+     pdf.cell(colw,colh,txt='Bill To:',ln=True,align='L')
+      
+
+
+
      #Save the PDF
      pdf_file = 'invoice.pdf'
      pdf.output(pdf_file)

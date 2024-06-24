@@ -68,9 +68,20 @@ if menu == 'Database|Chart':
 
    #now let's make a chart. First we need to get the subjects as a list
 
-   subjects = ['Maths','English','Humanities','Science','Art','Tech']
-   subjectstable = database[subjects].mean().reset_index()
-   subjectsrename = subjectstable.rename(columns={'index':'Subject', 0:'Grade'})
-   # st.table(subjectsrename)
-   barchart = px.bar(subjectsrename, x='Subject',y='Grade')
-   st.plotly_chart(barchart)
+   subjects = ['Maths','English','Humanities','Science','Art','Tech'] #list  for all subjects
+   subjectstable = database[subjects].mean().reset_index() #got the mean of all subjects
+   subjectsrename = subjectstable.rename(columns={'index':'Subject', 0:'Grade'}) #renamed the columns
+  
+   chart = st.radio('Choose your chart',['Choose','Bar Chart','Pie Chart'],horizontal=True)
+
+   if chart == 'Bar Chart':
+
+      barchart = px.bar(subjectsrename, x='Subject',y='Grade') #x = categories, y = values
+      st.plotly_chart(barchart) #plot the chart
+
+
+   
+
+
+
+
