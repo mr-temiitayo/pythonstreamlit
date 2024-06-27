@@ -14,10 +14,14 @@ import streamlit as st
 import pandas as pd
 
 
-menu = st.sidebar.selectbox('Menu',['School Details','Subject Selection','Subjects Scores','Database|Charts'])
+menu = st.sidebar.selectbox('Menu',['School Details','Subject Selection','Submit Scores','Database|Charts'])
 if st.sidebar.button("refresh"):
     pass
 subjects_csv = pd.read_csv('subjects.csv')
+subjectscores_csv = pd.read_csv('subjectscores.csv')
+
+subjects_list = subjects_csv['Subjects'].to_list() #read subjects saved in csv as list
+# st.write(subjects_list) 
 
 # subjects = [n for n in range(1,21)]
 # subjects.insert(0,'Choose')
@@ -41,29 +45,16 @@ if menu == 'School Details':
 if menu == 'Subject Selection':
 
 
-    st.header("Teachers Subjects Database")
+    st.header("Create Your Database Headers")
    
-    subjects_list = subjects_csv['Subjects'].to_list() #read subjects saved in csv as list
-    # st.write(subjects_list) 
-
     col1,col2 = st.columns([1,2])
-    all_subjects = st.multiselect("**Step 2:** Confirm subjects to create here",subjects_list,default=subjects_list) #display all subjects chosen
-    
-    cols_button = st.button('Create subject columns') #button to create columns
-    if cols_button:
-        for subject in all_subjects: #loop through multiselect box
-            if subject not in subjects_csv.columns: #avoid duplicates
-                subjects_csv[subject] = '' #column values after columns created
-        subjects_csv.to_csv('subjects.csv',index=False)
-        st.sidebar.success('Subjects created')
-
-
-    
-   
     with col1:
         subjects_name = st.text_input("**Step 1:** Enter each subject name") #enter subjects
         submit_subjects = st.button("Submit")
 
+    with col2:
+        student_year = st.radio("Add student year (optional)",['No','Yes'],horizontal=True)
+        st.sidebar.write(student_year)
         if submit_subjects:
             subj_dict = {'Subjects':[subjects_name]}
             subj_df = pd.DataFrame(subj_dict)
@@ -71,19 +62,49 @@ if menu == 'Subject Selection':
             subj_join.to_csv('subjects.csv',index=False)
             st.sidebar.success(f"{subjects_name} Submitted")
 
+
     
+    all_subjects = st.multiselect("**Step 2:** Confirm subjects to create here",subjects_list,default=subjects_list) #display all subjects chosen
+    
+    cols_button = st.button('Create subject columns') #button to create columns
+    
+    if cols_button:
+        for subject in all_subjects: #loop through multiselect box
+            if subject not in subjectscores_csv.columns: #avoid duplicates
+                subjectscores_csv[subject] = '' #column values after columns created
+                
+        # Delete the column named 'Subjects'
+        if 'Subjects' in subjectscores_csv.columns:
+            subjectscores_csv.drop(columns=['Subjects'], inplace=True)
+        subjectscores_csv.to_csv('subjectscores.csv',index=False)
+        st.sidebar.success('Subjects created')
 
 
-    col3, col4 = st.columns(2)
-    with col3:
-        del_subject = st.multiselect('Choose subject(s) to delete',subjects_list,default=subjects_list)
+#------------DELETE SUBJECTS     
+    # col3, col4 = st.columns(2)
+    # with col3:
+    #     del_subject = st.multiselect('Choose subject(s) to delete',subjects_list,default=subjects_list)
 
-    with col4:
-        del_student = st.text_input("Enter student ID to delete")
+    # with col4:
+    #     del_student = st.text_input("Enter student ID to delete")
+
+if menu == 'Submit Scores':
+    st.header('Submit Student Scores')
+    col1, col2 = st.columns(2)
+# Create columns for each subject
+    for i, subject in enumerate(subjects_list):
+        if i % 2 == 0:
+            with col1:
+                score = st.number_input(f'Enter student score for {subject}', min_value=0, max_value=100, step=10, key=subject)
+        else:
+            with col2:
+                score = st.number_input(f'Enter student score for {subject}', min_value=0, max_value=100, step=10, key=subject)
 
 
 
 if menu == 'Database|Charts':
     st.header("Students Database|Charts")
-    exclude_subj = subjects_csv.drop(columns=['Subject'], errors='ignore')
-    st.table(exclude_subj)
+    # exclude_subj = subjectscores_csv.drop(columns=['Subjects'], errors='ignore')
+    st.table(subjectscores_csv)
+
+

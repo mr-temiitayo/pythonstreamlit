@@ -1,3 +1,2 @@
-Name,Maths,English,Humanities,Science,Art,Tech,Total,Average,Grade
-Jade,6,6,1,5,6,7,24,4,C
-Nadiv,7,6,5,7,6,7,31,6,B+
+StudentID,Name,Maths,English,Humanities,Science,Art,Tech,Total,Average,Grade
+Student_1,Jason,7,7,6,7,6,5,33,6,B+

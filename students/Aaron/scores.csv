@@ -2,4 +2,4 @@ Student_ID,Name,Maths,English,Science,Art,Geography,History,Total Score,Average,
 Student_1,Aaron,10,60,90,50,90,80,380,63.333333333333336,FAIL
 Student_2,Steve,90,50,60,90,70,50,410,68.33333333333333,C+
 Student_3,James,90,50,50,90,10,90,380,63.333333333333336,FAIL
-Student_4,Miracle,90,80,80,70,90,70,480,80.0,B+
+Student_4,John Smith,90,80,80,70,90,70,480,80.0,B+

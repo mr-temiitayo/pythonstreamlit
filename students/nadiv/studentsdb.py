@@ -3,15 +3,15 @@ import pandas as pd #used to read csv files and display as dataframe (table)
 import plotly.express as px #used to plot charts
 
 st.set_page_config(layout='wide')
-st.subheader("Student Grades")
+# st.subheader("Student Grades")
 
 # what is a CSV file?
 # This is a text file, where all the values are separated by a comma (comma separated values)
 
 
 database = pd.read_csv("scores.csv")
-menu = st.sidebar.selectbox('Menu',['Submit Scores', 'Database|Chart'])
-
+menu = st.sidebar.selectbox('Menu',['Submit Scores', 'Database|Chart','Student File'])
+studentID = 'Student_'+str(len(database)+1)
    
 
 if menu == 'Submit Scores':
@@ -51,7 +51,7 @@ if menu == 'Submit Scores':
 
    # Name,Maths,English,Humanities,Science,Art,Total,Average,Grade
    if st.button("Submit student scores"):
-      student_dict = {'Name':[name],'Maths':[math],'English':[english],
+      student_dict = {'StudentID':[studentID],'Name':[name],'Maths':[math],'English':[english],
                                        'Humanities':[hum],'Science':[science],'Art':[art],'Tech':[tech],'Total':[total],'Average':[avg],'Grade':[grade]}
       student_database = pd.DataFrame(student_dict)
       #i created a dictionary of csv columns:python variable, 
@@ -72,16 +72,26 @@ if menu == 'Database|Chart':
    subjectstable = database[subjects].mean().reset_index() #got the mean of all subjects
    subjectsrename = subjectstable.rename(columns={'index':'Subject', 0:'Grade'}) #renamed the columns
   
-   chart = st.radio('Choose your chart',['Choose','Bar Chart','Pie Chart'],horizontal=True)
+   chart = st.radio('Choose your chart',['Bar Chart','Pie Chart'],horizontal=True)
 
    if chart == 'Bar Chart':
 
       barchart = px.bar(subjectsrename, x='Subject',y='Grade') #x = categories, y = values
       st.plotly_chart(barchart) #plot the chart
 
-
+   elif chart == 'Pie Chart':
+      piechart = px.pie(subjectsrename, names = 'Subject', values= 'Grade')
+      st.plotly_chart(piechart)
    
 
+if menu == "Student File":
+   header1, header2, header3 = st.columns(3)
 
+   with header3:
+      st.subheader("Find Student's File")
+      findID = st.text_input("Enter student ID")
+      findbutton = st.button("Find Student")
 
-
+   if findbutton:
+      if findID:
+         pass
