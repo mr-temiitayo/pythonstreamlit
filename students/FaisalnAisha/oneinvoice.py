@@ -1,3 +1,5 @@
+#invoice number should be auto-generated
+
 import streamlit as st #python module to create framework/page
 from fpdf import FPDF #python module to generate PDFs
 import base64 #python module to convert binary data (of your code) to printable characters
@@ -73,7 +75,7 @@ def generate_pdf():
      pdf.add_page()
 
      #Set your default fonts
-     pdf.set_font("Arial", size=12)
+     pdf.set_font("Courier", size=12, style='B')
 
      #Set column1 x and y coord
      col1x = 10
@@ -89,35 +91,77 @@ def generate_pdf():
      pdf.image("Logo.png",x=col1x, y=col1y,w=25)
 
      #INVOICE
-     pdf.set_font(family='Arial',size=18,style='B')
-     pdf.set_xy(col1x+145,col1y+2)
+     pdf.set_font(family='Courier',size=22,style='B')
+     pdf.set_xy(col1x+125,col1y+2)
      pdf.cell(colw,colh, txt='INVOICE',ln=True,align='L')
 
 
      #FAISALTECH
-     pdf.set_font("Arial", size=12)
+     pdf.set_font("Courier", size=12, style='B')
      pdf.set_xy(col1x,col1y+20)
      pdf.cell(colw,colh,txt='Faisaltech',ln=True,align='L')
      
 
      #ADDRESS
-     pdf.set_font("Arial", size=12)
+     pdf.set_font("Courier", size=12, style='B')
      pdf.set_xy(col1x,col1y+30)
      pdf.cell(colw,colh,txt='471, Camelia 7, Arabian Ranches 8',ln=True,align='L')
      
      #COUNTRY
-     pdf.set_font("Arial", size=12)
+     pdf.set_font("Courier", size=12, style='B')
      pdf.set_xy(col1x,col1y+40)
      pdf.cell(colw,colh,txt='Dubai, UAE',ln=True,align='L')
        
 
      #BILL TO
-     pdf.set_font("Arial", size=12,style='B')
+     pdf.set_font("Courier", size=12, style='B')
      pdf.set_xy(col1x,col1y+70)
-     pdf.cell(colw,colh,txt='Bill To:',ln=True,align='L')
+     pdf.cell(colw,colh,txt='BILL TO:',ln=True,align='L')
       
 
+     #NAME
+     pdf.set_font("Courier", size=12, style='B')
+     pdf.set_xy(col1x,col1y+80)
+     pdf.cell(colw,colh,txt=f'{customer}',ln=True,align='L')   
 
+     #EMAIL
+     pdf.set_font("Courier", size=12, style='B')
+     pdf.set_xy(col1x,col1y+90)
+     pdf.cell(colw,colh,txt=f'{adress}',ln=True,align='L') 
+
+     #INVOICE#
+     pdf.set_font("Courier", size=12, style='B')
+     pdf.set_xy(col1x+125,col1y+80)
+     pdf.cell(colw,colh,txt=f'Invoice#: {Invoicenum}',ln=True,align='L') 
+
+     #INVOICE DATE
+     pdf.set_font("Courier", size=12, style='B')
+     pdf.set_xy(col1x+125,col1y+90)
+     pdf.cell(colw,colh,txt=f'Invoice Date: {Date}',ln=True,align='L') 
+
+
+     #DESCRIPTION
+     pdf.set_font("Courier", size=12, style='B')
+     pdf.set_xy(col1x,col1y+120)
+     pdf.cell(colw,colh,txt=f'DESCRIPTION',ln=True,align='L') 
+
+
+     #QUANTITY
+     pdf.set_font("Courier", size=12, style='B')
+     pdf.set_xy(col1x+80,col1y+120)
+     pdf.cell(colw,colh,txt=f'QUANTITY',ln=True,align='L') 
+
+
+     #PRICE|UNIT
+     pdf.set_font("Courier", size=12, style='B')
+     pdf.set_xy(col1x+110,col1y+120)
+     pdf.cell(colw,colh,txt=f'PRICE|UNIT',ln=True,align='L') 
+
+
+     #TOTAL PRICE
+     pdf.set_font("Courier", size=12, style='B')
+     pdf.set_xy(col1x+145,col1y+120)
+     pdf.cell(colw,colh,txt=f'TOTAL PRICE',ln=True,align='L') 
 
      #Save the PDF
      pdf_file = 'invoice.pdf'

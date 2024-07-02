@@ -91,7 +91,13 @@ if menu == 'Subject Selection':
 if menu == 'Submit Scores':
     st.header('Submit Student Scores')
     col1, col2 = st.columns(2)
-# Create columns for each subject
+
+    name = st.text_input("Enter student name")
+
+    # create a dictionary to store the student's scores with default name
+    student_data = {'Name': name}
+
+    # Create columns for each subject
     for i, subject in enumerate(subjects_list):
         if i % 2 == 0:
             with col1:
@@ -100,7 +106,14 @@ if menu == 'Submit Scores':
             with col2:
                 score = st.number_input(f'Enter student score for {subject}', min_value=0, max_value=100, step=10, key=subject)
 
+        #add the subject loop in the dictionary
+        student_data[subject] = score
 
+    if st.button("Save Student Scores"):
+        student_df = pd.DataFrame(student_data)
+        student_join = pd.concat([subjectscores_csv,student_df],ignore_index=True)
+        student_join.to_csv('scores.csv')
+        st.success()
 
 if menu == 'Database|Charts':
     st.header("Students Database|Charts")

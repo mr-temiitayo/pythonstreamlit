@@ -19,11 +19,11 @@ df = pd.read_csv('score.csv')
 st.dataframe(df,use_container_width=True)
 
 name = st.text_input("Enter the student's name: ")
-maths = st.number_input("Enter the student's score for Maths: ",0,value=70,step=1)
-english = st.number_input("Enter the student's score for English: ",0,value=70,step=1)
-science = st.number_input("Enter the student's score for Science: ",0,value=70,step=1)
-history = st.number_input("Enter the student's score for History: ",0,value=70,step=1)
-geography = st.number_input("Enter the student's score for Geography: ",0,value=70,step=1)
+maths = st.number_input("Enter the student's score for Maths: ",max_value=100,min_value=0,value=70,step=1)
+english = st.number_input("Enter the student's score for English: ",0,100,value=70,step=1)
+science = st.number_input("Enter the student's score for Science: ",0,100,value=70,step=1)
+history = st.number_input("Enter the student's score for History: ",0,100,value=70,step=1)
+geography = st.number_input("Enter the student's score for Geography: ",0,100,value=70,step=1)
 total = maths + english + science + history + geography
 average = total / 5
 

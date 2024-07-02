@@ -565,3 +565,7 @@ Implement the program so that it displays the appropriate message to the buyer b
 # proceed to create submission area for the scores  
 # a multiselect to delete some subjects/students or all from in the admin page
 # using clearing columns or rows
+_______________________________________________
+
+create school fees invoice and to be able to send to mail
+--------------------------------

@@ -2,6 +2,12 @@ import streamlit as st #this is the webpage for our python projects
 import pandas as pd #this helps to read, write CSV files, and convert them to a table 
 import plotly.express as px #helps us to plot charts
 
+# _________REMINDER TO ADD______________________________________
+
+# create school fees invoice and to be able to send to mail
+# --------------------------------
+
+
 
 # submit students information (student name, scores) DONE
 # The computer will calc the (total, average, grade of student) DONE

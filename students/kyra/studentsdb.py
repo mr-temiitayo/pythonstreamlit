@@ -10,35 +10,54 @@
 # search students file
 # computer send a mail
 
-
-import streamlit as st #streamlit creates a page for your python app
-
-st.header(':blue[Enter Student Scores]')
-
-col1, col2 = st.columns([2,1])
-
-with col1:
-    name = st.text_input('Please enter student name')
-
-with col2:
-    grade = st.selectbox('Please choose student grade',['Grade 1', 'Grade 2','Grade 3','Grade 4','Grade 5','Grade 6'])
+import streamlit as st
+import pandas as pd #pandas help to open, read, and display CSV files as a table (dataframe)
 
 
-sub1, sub2 = st.columns(2)
+readcsv = pd.read_csv('scores.csv') #read csv file
 
-with sub1:
-    math = st.number_input("Please enter student Math score ",0,100,step=10)
-    art = st.number_input("Please enter student Art score",0,100,step=10)
-    comp = st.number_input("Please enter student Computer score",0,100,step=10)
+menu = st.sidebar.selectbox('Menu',['Submit Scores','View Database'])
 
 
+if menu == 'Submit Scores':    
+    inputname = st.text_input("Student name:")
+    engscorecol,matscorecol = st.columns(2)
+    with engscorecol:
+        engscore = st.number_input("Student's score in English:",0)
+    with matscorecol:
+        matscore = st.number_input("Student's score in Maths:",0)
 
 
-with sub2:
-    eng = st.number_input("Please enter student English score",0,100,step=10)
-    sci = st.number_input("Please enter student Science score",0,100,step=10)
-    french = st.number_input("Please enter student French score",0,100,step=10)
+    sciscorecol,medscorecol = st.columns(2)
+    with sciscorecol:
+        sciscore = st.number_input ("Student's score in Science:",0)
+    with medscorecol:
+        medscore = st.number_input ("Student's score in Media:",0)
+    totalscore = (engscore + matscore+sciscore+medscore)
 
 
-#homework: create a total and and average variables
-#and display after the submit button is clicked
+
+
+    average = totalscore/4
+    if average >= 90:
+        grade = "A+"
+    elif average >=80:
+        grade = "A"
+    elif average >=70:
+        grade = "B"
+    elif average >=60:
+        grade = "C"
+    elif average >=50:
+        grade = "D"
+    elif average <50:
+        grade = "F"
+
+
+    if st.button ("Check your overall score:"):
+        st.write (f"Your total score is {totalscore} and your average is {average} and your grade is {grade}")
+        #dictionary, dataframe, join the old and new dataframe, then save combined dataframe
+        studentdict = {'Name':[inputname],'Math':[matscore],'English':[engscore],'Science':[sciscore],'Media':[medscore],'Total':[totalscore],'Average':[average],'Grade':[grade]}
+   
+
+if menu == 'View Database':
+    st.table(readcsv)
